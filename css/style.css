@@ -459,9 +459,109 @@ font-size: 1rem;
 display: flex;
 flex-direction: column;
 gap: 22px;
+max-width: 310px;
 }
 
 
+.imag_and_text {
+display: flex;
+justify-content: center;
+gap: 34px;
+flex-wrap: wrap;
+align-items: center;
+}
+
+.imag_and_text >img {
+  max-width:270px;
+}
+
+.card-prod-content {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  padding: 37px 35.5px;
+  flex-wrap: wrap;
+  background-color: white;
+  gap:22px;
+  width:793px;
+
+border: 0.2px solid #ACADAC;
+/* shadow αντικειμένων */
+box-shadow: 0px 4px 16px rgba(0, 0, 0, 0.08);
+  
+}
+
+.button_and_price {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap:5px;
+}
+
+
+
+
+@media (max-width:800px){
+  .card-text-content {
+    max-width:auto;
+  }
+
+
+  .button_and_price {
+    width:270px;
+    flex-direction: column;
+    display: flex;
+    width: auto;
+  }
+
+
+  .imag_and_text {
+    justify-content: center;
+  }
+
+  .card-text-content {
+    max-width:auto;
+    max-width: 300px;
+    justify-content: center;
+  }
+
+  .imag_and_text >img {
+    max-width:250px;
+  }
+  .card-prod-content{
+    max-width:280px;
+    padding:18px 15px;
+  }
+  
+}
+
+
+
+
+
+.card-text-content a:hover {
+color:#A86B3E;
+}
+.card-text-content a {
+  color:#413C39;
+  padding: 0;
+  margin: 0;
+  margin-bottom: 2px;
+  }
+
+.all-result-cards {
+  display: flex;
+  flex-direction:column;
+  gap:50px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+
+
+
+  
 /* INPUT SEARCH */
 
 input {
