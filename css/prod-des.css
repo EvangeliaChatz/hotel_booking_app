@@ -175,7 +175,7 @@ justify-content: center;
     display: block;
     position: fixed;
   top: 50%; 
-  right: 20px; 
+  right: 15%; 
   z-index: 1; 
   animation: button-transition 3s ease-in-out infinite; /* add an animation with a duration of 1 second, easing function, and infinite repetition */
 }
