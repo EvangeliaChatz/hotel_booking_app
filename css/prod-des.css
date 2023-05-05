@@ -100,6 +100,10 @@ flex-direction: column;
 gap: 48px;
 }
 
+/* POLICY 65% OPACITY */
+.included div:last-child {
+    opacity:0.65;
+}
 
 @media (max-width:800px){
 
@@ -152,3 +156,65 @@ justify-content: center;
 
 
 }
+
+
+
+/* EMFANISH STICKY BUTTON MONO STO KINHTO */
+.sticky-button {
+   display: none;
+}
+
+
+@media (max-width:800px){
+/* STICKY BUTTON */
+.sticky-container {
+    position: relative;
+}
+
+.sticky-button {
+    display: block;
+    position: fixed;
+  top: 58%; 
+  right: 20px; 
+  z-index: 1; 
+  animation: button-transition 3s ease-in-out infinite; /* add an animation with a duration of 1 second, easing function, and infinite repetition */
+}
+
+.sticky-button:hover {
+    transform: scale(1.1); /* increase the scale of the button on hover */
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3); /* add a subtle box shadow on hover */
+  }
+
+
+  /* @keyframes button-transition {
+    0% {
+      background-color: #413C39; 
+    }
+    50% {
+      background-color: #D0DAD1;
+    }
+    100% {
+      background-color: #D0DAD1; 
+    }
+    30% {
+        background-color: #413C39;
+      }
+  } */
+  @keyframes button-transition {
+    0% {
+      background-color: #413C39; /* initial button style */
+      box-shadow: 0px 0px 0px 0px #413C39; /* initial box shadow */
+    }
+    50% {
+      background-color: #b1b8b2; /* transitioned button style */
+      box-shadow: 0px 0px 20px 10px #b1b8b2; /* add box shadow with a larger spread to create vibration illusion */
+    }
+    80% {
+      background-color: #827d79; /* return to initial button style */
+      box-shadow: 0px 0px 0px 0px #897d75; /* return to initial box shadow */
+    }
+  }
+
+
+}
+

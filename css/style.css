@@ -794,7 +794,7 @@ ul li a.nav-link , a.nav-link.active {
     border: none;
       }
     .navbar-toggler-icon{
-      background-image: url('/images/burger.svg');
+      background-image: url('/Users/evangeliachatzilygeroudi/Downloads/00Design_of_web_apps-ASKHSEIS KWDIKA/PROJECT WEB/images/burger.svg');
     }
     
     .navbar-toggler .collapsed {
@@ -820,12 +820,12 @@ section {
 
 /* SECTION POSITIONS */
 .photo-services {
-  background-image: url('/images/services-back-photo.png');
+  background-image: url('/Users/evangeliachatzilygeroudi/Downloads/00Design_of_web_apps-ASKHSEIS KWDIKA/PROJECT WEB/images/services-back-photo.png');
   background-position:center;
 }
 
 .hereo-image-hotel {
-  background-image: url('/images/hero-image2.png');
+  background-image: url('/Users/evangeliachatzilygeroudi/Downloads/00Design_of_web_apps-ASKHSEIS KWDIKA/PROJECT WEB/images/hero-image2.png');
   height: 500px;
   position: relative;
 }
@@ -1000,12 +1000,12 @@ gap:none;
 
 
 .carousel-control-next-icon {
-  background-image:url('/images/right.svg');
+  background-image:url('/Users/evangeliachatzilygeroudi/Downloads/00Design_of_web_apps-ASKHSEIS KWDIKA/PROJECT WEB/images/right.svg');
   scale: 200%;
 }
 
 .carousel-control-prev-icon {
-  background-image:url('/images/left-arrow.svg');
+  background-image:url('/Users/evangeliachatzilygeroudi/Downloads/00Design_of_web_apps-ASKHSEIS KWDIKA/PROJECT WEB/images/left-arrow.svg');
   scale: 200%;
 }
 
@@ -1160,7 +1160,7 @@ border-radius: 0;
   display: flex;
   gap: 100px;
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content: space-between;
   padding-top: 30px;
   padding-bottom: 50px;
 
