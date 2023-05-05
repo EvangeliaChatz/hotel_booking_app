@@ -1,0 +1,915 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <!-- CAROUSEL -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css">
+
+    <!-- CSS LINKS -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/palia-css.css">
+
+
+
+
+
+    <!-- ANIMATE CSS -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"> 
+
+<!-- BROWSER ICON -->
+<link rel="icon" href="images/favicon2.png" type="image/x-icon">
+
+<title>Project Design of web apps:Online Hotel Booking</title>
+</head>
+<body>
+
+
+<header class="fixed-top">
+    <!-- UP HEADER -->
+    <div class="row">
+        <nav class="py-1 bg-light border-bottom ">
+            <div class="container d-flex flex-wrap">
+            </div>
+              <ul class="nav justify-content-end align-items-center">
+                <img src="images/profile-sign.svg">
+                <li class="nav-item"><a href="#" class="nav-link link-dark"><h6 class="white" data-bs-toggle="modal" data-bs-target="#exampleModal-2">Sign in</h6></a></li>
+                <hr class="vl2">
+                <li class="nav-item"><a href="#" class="nav-link link-dark"><h6 class="white">Sign up</h6></a></li>
+              </ul>
+            </div>
+          </nav>
+    </div>
+
+    <!-- NAV -->
+    <div class="row">
+        <nav class="navbar navbar-expand-lg">
+
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#">
+                    <img src="images/hotel-logo.svg">
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                  <ul class="navbar-nav me-0 mb-2 mb-lg-0 align-items-center">
+                    <li class="nav-item">
+                      <a class="nav-link" aria-current="page" href="hompage.html">HOMEPAGE</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link active" href="#">ROOMS</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#">SIGHTSENG</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#">GALLERY</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#">CONTACT</a>
+                      </li>
+                      <li>
+                        <button  type="button" class=" btn secondary-button2" data-bs-toggle="modal" data-bs-target="#exampleModal-3">
+                            BOOK NOW
+                          </button>
+                        <!-- <a href="booking-list.html" class="primary-button btn btn-primary">BOOK NOW</a> -->
+                      </li>
+                  </ul>
+
+                </div>
+              </div>
+        </nav>
+    </div>
+</header>
+
+
+
+
+
+
+
+
+
+  <!-- FLUID CONTAINER BOOTSTRAP -->
+  <div class="container-fluid">
+
+<!-- NA TO SBISW--PARADEIGMAA -->
+<!-- <input style="padding: 2px;" id="current-date-input" type="date" placeholder="Check in">
+<input style="padding: 2px;" id="twodays-date-input" type="date" placeholder="Check in"> -->
+
+
+
+<!-- SECTION--hereo image -->
+<section id="hero-image" class="hereo-image-hotel section-bottom-margins">
+    <!-- SECTION SEARCH------------------------------- -->
+    <div class="row">
+        <div class="search-options position-absolute">
+            
+            <!-- search field check in -->
+                <!-- search field check out -->
+                <div class="icon_and d-flex flex-column">
+                    <label class="">Check in</label>
+                    <input style="padding: 2px;" id="current-date-input" type="date" placeholder="Check in">
+                </div>
+            
+
+                <hr class="vl">
+
+                <!-- search field check out -->
+            <div class="icon_and d-flex flex-column">
+                <label class="">Check out</label>
+                <input style="padding: 2px;" id="twodays-date-input" type="date" placeholder="Check out">
+            </div>
+        
+
+
+            <hr class="vl">
+
+              <!-- search field check out -->
+            <div class="icon_and align-items-start d-flex flex-column justify-content-start">
+                    <label class="">Quests</label>
+                    <div class="search_and_date">
+                    <select class="form-select form-select-lg" aria-label=".form-select-lg example">
+                        <option value="1">1 adult</option>
+                        <option value="2" selected>2 adults</option>
+                        <option value="3">3 adults</option>
+                        <option value="4">4 adults</option>
+                    </select>
+                    <img src="images/people-new.svg" alt="check in">
+                    </div>
+            </div>
+
+                <div class="primary-button btn">
+                    <!-- <img src="assets/images/search-icon.svg" alt="search"> -->
+                    <a href="booking-list.html"> CHECK AVAILABILITY</a>
+                    </div>
+                </div>
+        </div>
+    </div>
+</div>
+</section>
+
+
+
+<!-- SECTION --ABOUT US-->
+<section  class="aboutus-photo-position">
+    <div class="align-items-center p-1 row m-12">
+        <div class="col-12 col-md-5">
+            <div class="small-title-17px">WELCOME</div>
+            <div class="animate__animated animate__fadeInLeft big-titles-29px ">COMFORTA HOTEL</div>
+            
+            <div class="animate__animated animate__fadeInLeftBig main-text-16px">Welcome to Comforta, where we offer a variety of comfortable and stylish rooms to suit your needs. Whether you're traveling for business or pleasure, we have the perfect accommodations for you.</div>
+            <br>
+            <div class="animate__animated animate__fadeInLeftBig main-text-16px">
+            Our standard rooms are cozy and functional, featuring a comfortable bed, a desk, and a private bathroom. If you're looking for something a bit more spacious, our deluxe rooms offer a little extra room to relax, as well as additional amenities like a mini-fridge and coffee maker.
+            </div>
+        </div>
+
+        <!-- keno -->
+        <div class="col-md-1"></div>
+
+        <div class="col-12 col-md-6">
+            <img id="about-us-image" src="images/comforta.png"> 
+        </div>
+               
+    </div>
+</section>
+
+<!-- CAROUSEL 2o EXAMPLE -->
+
+  
+<!-- CAROUSEL 2o END -->
+
+
+
+<!-- 
+CAROUSEL EXAMPLE -->
+<!-- <div class="flex1 M-12">
+    <div class="wrapper">
+        <span><img class="next-previous-arrows" src="assets/images/left.svg"></span>
+            <div class="carousel">
+                <img src="assets/images/1.png">
+                <img src="assets/images/2.png">
+                <img src="assets/images/3.png">
+                <img src="assets/images/4.png">
+                <img src="assets/images/5.png">
+            </div>
+       <span> <img class="next-previous-arrows" src="assets/images/right.svg"></span>
+    </div>
+</div> -->
+
+
+
+
+
+
+<!-- SECTION --FWTOGRAFIWN-->
+<section class="mikres-fotografies section-bottom-margins-l">
+    <!-- <div class="row">
+        <img src="images/1-1.png">
+        <img src="images/1-2.png">
+        <img src="images/1-3.png">
+        <img src="images/1-4.png">
+        <img src="images/1-5.png">
+    </div> -->
+    <!-- PHOTO CAROUSEL ----------------------------------->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"></script>
+
+  <div id="myCarousel" class="carousel slide container" data-bs-ride="carousel">
+      <div class="carousel-inner w-100">
+          <div class="carousel-item active">
+              <div class="col-md-3">
+                  <div class="card2 card-body">
+                      <img class="img-fluid" src="images/orth-1.1.png">
+                  </div>
+              </div>
+          </div>
+          <div class="carousel-item">
+              <div class="col-md-3">
+                  <div class="card2 card-body">
+                      <img class="img-fluid" src="images/orth-1.2.png">
+                  </div>
+              </div>
+          </div>
+          <div class="carousel-item">
+              <div class="col-md-3">
+                  <div class="card2 card-body">
+                      <img class="img-fluid" src="images/orth-1.3.png">
+                  </div>
+              </div>
+          </div>
+          <div class="carousel-item">
+              <div class="col-md-3">
+                  <div class="card2 card-body">
+                      <img class="img-fluid" src="images/orth-1.4.png">
+                  </div>
+              </div>
+          </div>
+          <div class="carousel-item">
+              <div class="col-md-3">
+                  <div class="card2 card-body">
+                      <img class="img-fluid" src="images/orth-1.5.png">
+                  </div>
+              </div>
+          </div>
+          <div class="carousel-item">
+              <div class="col-md-3">
+                  <div class="card2 card-body">
+                      <img class="img-fluid" src="images/orth-1.6.png">
+                  </div>
+              </div>
+          </div>
+          <div class="carousel-item">
+              <div class="col-md-3">
+                  <div class="card2 card-body">
+                      <img class="img-fluid" src="images/orth-1.7.png">
+                  </div>
+              </div>
+          </div>
+          <div class="carousel-item">
+              <div class="col-md-3">
+                  <div class="card2 card-body">
+                      <img class="img-fluid" src="images/orth-1.8.png">
+                  </div>
+              </div>
+          </div>
+      </div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#myCarousel" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+      </button>
+  </div>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js'></script>
+<!-- PHOTO CAROUSEL ----------------------------------->
+
+</section>
+
+
+
+
+
+    <!-- <div style="height: 4.5rem;"></div> -->
+
+
+  
+<!-- HOTEL SERVICES SECTION -->
+<section class="photo-services">
+
+<!-- HOTEL SERVICES(1) -->
+<div class="container section-bottom-margins-l ">
+    <!-- ΠΡΑΣΙΝΟ BACKGROUND HOTEL SERVICES  -->
+
+
+    <div class="row m-12">
+        <div class="big-titles-29px d-flex justify-content-end ">HOTEL SERVICES</div>
+    </div>
+
+    <div class="row ">
+        <!-- keno col -->
+        <div class="col-md-4"></div>
+        <div class=" col-12 col-md-8 d-flex justify-content-around g-5 wrap">
+            <div class="four-services2">
+                <div class="two-services2">
+                    <div class=" services2">
+                        <img src="images/24hours.svg" alt="check in">
+                        <p class="price-16px dark-green">24 hours
+                            reception</p>
+                    </div>
+                    <div class="services2">
+                        <img src="images/elevator.svg" alt="check in">
+                        <p class="price-16px dark-green">Elevator</p>
+                    </div>
+                </div>
+
+    <!-- <div class="d-flex">
+        <div class="align-self-left justify-content-start align-items-center">
+        <img src="assets/images/parking.svg" style="height:3.7rem">
+        <span style="font-size: 1.2rem;">υπάρχει parking έξω από το ξενοδοχείο</span>
+        </div>
+    </div> -->
+                
+                <div class="two-services2">
+                    <div class=" services2">
+                        <img src="images/Luggage.svg" alt="check in">
+                        <p class="price-16px dark-green">Luggage
+                            Storage</p>
+                    </div>
+                    <div class=" services2">
+                        <img src="images/Wake-up-service.svg" alt="check in">
+                        <p class="price-16px dark-green">Wake-up service</p>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+    </div>
+
+</div>
+
+
+<!-- HOTEL SERVICES(2) -->
+<div class="container section-bottom-margins">
+
+    <div class="row m-12">
+        <div class=" big-titles-29px d-flex justify-content-start ">ROOM AMENITIES</div>
+    </div>
+
+    <div class="row ">
+
+        <div class=" col-12 col-md-8 d-flex justify-content-around g-5 wrap">
+            <div class="four-services2">
+            <div class="two-services2">
+            <div class=" services2">
+                <img src="images/TV.svg" alt="check in">
+                <p class="price-16px dark-green">TV</p>
+            </div>
+            <div class="services2">
+                <img src="images/Fully-Furnished.svg" alt="check in">
+                <p class="price-16px dark-green">Fully 
+                    Furnished</p>
+            </div>
+        </div>
+        <div class="two-services2">
+            <div class=" services2">
+                <img src="images/Towels.svg" alt="check in">
+                <p class="price-16px dark-green">Towels</p>
+            </div>
+            <div class=" services2">
+                <img src="images/Cleaning-Services.svg" alt="check in">
+                <p class="price-16px dark-green">Cleaning Services</p>
+            </div>
+        </div>
+            </div>
+        </div>
+                <!-- keno col -->
+                <div class="col-md-4"></div>
+    </div>
+</div>
+
+</section>
+
+
+<!-- SECTION ROOMS -->
+<section class="section-bottom-margins">
+    <div class="row m-12 g-4 align-items-start align-items-md-center py-5 py-md-0 section-bottom-margins-l">
+        <div class="col-12 col-md-8">
+            <div class="align-items-center p-1 row">
+                <div class="big-titles-29px">OUR ROOMS</div>
+                <div class=" main-text-16px">For those seeking a more luxurious experience, our suites are the perfect choice. With separate living and sleeping areas, a kitchenette, and a Jacuzzi tub, you'll have everything you need to unwind in style.</div>
+            </div>
+        </div>
+
+        <!-- KENO -->
+        <div class="col-12 col-md-2"></div> 
+
+        <div class="col-12 col-md-2">
+            <a href="booking-list.html" class=" primary-button btn btn-primary">BOOK A ROOM</a>
+        </div> 
+    </div>
+
+           
+<div class="row m-12 cards justify-content-center">
+
+    <!-- karta1 -->
+
+    <div class="card-room">
+        <a href="product-description.html">
+        <!-- fotografia -->
+        <img src="images/card-1.png" class="card-photo">
+        </a>
+
+        <!-- text -->
+        <div class="text-card">
+        <!-- name and price -->
+        <div class="d-flex
+        gap-4">
+            <div class="main-text-16px room-type">CITY DOUBLE ROOM</div>
+            <div class="main-text-16px color-brown">40 €</div>
+        </div>
+
+        <!-- icons -->
+        <div class="d-flex gap-3 align-items-center justify-content-start">
+            <img class="dimensions-icon" src="images/people2.svg">
+            <p class="card-text">2 adults</p>
+        </div>
+        <div class="d-flex gap-3 align-items-center justify-content-start">
+            <img class="dimensions-icon" src="images/sqm.svg">
+            <p class="card-text">16 m<sup>2</sup></p>
+        </div>
+    </div>
+
+    </div>
+
+
+    <!-- karta2 -->
+    <div class="card-room">
+        <!-- fotografia -->
+        <a href="product-description.html">
+        <img src="images/card-2.png" class="card-photo">
+        </a>
+
+        <!-- text -->
+        <div class="text-card">
+        <!-- name and price -->
+        <div class="d-flex
+        gap-3">
+            <div class="main-text-16px room-type">CITY ONE BEDROOM APARTMENT </div>
+            <div class="main-text-16px color-brown">48€</div>
+        </div>
+
+        <!-- icons -->
+        <div class="d-flex gap-3 align-items-center justify-content-start">
+            <img class="dimensions-icon" src="images/people2.svg">
+            <p class="card-text">2 adults</p>
+        </div>
+        <div class="d-flex gap-3 align-items-center justify-content-start">
+            <img class="dimensions-icon" src="images/sqm.svg">
+            <p class="card-text">30 m<sup>2</sup></p>
+        </div>
+    </div>
+    </div>
+
+
+    <!-- karta3 -->
+    <div class="card-room">
+        <!-- fotografia -->
+        <a href="product-description.html">
+        <img src="images/card-3.png" class="card-photo">
+         </a>
+        <!-- text -->
+        <div class="text-card">
+        <!-- name and price -->
+        <div class="d-flex
+        gap-3">
+            <div class="main-text-16px room-type">CLASSIC ONE BEDROOM APARTMENT </div>
+            <div class="main-text-16px color-brown">48€</div>
+        </div>
+
+        <!-- icons -->
+        <div class="d-flex gap-3 align-items-center justify-content-start">
+            <img class="dimensions-icon" src="images/people2.svg">
+            <p class="card-text">3 adults</p>
+        </div>
+        <div class="d-flex gap-3 align-items-center justify-content-start">
+            <img class="dimensions-icon" src="images/sqm.svg">
+            <p class="card-text">30 m<sup>2</sup></p>
+        </div>
+    </div>
+    </div>
+
+    <!-- karta4 -->
+    <div class="card-room">
+        <!-- fotografia -->
+        <a href="product-description.html">
+        <img src="images/card-4.png" class="card-photo">
+        </a>
+
+        <!-- text -->
+        <div class="text-card">
+        <!-- name and price -->
+        <div class="d-flex
+        gap-3">
+            <div class="main-text-16px room-type">CLASSIC TWO BEDROOMS APARTMENT </div>
+            <div class="main-text-16px color-brown">72€</div>
+        </div>
+
+        <!-- icons -->
+        <div class="d-flex gap-3 align-items-center justify-content-start">
+            <img class="dimensions-icon" src="images/people2.svg">
+            <p class="card-text">4 adults</p>
+        </div>
+        <div class="d-flex gap-3 align-items-center justify-content-start">
+            <img class="dimensions-icon" src="images/sqm.svg">
+            <p class="card-text">45  m<sup>2</sup></p>
+        </div>
+    </div>
+    </div>
+
+        <!-- karta5 -->
+        <div class="card-room">
+            <!-- fotografia -->
+            <a href="product-description.html">
+            <img src="images/card-5.png" class="card-photo">
+             </a>
+    
+            <!-- text -->
+            <div class="text-card">
+            <!-- name and price -->
+            <div class="d-flex
+            gap-3">
+                <div class="main-text-16px room-type">CITY OPEN SPACE APARTMENT </div>
+                <div class="main-text-16px color-brown">45€</div>
+            </div>
+    
+            <!-- icons -->
+            <div class="d-flex gap-3 align-items-center justify-content-start">
+                <img class="dimensions-icon" src="images/people2.svg">
+                <p class="card-text">2 adults</p>
+            </div>
+            <div class="d-flex gap-3 align-items-center justify-content-start">
+                <img class="dimensions-icon" src="images/sqm.svg">
+                <p class="card-text">25  m<sup>2</sup></p>
+            </div>
+        </div>
+        </div>
+
+
+</div>
+
+
+
+
+
+
+
+
+</section>
+
+
+
+
+
+
+
+
+<!-- FLUID CONTAINER BOOTSTRAP -->
+</div>
+
+
+<!-- ANIMATION EXAMPLE!! -->
+<!-- <div class="animate__animated animate__bounce animate__delay-2s" style="font-size:2rem">Example</div>
+
+
+
+        <div class="row">
+          <div class="col-4" style="background-color: beige;" >This element starts at column 3</div>
+          <div class="col-4">This element starts at column 3</div>
+          <div class="col-4" style="font-size:0.85rem; background-color: aqua;">vsbdd dvdsvdsvsdvs dvdsvsd vdsdmnbdm</div>
+        </div> -->
+
+
+<!-- SNACK BAR -->
+<section>
+<div class="snack-bar">
+    <img class ="image-snack"  src="images/snack-bar.png">
+    <div class="text-snack-bar">
+        <div class="main-text-snack">
+            <div class="big-titles-29px">SNAKCK BAR</div>
+            <div class="main-text-16px">At Comforta we know that sometimes you need a quick bite to eat or a refreshing drink to keep you going throughout the day. That's why we offer a variety of delicious options at our snack bar.</div>
+        </div>
+        <div class="hours-snack d-flex gap-2 align-items-center color-brown ">
+            <img src="images/hours-snack.svg">
+            <h6>Opening hours 08.00-23.00 </h6>
+        </div>
+    </div>
+</div>
+</section>
+
+
+<!-- SNACK BAR -->
+
+<!-- FOOTER -->
+<section class="mt-5">
+    <div class="container">
+        <footer class=" d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top ">
+          <div class="col-md-4 d-flex align-items-center">
+            <a href="" class="mb-3 me-2 mb-md-0 text-muted text-decoration-none lh-1">
+              <img src="images/mikrotero-logo.svg" class="" width="40" height="auto"></svg>
+            </a>
+            <span class="mb-3 mb-md-0 text-muted">&copy; 2022 Company, Inc</span>
+          </div>
+      
+          <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
+            <li class="ms-3"><a class="text-muted" href="#"><svg class="bi" width="24" height="24"><use xlink:href="#twitter"/></svg></a></li>
+            <li class="ms-3"><a class="text-muted" href="#"><svg class="bi" width="24" height="24"><use xlink:href="#instagram"/></svg></a></li>
+            <li class="ms-3"><a class="text-muted" href="#"><svg class="bi" width="24" height="24"><use xlink:href="#facebook"/></svg></a></li>
+          </ul>
+        </footer>
+      </div>
+      
+</section>
+
+
+
+<!-- CONTAINER FLUID----------------------------------------------- -->
+<div class="container-fluid">
+
+
+
+
+
+
+
+
+<!-- SECTION 2--ROOMS------------------------------------------------------------ -->
+<!-- <div class="row">
+<section class="fotografies-kartes"> -->
+            <!-- karta1 -->
+            <!-- <div class="card " style="width: 18rem;" >
+            <div class="contai2">
+                <img src="assets/images/electrician.jpg" class="card-img-top" alt="eletriciab">
+                <div class="price-tag">$15,000</div>
+                </div>
+
+                <div class="card-body">
+                <h5 class="card-title">Card title</h5>
+                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                <a href="#" class="btn btn-primary">Go somewhere</a>
+                </div>
+            </div> -->
+
+
+            <!-- karta2 -->
+            <!-- <div class="card " style="width: 18rem;" >
+                <div class="contai2">
+                    <img src="assets/images/electrician.jpg" class="card-img-top" alt="eletriciab">
+                    <div class="price-tag">$15,000</div>
+                    </div>
+    
+                    <div class="card-body">
+                    <h5 class="card-title">Card title</h5>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                    </div>
+                </div> -->
+
+
+            <!-- karta3 -->
+            <!-- <div class="card " style="width: 18rem;" >
+                <div class="contai2">
+                    <img src="assets/images/electrician.jpg" class="card-img-top" alt="eletriciab">
+                    <div class="price-tag">$15,000</div>
+                    </div>
+    
+                    <div class="card-body">
+                    <h5 class="card-title">Card title</h5>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                    </div>
+                </div> -->
+
+<!-- SECTION 3----SERVICES-------------------------------------------------------- -->
+
+<!-- <div class="row">
+    <section> -->
+        <!-- H ETAIREIA -->
+            <!-- <div class="mycompany">
+                <div class="mycompany-text">
+                <p class="small-titles">PROVIDES</p>
+                <p class="big-titles">We do our best facilities</p>
+                <p class="main-text-16px">Lorem ipsum dolor sit amet consectetur. Ultrices nunc etiam tellus leo. Volutpat ut duis purus dui vestibulum. Enim feugiat posuere aliquam odio in integer adipiscing. Enim luctus eget sagittis convallis. Neque diam neque dolor lobortis in. Eget vestibulum mi pulvinar nulla. Lectus amet.</p>
+                </div>
+           
+        
+            <div class="four-services">
+                <div class="two-services">
+                    <div class="services">
+                        <img src="assets/images/goal.svg" alt="check in">
+                        <p class="semi-titles">Goal</p>
+                        </div>
+                        <div class="services">
+                            <img src="assets/images/goal.svg" alt="check in">
+                            <p class="semi-titles">Goal</p>
+                            </div>
+                    </div>
+        
+                    <div class="two-services">
+                        <div class="services">
+                            <img src="assets/images/goal.svg" alt="check in">
+                            <p class="semi-titles">Goal</p>
+                            </div>
+                        <div class="services">
+                            <img src="assets/images/goal.svg" alt="check in">
+                            <p class="semi-titles">Goal</p>
+                            </div>
+                    </div>
+                </div>
+            </div>
+            </section>
+</div> -->
+
+        
+        
+  <!-- 2o MODALLLLL------- -->
+
+<!--MODAL2 SIGN IN/SIGN UP FORM -->
+<div class="modal fade" id="exampleModal-2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg" id="modal-width2">
+    <div class="modal-content" id="sign-form">
+      <div class="modal-header d-flex justify-content-center align-items-center" id="header-booking-form">
+        <!-- BUTTON X CLOSE MODAL -->
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button></div>
+      <div class="modal-body" id="body-booking-form">
+      <!-- FORMS -->
+<!-- SIGN IN -->
+<section id="sign-in">
+  <div class="container">
+      <div class="row justify-content-center">
+              <div id ="Sign-in-form">
+                  <div class="form-title">
+                      <div class="fw-bold mb-3 main-titles-30px">Sign in</div>
+                      <form action=""  class="needs-validation" novalidate>
+                      
+                          <!-- EMAIL -->
+                      <div class="form-floating mb-4">
+                          <input type="email" class="form-control form-control-sm" placeholder="Email" id="floatingInput">
+                          <label for="floatingInput">Email*</label>
+                      </div>
+  
+                          <!-- PASSWORD -->
+                      <div class="form-floating mb-4">
+                          <input type="password" class="form-control form-control-sm" placeholder="password" id="floatingPassword">
+                          <label for="floatingPassword">Password*</label>
+                      </div>
+  
+                      <div class=" mt-3">
+                          <button class="btn primary-button">SIGN IN</button>
+                      </div>
+                      </form>
+                      <div class="mt-3">Don’t have account? <span id="SignUp">Sign up</span></div>
+              </div>
+          </div>
+      </div>
+  </div>
+  </section>
+    <!-- FORM END -->
+   
+
+  <!-- SIGN UP FORM--CREATE YOUR ACCOUNT -->
+  <section id="sign-up">
+  <div class="container">
+      <div class="row justify-content-center">
+          <div>
+              <div id ="Sign-up-form" class="registration-form">
+                  <div class="form-title">
+                      <div class="fw-bold mb-3 main-titles-30px">Create your account</div>
+                      <form action="">
+                      
+                          <!-- FULL NAME -->
+                      <div class="form-floating mb-4">
+                          <input type="text" class="form-control form-control-sm" placeholder="Full name" id="floatingInput">
+                          <label for="floating">Full name*</label>
+                      </div>
+                          <!-- EMAIL -->
+                          <div class="form-floating mb-4">
+                              <input type="email" class="form-control form-control-sm" placeholder="Email" id="floatingInput">
+                              <label for="floatingInput">Email*</label>
+                          </div>   
+  
+                            <!-- PHONE -->
+                            <div class="form-floating mb-4">
+                              <input type="tel" class="form-control form-control-sm" placeholder="Phone Number" id="floatingInput">
+                              <label for="floatingInput">Phone Number</label>
+                          </div>                                      
+  
+                          <!-- PASSWORD -->
+                      <div class="form-floating mb-4">
+                          <input type="password" class="form-control form-control-sm" placeholder="password" id="floatingPassword">
+                          <label for="floatingPassword">Password*</label>
+                      </div>
+  
+                      <div class=" mt-3">
+                          <button class="btn primary-button">SIGN UP</button>
+                      </div>
+                      </form>
+                      <div class="mt-3">Already have account?  <span id="SignIn">Sign in</span></div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+  </section>
+   <!--  SIGN UP FORM END -->
+
+       <!-- modal body end -->
+      </div>
+    </div>
+  </div>
+</div>
+<!-- TELOS MODAL2 -->
+
+
+<!-- MODAL3--SEARCH OPTIONS WHEN PRESSES BOOK NOW-HEADER -->
+<div class="modal fade" id="exampleModal-3" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg" id="modal-width3">
+      <div class="modal-content" id="">
+        <div class="modal-header d-flex justify-content-center align-items-center" id="header-booking-form">
+  
+          <!-- BUTTON X CLOSE MODAL -->
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button></div>
+  
+        <div class="modal-body" id="body-header-form">
+          <!-- SECTION SEARCH-BOOK NOW-HEADER------------------------------- -->
+        <div class="search-options-booknow-header">
+            
+            <!-- search field check in -->
+                <div class="icon_and d-flex flex-column">
+                    <label class="">Check in</label>
+                    <input style="padding: 2px;" id="current-date-input" type="date" placeholder="Check in">
+                </div>
+            
+  
+                <!-- search field check out -->
+            <div class="icon_and d-flex flex-column">
+                <label class="">Check out</label>
+                <input style="padding: 2px;" id="twodays-date-input" type="date" placeholder="Check out">
+            </div>
+        
+  
+              <!-- search field check out -->
+            <div class="icon_and align-items-start d-flex flex-column justify-content-start">
+                    <label class="">Quests</label>
+                    <div class="search_and_date">
+                    <select class="form-select form-select-lg" aria-label=".form-select-lg example">
+                        <option value="1">1 adult</option>
+                        <option value="2" selected>2 adults</option>
+                        <option value="3">3 adults</option>
+                        <option value="4">4 adults</option>
+                    </select>
+                    <img src="images/people-new.svg" alt="check in">
+                    </div>
+            </div>
+  
+                <div class="primary-button btn">
+                    <!-- <img src="assets/images/search-icon.svg" alt="search"> -->
+                    <a href="booking-list.html"> CHECK AVAILABILITY</a>
+                    </div>
+                </div>
+        </div>
+         <!-- modal body end -->
+  
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL 3 END--BOOK NOW HEADER -->
+
+
+
+
+
+<!-- container fluid -->
+</div>
+<!-- divider -->
+<div style="height: 80px;"></div>
+
+<!-- BOOTSTRAPT JAVASCRIPT -->
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.7/dist/umd/popper.min.js" integrity="sha384-zYPOMqeu1DAVkHiLqWBUTcbYfZ8osu1Nd6Z89ify25QV9guujx43ITvfi12/QExE" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.min.js" integrity="sha384-Y4oOpwW3duJdCWv5ly8SCFYWqFDsfob/3GkgExXKV4idmbt98QcxXYs9UoXAB7BZ" crossorigin="anonymous"></script>
+<!-- JAVASCRIPT -->
+<script src="hotel.js"></script>
+</body>
+</html>

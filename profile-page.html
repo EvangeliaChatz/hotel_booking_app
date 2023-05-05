@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<!-- BOOTSRAPT CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css">
+
+<!-- CSS LINKS -->
+    <!-- CSS LINKS -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/palia-css.css">
+
+
+    <!-- BROWSER ICON -->
+<link rel="icon" href="images/favicon2.png" type="image/x-icon">
+
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=<ul class="nav nav-tabs">
+    <title>Document</title>
+</head>
+<body >
+
+
+    <header class="section-bottom-margins-l">
+        <!-- UP HEADER -->
+        <div class="row">
+            <nav class="py-1 bg-light border-bottom ">
+                <div class="container d-flex flex-wrap">
+                </div>
+                  <ul class="nav justify-content-end align-items-center">
+                    <img src="images/profile-sign.svg">
+                    <li class="nav-item"><a href="#" class="nav-link link-dark"><h6 class="white" data-bs-toggle="modal" data-bs-target="#exampleModal-2">Sign in</h6></a></li>
+                    <hr class="vl2">
+                    <li class="nav-item"><a href="#" class="nav-link link-dark"><h6 class="white">Sign up</h6></a></li>
+                  </ul>
+                </div>
+              </nav>
+        </div>
+    
+        <!-- NAV -->
+        <div class="row">
+            <nav class="navbar navbar-expand-lg">
+    
+                <div class="container-fluid">
+                    <a class="navbar-brand" href="#">
+                        <img src="images/hotel-logo.svg">
+                    </a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                      <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                      <ul class="navbar-nav me-0 mb-2 mb-lg-0 align-items-center">
+                        <li class="nav-item">
+                          <a class="nav-link" aria-current="page" href="hompage.html">HOMEPAGE</a>
+                        </li>
+                        <li class="nav-item">
+                          <a class="nav-link active" href="#">ROOMS</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="#">SIGHTSENG</a>
+                          </li>
+                          <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="#">GALLERY</a>
+                          </li>
+                          <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="#">CONTACT</a>
+                          </li>
+                          <li>
+                            <button  type="button" class=" btn secondary-button" data-bs-toggle="modal" data-bs-target="#exampleModal-3">
+                                BOOK NOW
+                              </button>
+                            <!-- <a href="booking-list.html" class="primary-button btn btn-primary">BOOK NOW</a> -->
+                          </li>
+                      </ul>
+    
+                    </div>
+                  </div>
+            </nav>
+        </div>
+    </header>
+    <!--GRIDSSSSSSSS--------------------->
+ <!-- <div class="row">
+    <div class="col-1" style="border: 1px solid purple;">1</div>
+    <div class="col-1" style="border: 1px solid purple;">2</div>
+    <div class="col-1" style="border: 1px solid purple;">3</div>
+    <div class="col-1" style="border: 1px solid purple;">4</div>
+    <div class="col-1" style="border: 1px solid purple;">5</div>
+    <div class="col-1" style="border: 1px solid purple;">6</div>
+    <div class="col-1" style="border: 1px solid purple;">7</div>
+    <div class="col-1" style="border: 1px solid purple;">8</div>
+    <div class="col-1" style="border: 1px solid purple;">9</div>
+    <div class="col-1" style="border: 1px solid purple;">10</div>
+    <div class="col-1" style="border: 1px solid purple;">11</div>
+    <div class="col-1" style="border: 1px solid purple;">12</div>
+    </div> -->
+
+
+<!-- CONTAINER-FLUID -->
+    <div class="container-fluid">
+
+
+<!-- LOADING
+   <div class="d-flex align-items-center">
+  <strong>Loading...</strong>
+  <div class="spinner-border ml-auto" role="status" aria-hidden="true"></div>
+</div> -->
+
+
+<!-- MAIN CONTENT OF THE PAGE -->
+<main>
+<section class="m-12">
+
+    <div class="row">
+        <p class="main-titles-30px mb-4">Chatzilygeroudi Evangelia</p>
+    </div>  
+
+    <ul class="nav nav-tabs mb-5" id="myTab" role="tablist">
+        <li class="nav-item" role="presentation">
+          <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home" type="button" role="tab" aria-controls="home" aria-selected="true">PROFILE</button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile" type="button" role="tab" aria-controls="profile" aria-selected="false"><span>MY BOOKINGS</button>
+        </li>
+      </ul>
+
+ <!--CONTENT TAB(PROFILE) -->
+      <div class="tab-content" id="myTabContent">
+        <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+            
+            <form class="mt-4 mb-5">
+
+                <div class="form-row justify-content-center align-items-center">
+                    <div class=" four-form-fields d-flex gap-4">
+                        <div class=" two-forms">
+                            <div class="form-group">
+                                <label>Full name</label>
+                                <input type="text" class="form-control" placeholder="Chatzilygeroudi Evangelia">
+                            </div>
+                            <div class="form-group  mt-4">
+                                <label>Phone number</label>
+                                <input type="text" class="form-control" placeholder="6971798497">
+                            </div>
+                        </div>
+
+                        <div class="col-12 col-md-4 two-forms">
+                            <div class="form-group">
+                                <label>Email</label>
+                                <input type="email" class="form-control" placeholder="evaggeliahatz@gmail.com">
+                            </div>
+                            <div class="form-group mt-4">
+                                <label>Password</label>
+                                <input type="password" class="form-control" placeholder="****************">
+                            </div>
+                        </div>   
+                    </div>
+                 </div>
+                <div class="d-flex gap-5 mt-5">
+                    <a href="#" class=" primary-button bt">SAVE CHANGES</a>
+                    <a href="#" class=" secondary-button btn">EDIT INFORMATION</a>
+                </div>
+              </form>
+            </div>
+
+
+
+<!--CONTENT TAB(PROFILE) -->
+</div>
+
+             <!--CONTENT TAB(MY BOOKINGS) -->
+            <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab"> 
+            
+              <div class="main-text-16px mb-5">Ongoing bookings</div>
+              
+              
+                <!-- BOOKINGS CARDS(1) -->
+                <div class="row mb-5">
+                    <div class="card w-75">
+                        <div class=" card-body d-flex align-items-center gap-100 flex-wrap gy" style= "gap: 4rem;">
+                        
+                            <img src="images/mybookings1.png">
+                            <div class="d-flex flex-column gap-3">
+                                <h5 class="card-title">CITY DOUBLE ROOM</h5>
+                                <div class="d-flex gap-3">
+                                    <img class="dimensions-icon" src="images/calendar-black.svg">
+                                    <p class="card-text">09/04/23 - 15/04/23</p>
+                                </div>
+                                <span class=" card-label">Completed</span>
+                            </div>
+
+                            <div class="d-flex flex-column gap-5">
+                                    <div class="price-card-align price-tag-19px  color-brown ">40€/day</div>
+                    
+                                    <div class="d-flex gap-3 align-items-center justify-content-end">
+                                        <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
+                                        <label class="form-check-label" for="flexCheckChecked">
+                                        Breakfast
+                                        </label>
+                                    </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div style="height:80px;"></div>
+                <div class="main-text-16px mb-5">Past bookings</div>
+<!-- BOOKINGS CARDS(2) -->
+<div class="row mb-5">
+    <div class="card w-75">
+        <div class=" card-body d-flex align-items-center gap-100 flex-wrap gy" style= "gap: 4rem;">
+        
+            <img src="images/mybookings2.png">
+            <div class="d-flex flex-column gap-3">
+                <h5 class="card-title">CITY DOUBLE ROOM</h5>
+                <div class="d-flex gap-3">
+                    <img class="dimensions-icon" src="images/calendar-black.svg">
+                    <p class="card-text">09/04/23 - 15/04/23</p>
+                </div>
+                <span class=" card-label">Completed</span>
+            </div>
+
+            <div class="d-flex flex-column gap-5">
+                    <div class="price-card-align price-tag-19px color-brown ">40€/day</div>
+    
+                    <div class="d-flex gap-3 align-items-center justify-content-end">
+                        <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
+                        <label class="form-check-label" for="flexCheckChecked">
+                        Breakfast
+                        </label>
+                    </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- BOOKINGS CARDS(3) -->
+<div class="row">
+  <div class="card w-75">
+      <div class=" card-body d-flex align-items-center gap-100 flex-wrap gy" style= "gap: 4rem;">
+      
+          <img src="images/mybookings3.png">
+          <div class="d-flex flex-column gap-3">
+              <h5 class="card-title">CITY DOUBLE ROOM</h5>
+              <div class="d-flex gap-3">
+                  <img class="dimensions-icon" src="images/calendar-black.svg">
+                  <p class="card-text">09/04/23 - 15/04/23</p>
+              </div>
+              <span class=" card-label">Completed</span>
+          </div>
+
+          <div class="d-flex flex-column gap-5">
+                  <div class="price-card-align price-tag-19px color-brown ">40€/day</div>
+  
+                  <div class="d-flex gap-3 align-items-center justify-content-end">
+                      <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
+                      <label class="form-check-label" for="flexCheckChecked">
+                      Breakfast
+                      </label>
+                  </div>
+          </div>
+      </div>
+  </div>
+</div>
+
+
+
+
+             <!--CONTENT TAB(MY BOOKINGS) -->
+            </div>
+            
+        
+    </section>
+</main>
+
+
+
+
+
+
+
+    <!-- TABLE EXAMPLE ADMIN -->
+    <!-- <table class="table m-12">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">First</th>
+            <th scope="col">Last</th>
+            <th scope="col">Handle</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">1</th>
+            <td>Mark</td>
+            <td>Otto</td>
+            <td>@mdo</td>
+          </tr>
+          <tr>
+            <th scope="row">2</th>
+            <td>Jacob</td>
+            <td>Thornton</td>
+            <td>@fat</td>
+          </tr>
+          <tr>
+            <th scope="row">3</th>
+            <td>Larry</td>
+            <td>the Bird</td>
+            <td>@twitter</td>
+          </tr>
+        </tbody>
+      </table> -->
+
+
+
+
+
+<!-- CONTAINER-FLUID -->
+</div>
+
+<!-- MY JAVASCRIPT FILE -->
+  <link rel="stylesheet" href="hotel.js">
+<!-- BOOTSTRAP JAVASCRIPT LINKS-->
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.7/dist/umd/popper.min.js" integrity="sha384-zYPOMqeu1DAVkHiLqWBUTcbYfZ8osu1Nd6Z89ify25QV9guujx43ITvfi12/QExE" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.min.js" integrity="sha384-Y4oOpwW3duJdCWv5ly8SCFYWqFDsfob/3GkgExXKV4idmbt98QcxXYs9UoXAB7BZ" crossorigin="anonymous"></script>
+</body>
+</html>
