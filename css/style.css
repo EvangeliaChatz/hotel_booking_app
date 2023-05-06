@@ -1394,3 +1394,41 @@ justify-content: center;
   }
 }
 
+
+
+
+/* COMMENTS SECTION------------------ */
+
+
+.comments {
+  background-color: #F1F4F1;
+  padding: 30px 35px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height:5%;
+  max-width: 350px;
+}
+
+.comments p {
+  margin: 0;
+  text-align: center;
+  font-size: 1.5rem;
+}
+
+.comment-background {
+  background-image: url('/Users/evangeliachatzilygeroudi/Downloads/00Design_of_web_apps-ASKHSEIS KWDIKA/PROJECT WEB/images/comments-background.png');
+  background-position:center;
+  background-size: cover;
+  height: 500px;
+  justify-content: center;
+  align-items: center;
+}
+
+.termilogies{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  /* margin-top:40px; */
+}
