@@ -32,12 +32,20 @@
  
 }
 
+/* DEN FAINETAI SE ABSOLUTE POSITION PANW DEKSIA STI PHOTO TO TARGET STO WEB */
+.date-target {
+    display: none;
+}
 
 /* GRID CONTAINER */
 /* .photo-des{
     border: 2px solid red;
     background-color: antiquewhite;
 } */
+
+.date-target#target-mobile {
+    display: none;
+}
 
 
 @media (max-width:900px){
@@ -46,10 +54,20 @@
         display: flex;
         flex-wrap: wrap-reverse;
     }
+
+    .relative-price-container{
+        position: relative;
+    }
     .photo-des img:nth-child(-n+3) {
        width:32%;
        margin-top:20px;
       }
+      
+      /* FAINETAI MONO STO KINITO SE ABSOLUTE THESI */
+      .date-target#target-mobile {
+        display: flex;
+    }
+
 
 }
 
@@ -117,6 +135,8 @@ gap: 48px;
     } */
 }
 
+
+
 .date-selection {
     position:relative;
 }
@@ -153,9 +173,11 @@ justify-content: center;
     position:absolute;
     top: 0;
     right: 0;
-
-
 }
+
+
+/* TARGER IN MOBILE */
+/* photo-des---position relative */
 
 
 
@@ -166,6 +188,13 @@ justify-content: center;
 
 
 @media (max-width:800px){
+
+/* DE FAINETAI STO KIN TO DATE-SELECTION */
+.date-selection-content{
+    display: none;
+}
+
+
 /* STICKY BUTTON */
 .sticky-container {
     position: relative;
@@ -177,7 +206,7 @@ justify-content: center;
   top: 40%; 
   right: 18%; 
   z-index: 1; 
-  animation: button-transition 3s ease-in-out infinite; /* add an animation with a duration of 1 second, easing function, and infinite repetition */
+  animation: button-transition 3.5s ease-in-out infinite; /* add an animation with a duration of 1 second, easing function, and infinite repetition */
 }
 
 .sticky-button:hover {
