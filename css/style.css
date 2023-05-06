@@ -358,6 +358,14 @@ ul li button {
 }
 
 
+/* NA MIKRAINEI TO LOGO STO KINITO */
+@media (max-width:800px){
+  img[src="images/hotel-logo.svg"] { 
+width:65px;
+}
+
+}
+
 /* HEREO IMAGE SECTION LABEL */
 
 #hero-image  label {
@@ -829,7 +837,7 @@ section {
 }
 
 .hereo-image-hotel {
-  background-image: url('/images/hero-image2.png');
+  background-image: url('/Users/evangeliachatzilygeroudi/Downloads/00Design_of_web_apps-ASKHSEIS KWDIKA/PROJECT WEB/images/hero-image2.png');
   height: 600px;
   position: relative;
   background-size: cover;
@@ -862,7 +870,6 @@ section {
     margin-top: 10%;
   }
 }
-
 
 
 
