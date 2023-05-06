@@ -70,9 +70,10 @@ width: 20%;
 
 /* HOTEL FONT-SIZES */
 
-.big-title-80px {
-  font-size: 8rem;
+.big-title-75px {
+  font-size: 7.5rem;
   color: whitesmoke;
+  font-weight: 600;
 }
 
 
@@ -834,6 +835,13 @@ section {
   background-size: cover;
 }
 
+.title-position {
+  position: absolute;
+  top:45%;
+  left:20%;
+}
+
+
 /* ΠΡΑΣΙΝΟ BACKGROUND2 HOTEL SERVICES */
 .service-photo-position {
   position: absolute;
@@ -857,84 +865,6 @@ section {
 
 
 
-/* ΠΡΑΣΙΝΟ BACKGROUND ΠΡΟΣΑΡΜΟΓΗ ΓΙΑ TABLET */
-/* @media (max-width: 1198px) { .service-photo-position {
-  bottom: 30%;
-  }} */
-
-
-
-/* CAROUSEL */
-/* .flex1{
-  display: flex;
-  align-items:center ;
-  justify-content: center;
-  margin-bottom: 2rem;
-  margin-top: 2rem;
-}
-
-
-
-.wrapper {
-  max-width: 1000px;
-  position: relative;
-}
-
-
-.wrapper .carousel {
-  white-space: nowrap;
-  font-size: 0px;
-  cursor: pointer;
-}
-
-.carousel img {
-  height: 20rem;
-  object-fit: cover;
-  width: calc(100% / 3);
-  margin-left: 1rem;
-}
-
-.carousel img:first-child {
-  margin-left: 0;
-}
-
-.next-previous-arrows {
-  cursor: pointer;
-}
-
-
-.wrapper span {
-  top: 50%;
-  position: absolute;
-  transform: translateY(300%);
-}
-
-.wrapper span:first-child {
-  left: -0.01rem;
-z-index: 1;
-}
-
-
-.wrapper span:last-child {
-  right: -0.01rem;
-  z-index: 1;
-} */
-
-/* ----------------------------------------------------CAROUSEL */
-/* CAROUSEL RESPONSIVE */
-
-/* @media screen and (max-width:900px) {
-  .carousel img{
-    width: calc(100% / 2);
-  }
-} */
-
-
-/* @media screen and (max-width:550px) {
-  .carousel img{
-    width:100%;
-  }
-} */
 
 
 /* CAROUSEL */
