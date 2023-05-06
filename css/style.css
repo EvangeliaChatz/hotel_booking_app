@@ -824,6 +824,7 @@ section {
 .photo-services {
   background-image: url('/Users/evangeliachatzilygeroudi/Downloads/00Design_of_web_apps-ASKHSEIS KWDIKA/PROJECT WEB/images/services-back-photo.png');
   background-position:center;
+  background-size: cover;
 }
 
 .hereo-image-hotel {
