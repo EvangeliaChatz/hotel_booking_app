@@ -70,11 +70,11 @@ width: 20%;
 
 /* HOTEL FONT-SIZES */
 
-
-.very-big-title {
+.big-title-80px {
   font-size: 8rem;
-  color: white;
+  color: whitesmoke;
 }
+
 
 
 /*----------- FIX DEFAULT  */
@@ -829,8 +829,9 @@ section {
 
 .hereo-image-hotel {
   background-image: url('/Users/evangeliachatzilygeroudi/Downloads/00Design_of_web_apps-ASKHSEIS KWDIKA/PROJECT WEB/images/hero-image2.png');
-  height: 500px;
+  height: 600px;
   position: relative;
+  background-size: cover;
 }
 
 /* ΠΡΑΣΙΝΟ BACKGROUND2 HOTEL SERVICES */
@@ -1418,9 +1419,7 @@ justify-content: center;
 
 .comment-background {
   background-image: url('/Users/evangeliachatzilygeroudi/Downloads/00Design_of_web_apps-ASKHSEIS KWDIKA/PROJECT WEB/images/comments-background.png');
-  background-position:center;
   background-size: cover;
-  height: 500px;
   justify-content: center;
   align-items: center;
 }
