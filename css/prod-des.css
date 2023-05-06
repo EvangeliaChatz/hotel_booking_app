@@ -213,11 +213,12 @@ justify-content: center;
 .sticky-button {
     display: block;
     position: fixed;
-  /* top: 40%; 
-  right: 18%;  */
+  top: 40%; 
+  right: 18%; 
 
-  bottom:20%;
-  right:18%;
+  /* bottom:20%;
+  right:18%; */
+  
   z-index: 1; 
   animation: button-transition 3.5s ease-in-out infinite; /* add an animation with a duration of 1 second, easing function, and infinite repetition */
 }
