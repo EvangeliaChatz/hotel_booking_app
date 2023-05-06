@@ -112,10 +112,16 @@
 <!-- MAIN CONTENT OF THE PAGE -->
 <main>
         <!-- STICKY BUTTOON -->
-        <div class="sticky-button primary-button btn">
-          <!-- <img src="assets/images/search-icon.svg" alt="search"> -->
-          <a  href="#"> BOOK ROOM</a>
-        </div>
+        <button  type="button" class="sticky-button primary-button btn btn-primary" data-bs-toggle="modal" data-bs-target="#booking-from-product-desc">
+          BOOK ROOM
+        </button>
+
+      <!-- STICKY BUTTOON PREVIOUS -->
+        <!-- <div class="sticky-button primary-button btn">
+          <a  href="#booking-from-product-desc"> BOOK ROOM</a>
+        </div> -->
+
+
       <!-- photos section -->
     <section class="m-12 relative-price-container">
       <div class="photo-des section-bottom-margins-l">
@@ -232,18 +238,181 @@
                   </div>
           </div>
 
-              <div class="primary-button btn">
-                  <!-- <img src="assets/images/search-icon.svg" alt="search"> -->
-                  <a href="#"> BOOK ROOM</a>
-              </div>
-              </div>
+          <button  type="button" class=" primary-button btn btn-primary" data-bs-toggle="modal" data-bs-target="#booking-from-product-desc">
+            BOOK ROOM
+          </button>
+        </div>
     </div>
-
       </div>
-
     </section>
 
 
+
+<!-- BOOKING MODAL -->
+<!--MODAL BOOKING FORM FROM PRODUCT DESCRIPTION -->
+<div class="modal fade" id="booking-from-product-desc" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg" id="modal-width">
+    <div class="modal-content" id="booking-form">
+      <div class="modal-header d-flex justify-content-center align-items-center" id="header-booking-form">
+        <!-- BUTTON X CLOSE MODAL -->
+        <img src="images/book-step2.svg" class="booking-steps">
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button></div>
+      <div class="modal-body" id="body-booking-form2">
+      <!-- FORM -->
+        <div class="container" id="book-room-form">
+          <div class="row justify-content-center">
+              <div class="">
+                      <div class="form-title">
+                          <div class="fw-bold mb-3 main-titles-30px">Book your room</div>
+                          <form action="" method="get" onsubmit="return validateForm()" class="needs-validation"  id="form-booking" novalidate>
+                          <!-- FULL NAME OR USERNAME-->
+                          <div class="form-floating mb-4">
+                            <input type="texts" class="form-control form-control-sm" placeholder="Full name or Username*" id="floatingInput_name">
+                            <span id="name-error"></span>
+                            <label for="floatingInput">Full name or Username*</label>
+                        </div>
+                          
+                              <!-- EMAIL -->
+                          <div class="form-floating mb-4">
+                              <input type="email" class="form-control form-control-sm" placeholder="Email" id="floatingInput_email">
+                              <label for="floatingInput">Email*</label>
+                          </div>
+                           <!-- PHONE -->
+                           <div class="form-floating mb-4">
+                            <input type="tel" class="form-control form-control-sm" placeholder="Phone Number" id="floatingInput_phone">
+                            <label for="floatingInput">Phone Number</label>
+                        </div>  
+      
+                              <!-- PASSWORD -->
+                          <div class="form-floating mb-4">
+                              <input type="password" class="form-control form-control-sm" placeholder="password" id="floatingPassword_pass">
+                              <span id="pass-error"></span>
+                              <label for="floatingPassword">Password*</label>
+                          </div>
+                          <!-- TERMS CHECKBOX -->
+                          <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                            <label class="form-check-label" for="flexCheckDefault" id="terms-checkbox">
+                              I accept the terms
+                            </label>
+                          </div>
+      
+                          <div class="mt-3">
+                            <input class="btn primary-button" type="submit" id="sumbit-booking" value="SUMBIT">
+                          </div>
+                          </form>
+                          <div class="mt-3">Don't have account? <span id="SignUp">Sign up</span></div>
+                      </div>
+              </div>
+          </div>
+      </div>
+    <!-- FORM END -->
+
+      <!-- CUSTOMIZE AND REVIEW YOUR BOOKING -->
+  <div class="custom-booking">
+        
+        <!-- title -->
+        <div class="main-titles-30px">
+          Review & Customize your booking
+        </div>
+
+        <!-- check in & check out dates -->
+      <div class="d-flex gap-2 justify-content-start">
+          <div class="d-flex gap-2 align-items-center justify-content-start">
+            <img class="icon-18px" src="images/calendar.svg">
+            <p class="card-text">17 March - 22 March</p>
+          </div>
+          <hr class="vl2">
+          <div class="d-flex gap-2 align-items-center justify-content-start pl-2">
+            <img class="icon-18px" src="images/people-new.svg">
+            <p class="card-text">2 adults</p>
+          </div>
+      </div>
+
+      <!-- CITY DOUBLE ROOM -->
+      <div class="room-summary">
+        <div class="room-text">
+            <div class="price-tag-19px">
+              CITY DOUBLE ROOM
+            </div>
+            <h6 class="ral-brown">
+              Included: double bed with shower <br>
+  TV, Safe box, internet, telephone
+            </h6>
+        </div>
+        <img src="images/city-double-room.png" alt="city double room">
+      </div>
+
+
+      <!-- COST & EXTRAS -->
+      <div class="costs">
+
+        <div class="total-costs">
+          <div class="total-cost-desc">
+          <div class="price-tag-19px">Total Cost</div>
+          <h6>60€ / day</h6>
+          </div>
+          <div class="total-cost-price main-titles-30px green" id="total-price">€72</div>
+        </div>
+
+        <div class="total-breakf-cost">
+          <div class="total-cost-desc">
+          <div class="price-tag-19px">Breakfast</div>
+          <h6>You can include breakfast for 8€ / person</h6>
+          </div>
+          <div class="form-check form-switch">
+          <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked" checked>
+          </div>
+        </div>
+
+        <div class="total-breakf-cost">
+          <div class="total-cost-desc">
+            <div class="price-tag-19px">Fast Wifi</div>
+            <h6>You can include fast- wifi for 5€ / person</h6>
+            </div>
+        <div class="form-check form-switch">
+          <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault">
+        </div>
+      </div>
+      </div>
+      <!-- end of customize -->
+  </div>
+
+       <!-- modal body end -->
+      </div>
+    </div>
+
+<!-- MODAL 1A-CONFIRMATION MESSAGE -->
+    <div class="modal-content d-none" id="booking-from-product-desc">
+      <div class="modal-header d-flex justify-content-center align-items-center" >
+          <!-- BUTTON X CLOSE MODAL -->
+          <img src="images/book-step3.svg" class="booking-steps">
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+  <div class="modal-body justify-content-center" id="body-confirmation-message">
+
+      <!-- CUSTOMIZE CONFIRMATION MESSAGE -->
+        <div class=" inline-flex-confirmation flex-column">
+            <img class="pt-3" src="images/confirmation-icon.svg">
+            <div>
+                <!-- title -->
+            <div class="main-titles-30px">Booking Confirmed</div>
+            <h6 class="pb-5">Thank you for choosing to stay at Comforta Hotel We are delighted to confirm your reservation, and look forward to welcoming you.</h6>
+            </div>
+            
+            <div class=" mt-3 d-flex gap-4 justify-content-center">
+              <a href="hompage.html" class="btn primary-button"> BACK TO HOMEPAGE</a>
+                <!-- <button class="btn primary-button">BACK TO HOMEPAGE</button> -->
+                <a href="profile-page.html" class="btn primary-button"> VIEW BOOKING</a>
+                <!-- <button class="btn primary-button">VIEW BOOKING</button> -->
+            </div>
+                            
+          </div>
+          <!-- CUSTOMIZE CONFIRMATION MESSAGE -->
+  </div>
+          </div>
+  </div>
+</div>
 
 
 
