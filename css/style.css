@@ -483,18 +483,18 @@ align-items: center;
 }
 
 .imag_and_text >img {
-  max-width:270px;
+  max-width:200px;
 }
 
 .card-prod-content {
   display: inline-flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
   padding: 37px 35.5px;
   flex-wrap: wrap;
   background-color: white;
   gap:22px;
-  width:793px;
+  width:800px;
 
 border: 0.2px solid #ACADAC;
 /* shadow αντικειμένων */
@@ -515,7 +515,7 @@ box-shadow: 0px 4px 16px rgba(0, 0, 0, 0.08);
 
 @media (max-width:800px){
   .card-text-content {
-    max-width:auto;
+    padding: 10px;
   }
 
 
@@ -538,7 +538,7 @@ box-shadow: 0px 4px 16px rgba(0, 0, 0, 0.08);
   }
 
   .imag_and_text >img {
-    max-width:250px;
+    max-width:240px;
   }
   .card-prod-content{
     max-width:280px;
@@ -1258,6 +1258,7 @@ height: 180px;
 	box-shadow: 2px 6px 30px #67676769;
   transition: 0.4s;
 }
+
 
 
 .cards {
