@@ -66,6 +66,7 @@
       /* FAINETAI MONO STO KINITO SE ABSOLUTE THESI */
       .date-target#target-mobile {
         display: flex;
+        transform: scale(0.7);
     }
 
 
@@ -133,6 +134,13 @@ gap: 48px;
     /* .room-description {
         flex-wrap: wrap-reverse;
     } */
+
+
+    #target-mobile.date-target{
+    position: absolute;
+    top: -4%;
+    right:-4.8%;
+    }
 }
 
 
@@ -174,6 +182,8 @@ justify-content: center;
     top: 0;
     right: 0;
 }
+
+
 
 
 /* TARGER IN MOBILE */
