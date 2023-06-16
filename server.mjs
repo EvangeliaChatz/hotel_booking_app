@@ -25,6 +25,9 @@ import * as model from "./model/model_pg.mjs";
 // DROMOLOGISI EFARMOGHS ME ROUTING
 app.use("/", router);
 
+//  TESTTTT
+console.log("Server is running on port 3000");
+
 // EXAMPLES-TESTS---------------------------------------------------------------------------------------
 //Routing exammple
 // SYNARTISI--- PARADEIGMA GET FORMAS--STOIXEIA PINAKA testform
