@@ -1,0 +1,84 @@
+<!-- MODAL3--SEARCH OPTIONS WHEN PRESSES BOOK NOW-HEADER -->
+<div
+  class="modal fade"
+  id="exampleModal-3"
+  tabindex="-1"
+  aria-labelledby="exampleModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog modal-lg" id="modal-width3">
+    <div class="modal-content" id="">
+      <div
+        class="modal-header d-flex justify-content-center align-items-center"
+        id="header-booking-form"
+      >
+
+        <!-- BUTTON X CLOSE MODAL -->
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button></div>
+
+      <div class="modal-body" id="body-header-form">
+        <!-- SECTION SEARCH-BOOK NOW-HEADER------------------------------- -->
+        <div class="search-options-booknow-header">
+
+          <!-- search field check in -->
+          <!-- search field check out -->
+          <div class="icon_and d-flex flex-column">
+            <label class="">{{checkInDate}}</label>
+            <input
+              style="padding: 2px;"
+              name="checkInDate"
+              id="current-date-input"
+              type="date"
+              placeholder="Check in"
+            />
+          </div>
+
+          <!-- search field check out -->
+          <div class="icon_and d-flex flex-column">
+            <label class="">Check out</label>
+            <input
+              style="padding: 2px;"
+              name="checkOutDate"
+              id="twodays-date-input"
+              type="date"
+              placeholder="Check out"
+            />
+          </div>
+
+          <!-- search field check out -->
+          <div
+            class="icon_and align-items-start d-flex flex-column justify-content-start"
+          >
+            <label class="">Quests</label>
+            <div class="search_and_date">
+              <select
+                class="form-select form-select-lg"
+                name="GuestNumber"
+                aria-label=".form-select-lg example"
+              >
+                <option value="1">1 adult</option>
+                <option value="2" selected>2 adults</option>
+                <option value="3">3 adults</option>
+                <option value="4">4 adults</option>
+              </select>
+              <img src="svg/people-new.svg" alt="check in" />
+            </div>
+          </div>
+
+          <div class="primary-button btn">
+            <!-- <img src="assets/images/search-icon.svg" alt="search"> -->
+            <a href="booking-list.html"> CHECK AVAILABILITY</a>
+          </div>
+        </div>
+      </div>
+      <!-- modal body end -->
+
+    </div>
+  </div>
+</div>
+<!-- MODAL 3 END--BOOK NOW HEADER -->

@@ -1,0 +1,22 @@
+{
+  "name": "hotel-app",
+  "version": "1.0.0",
+  "description": "<!-- 1.Run in terminal --> npm install <!-- a file \"node_modules\" will be created with the essential packages for the project -->",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.20.2",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "express-handlebars": "^7.0.7",
+    "express-session": "^1.17.3",
+    "handlebars": "^4.7.7",
+    "moment": "^2.29.4",
+    "pg": "^8.10.0"
+  }
+}

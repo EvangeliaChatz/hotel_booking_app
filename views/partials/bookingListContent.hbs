@@ -1,0 +1,228 @@
+
+<!-- SECTION SEARCH------------------------------- -->
+    <div class="row justify-content-center">
+        <!-- search-options -->
+        <!-- FORM 1 -->
+        <form method="get" action="/bookingList" class="search-options ">
+            
+            <!-- search field check in -->
+                <!-- search field check out -->
+                <div class="icon_and d-flex flex-column">
+                    <label>Check in</label>
+                    <input style="padding: 2px;" name="checkInDate" id="current-date-input" type="date" placeholder="Check in">
+                </div>
+            
+
+                <hr class="vl">
+
+                <!-- search field check out -->
+            <div class="icon_and d-flex flex-column">
+                <label>Check out</label>
+                <input style="padding: 2px;"  name="checkOutDate" id="twodays-date-input" type="date" placeholder="Check out">
+            </div>
+        
+
+
+            <hr class="vl">
+
+              <!-- search field check out -->
+            <div class="icon_and align-items-start d-flex flex-column justify-content-start">
+                    <label class="">Quests</label>
+                    <div class="search_and_date">
+                    <select id="popUpGuests" class="form-select form-select-lg" name="GuestNumber" aria-label=".form-select-lg example">
+                        <option value="1">1 adult</option>
+                        <option value="2" selected>2 adults</option>
+                        <option value="3">3 adults</option>
+                        <option value="4">4 adults</option>
+                    </select>
+                    <img src="svg/people-new.svg" alt="check in">
+                    </div>
+            </div>
+
+                <div>
+                    <!-- <img src="assets/images/search-icon.svg" alt="search"> -->
+                     {{!-- <a href="/getRoomDesc?roomTypeId={{room_type_id}}"></a> --}}
+                     {{!-- href="/bookingList?roomTypeId={{room_type_id}}" --}}
+                    <button type="submit"  id="CheckavailButt" class="btn primary-button">CHECK AVAILABILITY</button>
+                </div>
+            </form>
+        <!-- search-options -->
+        <!-- FORM 1 -->
+
+        </div>
+</section>
+
+    {{!-- <form method="get" action="/bookingList">
+      <div class="search-options justify-content-around search-width">
+          
+          <!-- search field check in -->
+              <div class="icon_and d-flex flex-column">
+                  <label class="">Check in</label>
+                  <input style="padding: 2px;"name="checkInDate"  id="current-date-input" type="date" placeholder="Check in">
+              </div>
+
+              <hr class="vl">
+
+              <!-- search field check out -->
+          <div class="icon_and d-flex flex-column">
+              <label class="">Check out</label>
+              <input name="checkOutDate" style="padding: 2px;" id="twodays-date-input" type="date" placeholder="Check out">
+          </div>
+      
+          <hr class="vl">
+
+            <!-- search field check out -->
+          <div class="icon_and align-items-start d-flex flex-column justify-content-start">
+                  <label>Quests</label>
+                  <div class="search_and_date">
+                  <select class="form-select form-select-lg" aria-label="form-select-lg example">
+                      <option value="1">1 adult</option>
+                      <option value="2" selected>2 adults</option>
+                      <option value="3">3 adults</option>
+                      <option value="4">4 adults</option>
+                  </select>
+                  <img src="svg/people-new.svg" alt="check in">
+                  </div>
+          </div>
+
+              <div class="primary-button btn">
+                  <!-- <img src="assets/images/search-icon.svg" alt="search"> -->
+                  <a href="/bookingList"> CHECK AVAILABILITY</a>
+                  </div>
+              </div>
+              </form> --}}
+
+ <!-- AMENITIES OF ALL ROOMS2 -->
+ <div class="dropdown section-bottom-margins-l">
+  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+    ALL ROOMS HAVE
+  </button>
+
+  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+    <div class="d-flex g-5">
+      <div>
+            <h5 class="pb-3">General</h5>
+            <li class="dropdown-item">
+              <div class="dropdown-room-amenities">
+                <img src="svg/amenities-wifi.svg">
+                <h6>wifi</h6>
+              </div>
+            </li>
+            <li class="dropdown-item">
+              <div class="dropdown-room-amenities">
+                <img src="svg/amenities-tv.svg">
+                <h6>tv</h6>
+              </div>
+            </li>
+            <li class="dropdown-item">
+              <div class="dropdown-room-amenities">
+                <img src="svg/amenities-bathroom.svg">
+                <h6>bathroom</h6>
+              </div>
+            </li>
+      </div>
+
+      <div>
+        <h5 class="pb-3">Inside</h5>
+        <li class="dropdown-item">
+          <div class="dropdown-room-amenities">
+            <img src="svg/amenities-toaster.svg">
+            <h6>toaster</h6>
+          </div>
+        </li>
+        <li class="dropdown-item">
+          <div class="dropdown-room-amenities">
+            <img src="svg/amenities-dryer.svg">
+            <h6>dryer</h6>
+          </div>
+        </li>
+        <li class="dropdown-item">
+          <div class="dropdown-room-amenities">
+            <img src="svg/amenities-coffee-maker.svg">
+            <h6>coffee maker</h6>
+          </div>
+        </li>
+        <li class="dropdown-item">
+          <div class="dropdown-room-amenities">
+            <img src="svg/amenities-towels.svg">
+            <h6>towels</h6>
+          </div>
+        </li>
+  </div>
+  
+  </div>
+
+  
+  </div>
+</div><!-- AMENITIES OF ALL ROOMS2 ENDD-->
+
+
+
+
+<!-- MAIN CONTENT OF THE PAGE -->
+<main>
+
+{{log RoomTypePostgBookList}}
+<section class="row  align-items-center all-result-cards section-bottom-margins">
+  {{#each RoomTypePostgBookList}}
+  <!-- BOOKINGS CARD(1) CSS -->
+  <div class="card-prod-content">
+    <!-- IMAGE AND TEXT -->
+    <div class="imag_and_text">
+      <img id="list-results-img-{{@index}}" src="{{this.room_type_photo}}">
+  
+      <div class="card-text-content">
+        <!-- ROOM TYPE NAME -->
+        <a href="/getRoomDesc?roomTypeId={{room_type_id}}"><h5 class="card-title">{{this.room_type_name}}</h5></a>
+        <!-- QUESTS AND SQM -->
+        <div class="d-flex flex-column gap-4 justify-content-center align-items-start">
+              <!-- QUEST ROOM TYPE -->
+              <div class="d-flex gap-3 align-items-center justify-content-start">
+                <img class="dimensions-icon" src="svg/people2.svg">
+                <p id="list-results-adl-{{@index}}" class="card-text">{{this.quests_amount}} adults</p>
+              </div>
+              <!-- SQM ROOM TYPE -->
+              <div class="d-flex gap-3 align-items-center justify-content-start">
+                <img class="dimensions-icon" src="svg/sqm.svg">
+                <p class="card-text">{{this.room_sqm}} m<sup>2</sup></p>
+              </div>
+        </div>
+        <!-- REVIEWS -->
+        <div class="d-flex align-items-center gap-3">
+          <div class="card-label2">8 / 10</div>
+          <img src="svg/star.svg">
+          <p>(50 reviews)</p>
+        </div>
+      </div>
+    </div>
+  
+    <!-- BUTTON AND PRICE -->
+    <div class=" button_and_price">
+      <div id="list-results-price-{{@index}}" class="price-tag-19px color-brown ">{{this.room_type_price}} €/day</div>
+  
+      <div>
+        <button  id="CheckavailButt-{{@index}}"  type="button" class="primary-button btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+          BOOK ROOM
+        </button>
+      </div>
+  </div>
+  </div>
+{{/each}}
+</section>
+
+
+
+
+<!-- CONTAINER-FLUID end -->
+</main>
+
+
+
+<!-- CONTAINER-FLUID -->
+</div>
+{{!-- {{viewConfirmationMess}}
+{{#if viewConfirmationMess}} --}}
+{{> bookingPopUp}}
+{{!-- {{/if}} --}}
+
+{{> SignInUpPopUp}}
