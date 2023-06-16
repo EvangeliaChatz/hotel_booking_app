@@ -156,6 +156,22 @@ async function loadTest(callback) {
   }
 }
 
+// SELECT * from "Room" where "adults">='<adults variable>' and "<arrivedate variable >", "<departdate variable>" not in (select "arrivedate","departdate" from includes where "Includes"."room_id"='<id from roomtype>' )
+//επιστρέφει όλα τα δωμάτια από n adults κι πάνω KAI ημερομηνίες
+async function getRoomGuestDate(GuestNumberControl, callback) {
+  const sql = `Select * from "roomTypep"  WHERE "quests_amount" >= ${GuestNumberControl}`;
+  try {
+    const client = await connect();
+    const res = await client.query(sql);
+    await client.release();
+    callback(null, res.rows); // επιστρέφει array
+    // console.log(res.rows);
+  } catch (err) {
+    callback(err, null);
+  }
+}
+
+//where "quests_amount" >= ${GuestNumber}
 //επιστρέφει όλα τα δωμάτια
 async function getRoomDesc(callback) {
   const sql = `Select * from "roomTypep"`;
@@ -169,21 +185,7 @@ async function getRoomDesc(callback) {
   }
 }
 
-// SELECT * from "Room" where "adults">='<adults variable>' and "<arrivedate variable >", "<departdate variable>" not in (select "arrivedate","departdate" from includes where "Includes"."room_id"='<id from roomtype>' )
 
-//επιστρέφει όλα τα δωμάτια από n adults κι πάνω KAI ημερομηνίες
-async function getBookingList(adultNumber, callback) {
-  const sql = `Select * from "roomTypep" where "adults" >= ${adultNumber}`;
-  try {
-    const client = await connect();
-    const res = await client.query(sql);
-    await client.release();
-    callback(null, res.rows); // επιστρέφει array
-    // console.log(res.rows);
-  } catch (err) {
-    callback(err, null);
-  }
-}
 
 //επιστρέφει ένα δωμάτιο
 async function getRooms(id, callback) {
@@ -296,11 +298,12 @@ export {
   getUserId,
   getRooms,
   getRoomDesc,
-  getBookingList,
+
   checkUser,
   addUser,
   checkEmail,
   insertBooking,
   getBookingId,
   insertExtras,
+  getRoomGuestDate,
 };

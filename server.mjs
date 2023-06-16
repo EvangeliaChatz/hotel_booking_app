@@ -218,8 +218,7 @@ app.get("/", localing, (req, res) => {
 app.get("/getRoomDesc", localing, (req, res) => {
   let RoomTypeLoadDes;
   let id = req.query.roomTypeId;
-  // let id = req.query['roomTypeId'];
-  // console.log(id);
+
   model.getRooms(id, (err, roomtyperows) => {
     // φορτώνω τον πίνακα roomΤypep
 
@@ -238,15 +237,20 @@ app.get("/getRoomDesc", localing, (req, res) => {
   });
 });
 
+
+
 //Booking List
 app.get("/bookingList", localing, (req, res) => {
+
+  //βάζω στο url τα δεδομένα της φόρμας
   res.locals.checkInDate = req.query.checkInDate;
   res.locals.checkOutDate = req.query.checkOutDate;
   res.locals.GuestNumber = req.query.GuestNumber;
 
-  // console.log(res.locals.checkInDate);
-  let RoomTypeLoadBookList;
-  model.getRoomDesc((err, roomtyperows) => {
+  
+  let GuestNumberControl = req.query.GuestNumber;
+let RoomTypeLoadBookList;
+  model.getRoomGuestDate(GuestNumberControl,(err, roomtyperows) => {
     // φορτώνω τον πίνακα roomΤypep
     if (err) {
       return console.error(err.message);
@@ -261,7 +265,17 @@ app.get("/bookingList", localing, (req, res) => {
       RoomTypeName: roomtyperows[0].room_type_name,
     });
   });
+
+
+
+
+
+
 });
+
+
+
+
 
 //Profile Page
 app.get("/profilePage", localing, (req, res) => {
