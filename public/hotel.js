@@ -205,6 +205,28 @@ textSignIn.addEventListener("click", () => {
   signInForm.style.display = "block";
 });
 
+
+//ReviewSubmit  writeReview
+const ReviewSubmit  = document.querySelector("#ReviewSubmit");
+const writeReview = document.querySelector("#writeReview");
+const ReviewForm = document.querySelector("#ReviewForm");
+
+
+writeReview.addEventListener("click", () => {
+  ReviewForm.style.display = "block";
+  writeReview.style.display = "none";
+});
+
+
+ReviewSubmit.addEventListener("submit", function(event) {
+  // Prevent form submission if any validation fails
+    event.preventDefault();
+
+});
+
+
+
+
 ///SUMBIT FORM--CONFIRMATION MESSAGE
 
 function validateForm() {

@@ -157,9 +157,9 @@ async function loadTest(callback) {
 }
 
 // SELECT * from "Room" where "adults">='<adults variable>' and "<arrivedate variable >", "<departdate variable>" not in (select "arrivedate","departdate" from includes where "Includes"."room_id"='<id from roomtype>' )
-//επιστρέφει όλα τα δωμάτια από n adults κι πάνω KAI ημερομηνίες
+//επιστρέφει όλα τα δωμάτια από n adults κι πάνω και χ ημερομηνίες που έβαλε ο χρήστης
 async function getRoomGuestDate(GuestNumberControl, callback) {
-  const sql = `Select * from "roomTypep"  WHERE "quests_amount" >= ${GuestNumberControl}`;
+  const sql = `Select * from "roomTypep"  WHERE "quests_amount" >= ${GuestNumberControl} and not exists (select "arrival_date","dep_date" from includes where "includes"."room_id"="roomTypep"."room_id")`;
   try {
     const client = await connect();
     const res = await client.query(sql);
@@ -171,7 +171,7 @@ async function getRoomGuestDate(GuestNumberControl, callback) {
   }
 }
 
-//where "quests_amount" >= ${GuestNumber}
+
 //επιστρέφει όλα τα δωμάτια
 async function getRoomDesc(callback) {
   const sql = `Select * from "roomTypep"`;

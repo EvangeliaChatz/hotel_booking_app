@@ -251,3 +251,42 @@ position: relative;
 
 }
 
+
+/* REVIEWS */
+.write-reviews {
+    display: flex;
+    gap:10%;
+    flex-wrap: wrap;
+}
+
+@media (max-width:800px){
+    .write-reviews {
+        gap: 20%;
+        
+    }
+}
+#writeReview {
+    display: flex;
+    gap:10px;
+    justify-content: center;
+    align-items: center;
+}
+
+textarea {
+    margin-bottom: 10px;
+    margin-top: 10px;
+    padding: 8px;
+}
+
+textarea:placeholder-shown {
+    border: 1px solid #ACB4C6;
+    border-radius: 4px;
+}
+
+#textarea-label {
+    font-size: 16px;
+}
+
+#ReviewForm {
+    display: none;
+}

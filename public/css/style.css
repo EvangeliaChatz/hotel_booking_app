@@ -736,8 +736,8 @@ padding: 8px;
 gap: 10px;
 width: 6rem;
 
-background: #A86B3E;
-color: #FBFBFB;
+background: #EDEFED;
+color: #A86B3E;
 /* background: #E8FFEB; */
 /* border: 0.3px solid #00301C; */
 border-radius: 30px;
@@ -1585,3 +1585,5 @@ display: none;
    .edit-button:hover{
     background-color: #eff7f0;
    }
+
+  

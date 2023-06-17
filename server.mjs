@@ -233,7 +233,6 @@ app.get("/getRoomDesc", localing, (req, res) => {
       PhotoRoomType: roomtyperows[0].room_type_photo,
       RoomTypeName: roomtyperows[0].room_type_name,
     }); //τις τιμές που παίρνω από τη βάση τις περνάω στο home.hbs για να τραξβήξω από τη βάση τα δεδομένα με το object RoomTypeLoadDes
-    // console.log(RoomTypeLoadDes[0]);
   });
 });
 
@@ -247,9 +246,10 @@ app.get("/bookingList", localing, (req, res) => {
   res.locals.checkOutDate = req.query.checkOutDate;
   res.locals.GuestNumber = req.query.GuestNumber;
 
-  
+
   let GuestNumberControl = req.query.GuestNumber;
-let RoomTypeLoadBookList;
+  let RoomTypeLoadBookList;
+
   model.getRoomGuestDate(GuestNumberControl,(err, roomtyperows) => {
     // φορτώνω τον πίνακα roomΤypep
     if (err) {
@@ -265,10 +265,6 @@ let RoomTypeLoadBookList;
       RoomTypeName: roomtyperows[0].room_type_name,
     });
   });
-
-
-
-
 
 
 });
