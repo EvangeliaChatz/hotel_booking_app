@@ -19,6 +19,7 @@
 
     <div class="row">
         <p class="main-titles-30px mb-4">Chatzilygeroudi Evangelia</p>
+        <a href="/logOut"><img src="svg/logOut.svg" style="width:24px">logout</a>
     </div>  
 
     <ul class="nav nav-tabs mb-5" id="myTab" role="tablist">
@@ -95,8 +96,8 @@
                             <div class="row mb-5">
                         <div class="d-flex whole-profile-card justify-content-around" id="my-bookings">
 
-                            <div class="profile-card-des  justify-content-center align-items-center d-flex flex-wrap">
-                                <img src="images/mybookings1.png">
+                            <div class="profile-card-des  justify-content-center gap-4 align-items-center d-flex flex-wrap">
+                                <img class="booking-photos" src="/images/card-3.png">
                                 <div class="d-flex flex-column gap-3">
                                     <h5 class="card-title">CITY DOUBLE ROOM</h5>
                                     <div class="price-tag-19px">40€</div>
@@ -108,11 +109,11 @@
                                 <div class="edit-button d-flex d-fg bolex gap-3 align-items-center justify-content-start">
                                     
                                     <div class="svg-container">
-                                        <svg width="14" height="auto" viewBox="0 0 19 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <svg width="14"  viewBox="0 0 19 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                                             <path class="svg-path" d="M16.7394 6.96493L12.8963 3.16163L14.1623 1.89386C14.5089 1.54673 14.9348 1.37317 15.44 1.37317C15.9446 1.37317 16.3702 1.54673 16.7168 1.89386L17.9828 3.16163C18.3294 3.50875 18.5103 3.92772 18.5253 4.41853C18.5404 4.90873 18.3746 5.3274 18.028 5.67453L16.7394 6.96493ZM15.4282 8.30062L5.8431 17.8994H2V14.0509L11.5851 4.45203L15.4282 8.30062Z" fill="#413C39"/>
                                             </svg>
                                     </div>
-                                    <p class="card-text">Edit</p>
+                                    <p class="card-text"><a href="/editBooking#home">Edit</a></p>
                                 </div>
                                 {{!-- END EDIT ANIMATION ICON --}}
 
@@ -128,7 +129,7 @@
                                                         style="width:16px;height:16px">
                                                     </lord-icon>
                                                     {{!-- <img class="dimensions-icon" src="svg/trash.svg"> --}}
-                                    <p class="card-text">Cancel booking</p>
+                                   <a href="/deleteBooking"> <p class="card-text">Cancel booking</p></a>
                                 </div>
                                 {{!-- END DELETE ANIMATION ICON --}}
                                 </div>
@@ -177,14 +178,13 @@
                             <div class="edit-button d-flex d-fg bolex gap-3 align-items-center justify-content-start">
                                 
                                 <div class="svg-container">
-                                    <svg width="14" height="auto" viewBox="0 0 19 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <svg width="14"  viewBox="0 0 19 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                                         <path class="svg-path" d="M16.7394 6.96493L12.8963 3.16163L14.1623 1.89386C14.5089 1.54673 14.9348 1.37317 15.44 1.37317C15.9446 1.37317 16.3702 1.54673 16.7168 1.89386L17.9828 3.16163C18.3294 3.50875 18.5103 3.92772 18.5253 4.41853C18.5404 4.90873 18.3746 5.3274 18.028 5.67453L16.7394 6.96493ZM15.4282 8.30062L5.8431 17.8994H2V14.0509L11.5851 4.45203L15.4282 8.30062Z" fill="#413C39"/>
                                         </svg>
                                 </div>
-                                <p class="card-text">Edit</p>
+                                <p class="card-text"><a href="">Edit</a></p>
                             </div>
                             {{!-- END EDIT ANIMATION ICON --}}
-
                             <p class="vl3"></p>
 
                             {{!-- DELETE ANIMATION ICON --}}

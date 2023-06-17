@@ -1,11 +1,3 @@
-// FOR DROPDOWN MENU (BOOTSTRAPT)
-// $('.dropdown-toggle').dropdown()
-
-// function myFunction() {
-//   alert("Hello! I am an alert box!");
-// }
-// const x = myFunction();
-
 // CURRENT DATE AT INPUT SEARCH
 // Get the current date
 const today = new Date();
@@ -50,6 +42,9 @@ console.log(formattedDate2);
 // laterDay.setAttribute("min", formattedDate);
 // laterDay.value = formattedDate2;
 
+
+
+
 let currentDay = document.getElementById("current-date-input");
 let laterDay = document.getElementById("twodays-date-input");
 
@@ -60,10 +55,16 @@ currentDay.addEventListener("input", () => {
   laterDay.setAttribute("min", minDate);
 });
 
+if  (!currentDay.value){
 currentDay.setAttribute("min", formattedDate);
 currentDay.value = formattedDate;
+}
+
+if  (!laterDay.value){
 laterDay.setAttribute("min", formattedDate);
 laterDay.value = formattedDate2;
+}
+
 
 
 
@@ -111,12 +112,12 @@ if (checkbox1) {
   checkbox1.addEventListener("change", function () {
     if (checkbox1.checked) {
       // Increment the counter by 5
-      counter.textContent = parseInt(counter.textContent) + 5 + "€/day";
+      counter.textContent = parseInt(counter.textContent) + 5 + "€";
       ChechBreakf = 1;
       console.log(ChechBreakf);
     } else {
       // Decrement the counter by 5
-      counter.textContent = parseInt(counter.textContent) - 5 + "€/day";
+      counter.textContent = parseInt(counter.textContent) - 5 + "€";
       ChechBreakf = 2;
       console.log(ChechBreakf);
     }
@@ -130,25 +131,56 @@ if (checkbox2) {
   checkbox2.addEventListener("change", function () {
     if (checkbox2.checked) {
       // Increment the counter by 8
-      counter.textContent = parseInt(counter.textContent) + 8 + "€/day";
+      counter.textContent = parseInt(counter.textContent) + 8 + "€";
       FastWifi = 3;
       console.log(FastWifi);
     } else {
       // Decrement the counter by 8
-      counter.textContent = parseInt(counter.textContent) - 8 + "€/day";
+      counter.textContent = parseInt(counter.textContent) - 8 + "€";
       FastWifi = 4;
       console.log(FastWifi);
     }
   });
 }
 
-//BOOKING FORM AUTOMATIC FILL ---FOR BOOKING LIST FOR EACH ROOM
+
+
+//YPOLOGISMOS IMERVN ANALOGA ME TO INPUT TOU XRHSTH(CHECK IN-CHECK OUT)
+function getDaysBetweenDates(date1, date2) {
+  // Calculate the time difference in milliseconds
+  date1 = string2Date(date1);
+  date2 = string2Date(date2);
+
+  let timeDiff = Math.abs(date2.getTime() - date1.getTime());
+  
+  // Convert the time difference to days
+  let days = Math.ceil(timeDiff / (1000 * 3600 * 24));
+  return days;
+  };
+  
+
+//  parse a date in yyyy-mm-dd format
+function string2Date(input) {
+    var parts = input.match(/(\d+)/g);
+    // new Date(year, month [, date [, hours[, minutes[, seconds[, ms]]]]])
+    return new Date(parts[0], parts[1]-1, parts[2]); // months are 0-based
+  }
+
+
+  ///YPOLOGISMOS TOTAL PRICE KAI STO PRODUCCT DESCRIPTION OPWS STH BOOKING LIST
+  // TypeRoomPrice RIMH POY YPARXEI
+///////////////////////
+  
+
+
+
+//BOOKING FORM AUTOMATIC FILL ---LOAD BOOK ROOM POP IPFOR BOOKING LIST FOR EACH ROOM
 for (
   let i = 0;
   i < document.getElementsByClassName("card-prod-content").length;
   i++
 ) {
-  const CheckavailButt = document.getElementById(`CheckavailButt-${i}`);
+  let CheckavailButt = document.getElementById(`CheckavailButt-${i}`);
   // console.log(i);
   if (CheckavailButt) {
     CheckavailButt.addEventListener("click", () => {
@@ -166,9 +198,13 @@ for (
 
       // PopUpPrice.textContent= ((PopUpCheckout- PopUpCheckin)*PopUpPriceDispl).value
 
+      // pipupPriceDispl θα παιρνει την τιμη απο το total-price x τις μερες που θα μενει ο χρηστης 
       let PopUpPriceDispl = document.getElementById(`list-results-price-${i}`);
+      // 
       let PopUpPrice = document.getElementById("total-price");
       PopUpPrice.textContent = PopUpPriceDispl.textContent;
+
+      
 
       //Dates POP UP BOOKING
       const PopUpDateDispl = document.getElementById("popUpDatesDis");
@@ -180,6 +216,12 @@ for (
 
       PopUpDateDispl.textContent = `${PopUpCheckin} - ${PopUpCheckout}`;
       console.log("PopUpDateDispl");
+
+      //Display the prices for the days that the user will stay
+     const NumberOfDays= getDaysBetweenDates( PopUpCheckin, PopUpCheckout);
+    //  console.log(NumberOfDays);
+     PopUpPrice.textContent= `${NumberOfDays*parseInt(PopUpPriceDispl.textContent)} €`;
+
 
       document.getElementById("flexSwitchCheckDefault").checked = false;
       document.getElementById("flexSwitchCheckDefault2").checked = false;
@@ -205,24 +247,25 @@ textSignIn.addEventListener("click", () => {
   signInForm.style.display = "block";
 });
 
+//PROIGOUMENH LYSH GIA TA REVIEW
+// //ReviewSubmit  writeReview
+// const ReviewSubmit  = document.querySelector("#ReviewSubmit");
+// const writeReview = document.querySelector("#writeReview");
+// const ReviewForm = document.querySelector("#ReviewForm");
+// const CancelReview = document.querySelector("#CancelReview");
 
-//ReviewSubmit  writeReview
-const ReviewSubmit  = document.querySelector("#ReviewSubmit");
-const writeReview = document.querySelector("#writeReview");
-const ReviewForm = document.querySelector("#ReviewForm");
+// if (writeReview && ReviewForm && CancelReview && ReviewSubmit) {
+// writeReview.addEventListener("click", () => {
+//   ReviewForm.style.display = "block";
+//   writeReview.style.display = "none";
+// });
 
+// CancelReview.addEventListener("click", () => {
+//   ReviewForm.style.display = "none";
+//   writeReview.style.display = "flex";
+// });
+// }
 
-writeReview.addEventListener("click", () => {
-  ReviewForm.style.display = "block";
-  writeReview.style.display = "none";
-});
-
-
-ReviewSubmit.addEventListener("submit", function(event) {
-  // Prevent form submission if any validation fails
-    event.preventDefault();
-
-});
 
 
 
@@ -376,13 +419,13 @@ if (document.getElementsByClassName("carousel").length > 0) {
 const PopConfimation = document.getElementById("confirmation-message");
 const BookingForm = document.getElementById("booking-form");
 const BookingSubmit = document.getElementById("sumbit-booking");
-
+if (BookingSubmit && BookingForm && PopConfimation){
 BookingSubmit.addEventListener("click", () => {
   // Hide the booking form and display the confirmation message
   BookingForm.classList.add("d-none");
   PopConfimation.classList.remove("d-none");
 });
 
-
+};
 
 

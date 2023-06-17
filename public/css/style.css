@@ -127,6 +127,15 @@ h5 {
 
   }
 
+ 
+
+  #home .form-group label {
+    font-size: 1.4rem;
+  }
+
+  .form-floating label {
+  font-size: 1.4rem;
+  }
   /* --------------------17px--------------------- */
 .small-title-17px{
   font-weight: 600;
@@ -136,6 +145,10 @@ h5 {
 
 .included .small-title-17px {
   width:40px;
+}
+
+.text-14px{
+  font-size: 1.4rem;
 }
     /* price in my bookings 16px*/
 .price-16px {
@@ -287,7 +300,7 @@ color: #07474B;
   }
 
   /* BUTTON HOVER */
-.primary-button:hover , .secondary-button:hover,.secondary-button2:hover  {
+.primary-button:hover , .secondary-button:hover,.secondary-button2:hover ,delete-button:hover {
   background-color: #D0DAD1;
   color: #413C39;
   border: none;
@@ -304,7 +317,6 @@ font-family :'Syne', sans-serif;
 
 .secondary-button {
   padding: 14px 22px;
-  gap: 10px;
   font-size: 1.2rem;
   border-radius: 0;
   border: 1px solid #413C39;
@@ -312,11 +324,32 @@ font-family :'Syne', sans-serif;
   margin: 0;
   display: inline-flex;
   text-decoration: none;
+  white-space: nowrap;
 
   }
 
+  .delete-button {
+    background-color: #AA2419;
+    color: #fce7e5;
+    padding: 12px 20px;
+    font-size: 1.2rem;
+    font-weight: 500;
+    border-radius: 0;
+    margin: 0;
+    /* button's width depend on the content inside it with inline-flex */
+    display: inline-flex;
+  
+    /* no text wrap with white-space: nowrap;*/
+    white-space: nowrap;
+  }
+.center-items{
+  display: flex;
+  gap:3px;
+  justify-content: center;
+  align-items: center;
+}
 
- 
+ /* ASPRO PERIGRAMMA GIA NA FAINETAI STO SKOURO KAFE*/
   .secondary-button2{
     padding: 14px 22px;
     gap: 10px;
@@ -454,7 +487,7 @@ height: 35px;
 border-radius: 0;
 
 /* αλλαγή των γραμμάτων που γράφεις */
-font-size: 1rem;
+font-size: 1.3rem;
 }
 
 .registration-form {
@@ -1466,12 +1499,39 @@ justify-content: center;
   }
 }
 
+.edit-date{
+  display: flex;
+
+  gap: 2%;
+  flex-direction: column;
+}
+
+.edit-dates-layout{
+  display: flex;
+  gap: 2%;
+}
+.edit-info{
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.edit-info label {
+  font-size: 1.6rem;
+}
+
+.edit-dates-layout input {
+  background-color: white;
+}
+.edit-button p.card-text a {
+color: #00301C;
+}
 
 /* MYBOOKINGS PROFILE PAGE */
 .whole-profile-card {
     width: 100%;
-    padding: 20px;
-    gap: 250px;
+    padding: 25px;
+    gap: 8%;
     background-color: white;
     box-shadow: 0px 4px 16px rgba(0, 0, 0, 0.08);
     flex-wrap: wrap;
@@ -1520,6 +1580,9 @@ display: none;
   border-bottom: 1px solid grey;
 }
 
+.booking-photos {
+  width:160px;padding-right:1%;
+}
 
 /* ANIMATED ICONS PROFILE PAGE */
  /* Define the SVG container */

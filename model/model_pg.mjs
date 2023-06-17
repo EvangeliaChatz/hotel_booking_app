@@ -158,8 +158,10 @@ async function loadTest(callback) {
 
 // SELECT * from "Room" where "adults">='<adults variable>' and "<arrivedate variable >", "<departdate variable>" not in (select "arrivedate","departdate" from includes where "Includes"."room_id"='<id from roomtype>' )
 //επιστρέφει όλα τα δωμάτια από n adults κι πάνω και χ ημερομηνίες που έβαλε ο χρήστης
+
+// and not exists (select "arrival_date","dep_date" from includes where "includes"."room_id"="roomTypep"."room_id")
 async function getRoomGuestDate(GuestNumberControl, callback) {
-  const sql = `Select * from "roomTypep"  WHERE "quests_amount" >= ${GuestNumberControl} and not exists (select "arrival_date","dep_date" from includes where "includes"."room_id"="roomTypep"."room_id")`;
+  const sql = `Select * from "roomTypep"  WHERE "quests_amount" >= ${GuestNumberControl} `;
   try {
     const client = await connect();
     const res = await client.query(sql);
@@ -232,42 +234,15 @@ async function insertUser(first_name, last_name, user_id, callback) {
   }
 }
 
-// // //booking form
-// // async function BookingForm(callback) {
-// //     const sql = `INSERT INTO "booking" ("full_name", "email", "phone", "pass") VALUES ($1, $2, $3, $4)`;
-// //     try {
-// //         const client = await connect();
-// //         const res = await client.query(sql);
-// //         await client.release();
-// //         callback(null, res.rows) // επιστρέφει array
-// //         // console.log(res.rows);
-// //     }
-// //     catch (err) {
-// //         callback(err, null);
-// //     }
-// // }
-
-// async function BookingForm(callback) {
-//   // Insert the form data into the database
-//   const sql = `INSERT INTO "booking" ("extra_id") VALUES ($1)`;
-//   try {
-//     const client = await connect();
-//     const res = await client.query(sql, [extra_id]);
-//     await client.release();
-//     callback(null);
-//   } catch (err) {
-//     callback(err);
-//   }
-// }
 
 
 
 //INSERT BOOKING FORM DATA (BOOKING ID, PRICE, DATE, EXTRA_ID)
-async function insertBooking(bookingId, totalPrice, bookingDate, extraId, callback) {
-  const sql = `INSERT INTO "booking" ("booking_id", "total_price", "booking_date", "extra_id") VALUES ($1, $2, $3, $4)`;
+async function insertBooking(bookingId, totalPrice, bookingDate, extraId,client_id,breakfast,fastwifi, callback) {
+  const sql = `INSERT INTO "booking" ("booking_id", "total_price", "booking_date", "extra_id","client_id","breakfast","fastwifi") VALUES ($1, $2, $3, $4,$5,$6,$7)`;
   try {
     const client = await connect();
-    await client.query(sql, [bookingId, totalPrice, bookingDate, extraId]);
+    await client.query(sql, [bookingId, totalPrice, bookingDate, extraId,client_id,breakfast,fastwifi]);
     await client.release();
     callback(null);
   } catch (err) {

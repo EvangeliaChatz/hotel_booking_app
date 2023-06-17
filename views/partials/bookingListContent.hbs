@@ -9,7 +9,7 @@
                 <!-- search field check out -->
                 <div class="icon_and d-flex flex-column">
                     <label>Check in</label>
-                    <input style="padding: 2px;" name="checkInDate" id="current-date-input" type="date" placeholder="Check in">
+                    <input style="padding: 2px;" name="checkInDate" id="current-date-input" type="date" placeholder="Check in" value="{{checkInDate}}">
                 </div>
             
 
@@ -18,7 +18,7 @@
                 <!-- search field check out -->
             <div class="icon_and d-flex flex-column">
                 <label>Check out</label>
-                <input style="padding: 2px;"  name="checkOutDate" id="twodays-date-input" type="date" placeholder="Check out">
+                <input style="padding: 2px;"  name="checkOutDate" id="twodays-date-input" type="date" placeholder="Check out" value="{{checkOutDate}}">
             </div>
         
 
@@ -52,45 +52,7 @@
         </div>
 </section>
 
-    {{!-- <form method="get" action="/bookingList">
-      <div class="search-options justify-content-around search-width">
-          
-          <!-- search field check in -->
-              <div class="icon_and d-flex flex-column">
-                  <label class="">Check in</label>
-                  <input style="padding: 2px;"name="checkInDate"  id="current-date-input" type="date" placeholder="Check in">
-              </div>
 
-              <hr class="vl">
-
-              <!-- search field check out -->
-          <div class="icon_and d-flex flex-column">
-              <label class="">Check out</label>
-              <input name="checkOutDate" style="padding: 2px;" id="twodays-date-input" type="date" placeholder="Check out">
-          </div>
-      
-          <hr class="vl">
-
-            <!-- search field check out -->
-          <div class="icon_and align-items-start d-flex flex-column justify-content-start">
-                  <label>Quests</label>
-                  <div class="search_and_date">
-                  <select class="form-select form-select-lg" aria-label="form-select-lg example">
-                      <option value="1">1 adult</option>
-                      <option value="2" selected>2 adults</option>
-                      <option value="3">3 adults</option>
-                      <option value="4">4 adults</option>
-                  </select>
-                  <img src="svg/people-new.svg" alt="check in">
-                  </div>
-          </div>
-
-              <div class="primary-button btn">
-                  <!-- <img src="assets/images/search-icon.svg" alt="search"> -->
-                  <a href="/bookingList"> CHECK AVAILABILITY</a>
-                  </div>
-              </div>
-              </form> --}}
 
  <!-- AMENITIES OF ALL ROOMS2 -->
  <div class="dropdown section-bottom-margins-l">
