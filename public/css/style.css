@@ -18,8 +18,44 @@
   transform: translateX(0);
 }
 
+/* CURSON EFFECT------------- */
+.custom-cursor {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 20px;
+  height: 20px;
+  background-image: url('path/to/cursor-image.png');
+  background-size: cover;
+  pointer-events: none;
+  z-index: 9999;
+}
 
+.wavy-effect {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 20px;
+  height: 20px;
+  background-color: #bdfac4;
+  border-radius: 50%;
+  opacity: 0.5;
+  pointer-events: none;
+  animation: wavy 1s ease-out;
+}
 
+@keyframes wavy {
+  0% {
+    transform: scale(1);
+    opacity: 0.5;
+  }
+  100% {
+    transform: scale(5);
+    opacity: 0;
+  }
+}
+
+/* CURSOR EFFECT END */
 
 
 * {
@@ -274,6 +310,9 @@ color: #07474B;
 }
 
 /* --------------------------------------------BUTTONS */
+
+
+
 .primary-button {
   padding: 12px 20px;
   font-size: 1.2rem;
@@ -283,6 +322,8 @@ color: #07474B;
   margin: 0;
   background-color: #413C39;
   color: #FBFBFB;
+  cursor: pointer;
+  transition: transform 0.3s ease-in-out;
 
   /* button's width depend on the content inside it with inline-flex */
   display: inline-flex;
@@ -308,6 +349,7 @@ color: #07474B;
   /* animation */
   transition: all 0.3s ease;
   /* transform: rotate(5deg); */
+  transform: scale(1.1);
   
 }
 
@@ -325,6 +367,7 @@ font-family :'Syne', sans-serif;
   display: inline-flex;
   text-decoration: none;
   white-space: nowrap;
+  transition: transform 0.3s ease-in-out;
 
   }
 
@@ -338,6 +381,7 @@ font-family :'Syne', sans-serif;
     margin: 0;
     /* button's width depend on the content inside it with inline-flex */
     display: inline-flex;
+    transition: transform 0.3s ease-in-out;
   
     /* no text wrap with white-space: nowrap;*/
     white-space: nowrap;
@@ -361,6 +405,7 @@ font-family :'Syne', sans-serif;
     margin: 0;
     display: inline-flex;
     text-decoration: none;
+    transition: transform 0.3s ease-in-out;
   
     }
   
@@ -1490,12 +1535,14 @@ justify-content: center;
 
 #profile-card {
   gap: 20rem;
+
  
 }
 
 @media (max-width: 500px)  {
   #profile-card {
     gap: 5rem;
+    position: relative;
   }
 }
 
@@ -1527,6 +1574,45 @@ justify-content: center;
 color: #00301C;
 }
 
+
+.logout {
+  display: flex;
+  align-items: center;
+}
+
+/* Logout loader */
+.loader-container {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(245, 242, 242, 0.5);
+  z-index: 9999;
+  backdrop-filter: blur(2px);
+}
+
+.loader {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border: 4px solid #f4ebe5;
+  border-top: 4px solid #413C39;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+
+
 /* MYBOOKINGS PROFILE PAGE */
 .whole-profile-card {
     width: 100%;
@@ -1535,6 +1621,9 @@ color: #00301C;
     background-color: white;
     box-shadow: 0px 4px 16px rgba(0, 0, 0, 0.08);
     flex-wrap: wrap;
+    position: relative;
+    display: flex;
+    justify-content:space-between;
 }
 
 @media (max-width:800px){
@@ -1554,6 +1643,16 @@ display: none;
 #my-bookings.card{
   width: 100%;
   } 
+  
+  /* breakfast target */
+  .circled-target {
+    /* position: absolute; */
+    top: 10%;
+    left: 10px;
+    width: 30px; 
+    border-radius: 50%;
+    z-index: 99;
+  }
   
 
 
@@ -1649,4 +1748,16 @@ display: none;
     background-color: #eff7f0;
    }
 
+
+
+
+   /* LINK TRANSITIONS */
+   a {
+    transition: transform 0.3s ease-in-out;
+}
+
+
+a:hover{
+    transform: scale(1.1);
+}
   

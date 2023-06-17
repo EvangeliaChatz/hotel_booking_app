@@ -15,13 +15,32 @@
 
 
 
+{{!-- LOGOUT --}}
+    {{!-- <div class="logout mb-4 gap-3">
+         <p class="main-titles-30px">Chatzilygeroudi Evangelia</p>
+        <div class="cancel-button d-flex d-fg bolex gap-3 align-items-center justify-content-start">
+    <img src="svg/logOut.svg" style="width:32px">
+                        <a href="/deleteBooking" class="card-text">logout</a>
+                       
+        </div>
+    </div>   --}}
+      <div class="logout mb-4 gap-3 ">
+    <p class="main-titles-30px">Chatzilygeroudi Evangelia</p>
+    <div class="cancel-button d-flex d-fg bolex gap-3 align-items-center justify-content-start">
+      <img src="svg/logOut.svg" style="width:32px">
+      <a href="/deleteBooking" class="card-text" onclick="startLoading(event)">logout</a>
+    </div>
+  </div>
+    <div id="loaderContainer" class="loader-container">
+    <div class="loader"></div>
+  </div>
 
+{{!-- <button>Log out</button>
+<div id="loaderContainer" class="loader-container">
+  <div class="loader"></div>
+</div> --}}
 
-    <div class="row">
-        <p class="main-titles-30px mb-4">Chatzilygeroudi Evangelia</p>
-        <a href="/logOut"><img src="svg/logOut.svg" style="width:24px">logout</a>
-    </div>  
-
+    {{!-- TABS --}}
     <ul class="nav nav-tabs mb-5" id="myTab" role="tablist">
         <li class="nav-item" role="presentation">
           <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home" type="button" role="tab" aria-controls="home" aria-selected="true">MY BOOKINGS</button>
@@ -94,9 +113,11 @@
         <div class="accordion-body">
                         {{!-- CARD 1--}}
                             <div class="row mb-5">
-                        <div class="d-flex whole-profile-card justify-content-around" id="my-bookings">
-
+                        <div class="d-flex whole-profile-card" id="my-bookings">
+                                                            {{!-- BREAKFAST TARGET --}}
+                                
                             <div class="profile-card-des  justify-content-center gap-4 align-items-center d-flex flex-wrap">
+                                <div class="circled-target"><img src="svg/breakfast-target.svg"></div>
                                 <img class="booking-photos" src="/images/card-3.png">
                                 <div class="d-flex flex-column gap-3">
                                     <h5 class="card-title">CITY DOUBLE ROOM</h5>

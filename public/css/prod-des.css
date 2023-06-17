@@ -290,3 +290,14 @@ textarea:placeholder-shown {
 /* #ReviewForm {
     display: none;
 } */
+
+
+/* LINK TRANSITIONS */
+a {
+    transition: transform 0.3s ease-in-out;
+}
+
+
+a:hover{
+    transform: scale(1.1);
+}
