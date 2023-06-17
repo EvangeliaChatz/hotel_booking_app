@@ -64,7 +64,12 @@ router.route("/test").get(GetExample);
 const autoBookId = function (req, res, next) {
   model.getBookingId((err, result) => {
     console.log(`${result} is the last booking id found`);
+    if (result===null || result===undefined || !result){
+      result=0;
+    }
+    
     res.locals.booking_id = result + 1;
+    console.log(`booking id is ${res.locals.booking_id}`)
     next();
   });
 };
@@ -312,15 +317,15 @@ app.post(
     let extraId = 1;
     let totalPrice = req.body.hiddenPrice;
     // εχουν σιγουρα μπει στο request ?
-    let breakfast = req.body.breakfast;
-    let fastwifi = req.body.fastwifi;
+    let breakfast = req.body.hiddenBreakfast;
+    let fastwifi =  req.body.hiddenWifi;
     // console.log(`1.BOOKING ID IS ${res.locals.bookingId}`);
     // console.log(`1.BOOKING DATE IS ${bookingDate}`);
     // console.log(`1.EXTRA ID IS ${extraId}`);
     // console.log(`1.TOTAL PRICE IS ${totalPrice}`);
 
     model.insertBooking(
-      res.locals.bookingId,
+      res.locals.booking_id,
       totalPrice,
       bookingDate,
       extraId,
@@ -336,46 +341,6 @@ app.post(
     );
   },
 
-  // 2 MIDDLWARE
-  (req, res, next) => {
-    //extra id breakfast
-    //   let extraType2;
-    // function getextraType() {
-    //   if  (req.body.hiddenbreakfast == 0) {
-    //     extraType2 = '';
-    //   } else {
-    //     extraType2 = 'breakfast';
-    //   }
-    //   return extraType2;
-    //  }
-    //  let extraType= getextraType();
-    // const extraPrice = req.body.hiddenPrice; //epistrefei tin timi tou dwmatiou
-
-    // // 2 MIDDLWARE
-    const extraType = 7;
-    const extraPrice = req.body.hiddenPrice; //epistrefei tin timi tou dwmatiou
-
-    model.insertExtras(
-      extraType,
-      extraPrice,
-      res.locals.bookingId,
-      extraId,
-      (err) => {
-        console.log(`2.EXTRA TYPE IS ${extraType}`);
-        console.log(`2.EXTRA PRICE IS ${extraPrice}`);
-        console.log(`2.BOOKING ID IS ${res.locals.bookingId}`);
-        console.log(`2.EXTRA ID IS ${extraId}`);
-        if (err) {
-          return console.error(err.message);
-        }
-        next();
-      }
-    );
-
-    // 3MIDDLWARE
-    //na kanei insert sti bash 1.checkin 2.checkout 3.room type name where booking is=TADE 4.total price
-    //5.
-  },
 
   (req, res) => {
     res.redirect("/bookingList");

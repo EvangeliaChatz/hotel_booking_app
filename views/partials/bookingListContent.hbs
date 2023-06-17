@@ -31,7 +31,7 @@
                     <div class="search_and_date">
                     <select id="popUpGuests" class="form-select form-select-lg" name="GuestNumber" aria-label=".form-select-lg example">
                         <option value="1">1 adult</option>
-                        <option value="2" selected>2 adults</option>
+                        <option value="2" selected>{{GuestNumber}} adults</option>
                         <option value="3">3 adults</option>
                         <option value="4">4 adults</option>
                     </select>
@@ -124,7 +124,7 @@
 <!-- MAIN CONTENT OF THE PAGE -->
 <main>
 
-{{log RoomTypePostgBookList}}
+{{!-- {{log RoomTypePostgBookList}} --}}
 <section class="row  align-items-center all-result-cards section-bottom-margins">
   {{#each RoomTypePostgBookList}}
   <!-- BOOKINGS CARD(1) CSS -->

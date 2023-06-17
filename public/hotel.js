@@ -105,7 +105,10 @@ if (CheckavailButt) {
 
 //TOTAL PRICE CALCULATION-EXTRA CHECKBOXES
 let counter = document.getElementById("total-price");
+// let bookFormPrice =document.getElementById("priceEx");
 let ChechBreakf =document.getElementById("breakf-ex");
+// bookFormPrice.value=counter.textContent;
+
 
 let checkbox1 = document.getElementById("flexSwitchCheckDefault");
 if (checkbox1) {
@@ -113,14 +116,14 @@ if (checkbox1) {
     if (checkbox1.checked) {
       // Increment the counter by 5
       counter.textContent = parseInt(counter.textContent) + 5 + "€";
-      ChechBreakf = 1;
-      console.log(ChechBreakf);
+      ChechBreakf.value = true;
     } else {
       // Decrement the counter by 5
       counter.textContent = parseInt(counter.textContent) - 5 + "€";
-      ChechBreakf = 2;
-      console.log(ChechBreakf);
+      ChechBreakf = false;
     }
+    console.log(ChechBreakf);
+    // bookFormPrice.value=counter.textContent;
   });
 }
 
@@ -132,14 +135,14 @@ if (checkbox2) {
     if (checkbox2.checked) {
       // Increment the counter by 8
       counter.textContent = parseInt(counter.textContent) + 8 + "€";
-      FastWifi = 3;
-      console.log(FastWifi);
+      FastWifi.value = true;
     } else {
       // Decrement the counter by 8
       counter.textContent = parseInt(counter.textContent) - 8 + "€";
-      FastWifi = 4;
-      console.log(FastWifi);
+      FastWifi.value = false;
     }
+    console.log(FastWifi);
+    // bookFormPrice.value=counter.textContent;
   });
 }
 
