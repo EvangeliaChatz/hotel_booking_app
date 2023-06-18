@@ -1,4 +1,3 @@
-
 import pg from "pg";
 import bcrypt from "bcrypt";
 
@@ -11,7 +10,6 @@ const pool = new pg.Pool({
   port: 5432,
 });
 
-
 async function connect() {
   try {
     const client = await pool.connect();
@@ -20,8 +18,6 @@ async function connect() {
     console.error(`Failed to connect ${e}`);
   }
 }
-
-
 
 //CheckUser for Sign in (email, password)
 async function checkUser(email_req, password_req, callback) {
@@ -77,7 +73,7 @@ async function addUser(full_name, email, password, phone_number, callback) {
     const res = await client.query(sql, [
       full_name,
       email,
-      bcrypt.hashSync(password,10),
+      bcrypt.hashSync(password, 10),
       phone_number,
     ]);
     await client.release();
@@ -86,7 +82,6 @@ async function addUser(full_name, email, password, phone_number, callback) {
     callback(err, null);
   }
 }
-
 
 // TEST---------------------------------
 //TESTFORM
@@ -114,17 +109,32 @@ async function getUserId(callback) {
 }
 // TEST---------------------------------
 
-
-
 // SELECT * from "Room" where "adults">='<adults variable>' and "<arrivedate variable >", "<departdate variable>" not in (select "arrivedate","departdate" from includes where "Includes"."room_id"='<id from roomtype>' )
 //επιστρέφει όλα τα δωμάτια από n adults κι πάνω και χ ημερομηνίες που έβαλε ο χρήστης
 
 // and not exists (select "arrival_date","dep_date" from includes where "includes"."room_id"="roomTypep"."room_id")
-async function getRoomGuestDate(GuestNumberControl, callback) {
-  const sql = `Select * from "roomTypep"  WHERE "quests_amount" >= ${GuestNumberControl} `;
+// async function getRoomGuestDate(GuestNumberControl, callback) {
+//   const sql = `Select * from "roomTypep"  WHERE "quests_amount" >= $1 `;
+//   // const sql = `Select * from "roomTypep"  WHERE "quests_amount" >= $1 and "room_id" not in (select "room_id" from includes where "arrival_date" between $2 and $3 and "dep_date" between $2 and $3)`;
+
+//   try {
+//     const client = await connect();
+//     const res = await client.query(sql, [GuestNumberControl]);
+//     await client.release();
+//     callback(null, res.rows); // επιστρέφει array
+//     // console.log(res.rows);
+//   } catch (err) {
+//     callback(err, null);
+//   }
+// }
+
+
+async function getRoomGuestDate(GuestNumberControl,arrivedate,departdate, callback) {
+  const sql = `Select * from "roomTypep"  WHERE "quests_amount" >= $1 and "room_id" not in (select "room_id" from includes where "arrival_date" between $2 and $3 and "dep_date" between $2 and $3)`;
+
   try {
     const client = await connect();
-    const res = await client.query(sql);
+    const res = await client.query(sql, [GuestNumberControl,arrivedate,departdate]);
     await client.release();
     callback(null, res.rows); // επιστρέφει array
     // console.log(res.rows);
@@ -133,24 +143,20 @@ async function getRoomGuestDate(GuestNumberControl, callback) {
   }
 }
 
+
 //επιστρέφει τις κρατήσεις ενός χρήστη με cleint_id
 async function getReservations(client_id, callback) {
   const sql = `Select * from "booking" inner join "includes" on "booking"."booking_id"="includes"."booking_id" where "client_id" = $1`;
   try {
     const client = await connect();
-    const res = await client.query(sql,[client_id]);
+    const res = await client.query(sql, [client_id]);
     await client.release();
-    callback(null,res.rows); // επιστρέφει array
-    console.log('rows',res.rows);
+    callback(null, res.rows); // επιστρέφει array
+    console.log("rows", res.rows);
   } catch (err) {
     callback(err, null);
   }
 }
-
-
-
-
-
 
 //επιστρέφει όλα τα δωμάτια
 async function getRoomDesc(callback) {
@@ -188,8 +194,6 @@ async function getBookingId(callback) {
   callback(null, res.rows[0].max);
 }
 
-
-
 //OTAN KANEI SIGN IN PROSTHETOUME STI BASI MIA GRAMMI
 async function insertUser(first_name, last_name, user_id, callback) {
   const sql = `INSERT INTO "testform" ("first_name", "last_name", "user_id") VALUES ($1, $2, $3)`;
@@ -225,24 +229,27 @@ async function insertBooking(
     await client.release();
     callback(null, res.rows[0].booking_id);
   } catch (err) {
-    callback("booking error "+err);
+    callback("booking error " + err);
   }
 }
 
-
-async function insertIncludes(arrival_date,dep_date,booking_id,room_id,callback) {
-  
+async function insertIncludes(
+  arrival_date,
+  dep_date,
+  booking_id,
+  room_id,
+  callback
+) {
   const sql = `INSERT INTO "includes" ( "arrival_date","dep_date","booking_id","room_id") VALUES ($1, $2, $3, $4 )`;
   try {
     const client = await connect();
-    await client.query(sql, [arrival_date,dep_date,booking_id,room_id]);
+    await client.query(sql, [arrival_date, dep_date, booking_id, room_id]);
     await client.release();
     callback(null);
   } catch (err) {
-    callback("includes error "+err);
+    callback("includes error " + err);
   }
 }
-
 
 //INSERT EXTRAS (BREAKFAST & FASTWIFI)
 async function insertExtras(
@@ -262,9 +269,6 @@ async function insertExtras(
     callback(err);
   }
 }
-
-
-
 
 export {
   connect,
