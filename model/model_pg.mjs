@@ -1,3 +1,27 @@
+
+import pg from "pg";
+
+const pool = new pg.Pool({
+  // τοπική σύνδεση
+  user: "postgres", ///username
+  host: "localhost",
+  database: "hbooking",
+  password: "eva", /// password
+  port: 5432,
+});
+
+
+async function connect() {
+  try {
+    const client = await pool.connect();
+    return client;
+  } catch (e) {
+    console.error(`Failed to connect ${e}`);
+  }
+}
+
+
+
 //CheckUser for Sign in (email, password)
 async function checkUser(email_req, password_req, callback) {
   let user, error_message;
@@ -61,105 +85,9 @@ async function addUser(full_name, email, password, phone_number, callback) {
   }
 }
 
-// async function addUser(
-//   full_name,
-//   email,
-//   phone_number,
-//   password,
-//   client_id,
-//   callback
-// ) {
-//   const sql = `INSERT INTO "CLIENT" ("full_name", "email", "password", "phone_number", "client_id") VALUES ($1, $2, $3, $4, $5)`;
-//   try {
-//     const client = await connect();
-//     const res = await client.query(sql, [
-//       full_name,
-//       email,
-//       password,
-//       phone_number,
-//       client_id,
-//     ]);
-//     await client.release();
-//     callback(null);
-//   } catch (err) {
-//     callback(err, null);
-//   }
-// }
 
-// PARADEIGMA ME CLIENT POU DOULEEUI
-// const { Client } = require ('pg')
-
-// const client = new Client ({
-// host: 'localhost',
-// user: 'postgres',
-// port: 5432,
-// password: 'eva',
-// database: 'hbooking',
-// })
-
-// client.connect()
-
-import pg from "pg";
-
-const pool = new pg.Pool({
-  // τοπική σύνδεση
-  user: "postgres", ///username
-  host: "localhost",
-  database: "hbooking",
-  password: "eva", /// password
-  port: 5432,
-});
-
-async function connect() {
-  try {
-    const client = await pool.connect();
-    return client;
-  } catch (e) {
-    console.error(`Failed to connect ${e}`);
-  }
-}
-
-// const pool = new pg.Pool({
-//     connectionString: process.env.DATABASE_URL,
-//     ssl: {
-//       rejectUnauthorized: false
-//     }
-//   });
-
-// ZHTAME STOIXEIA APO THN BASI
-
-// client.query (`Select * from "public.BOOKING"`,(err, res)=>{
-// if(!err){
-//     console.log(res.rows);
-// } else {
-// console.log(err.message);
-// }
-// })
-
-// function loadTest(){
-// pool.query (`Select * from "testform"`,(err, res)=>{
-//     if(!err){
-//         console.log(res.rows);
-//     } else {
-//     console.log(err.message);
-//     }
-//     })
-// }
-
-// EPISTREFEI TO PINAKA "tesform" THS BASIS---XWRIS CONSOLE LOG ROWS
-// async function loadTest(callback) {
-//     const sql = `Select * from "testform"`;
-//     try {
-//         const client = await connect();
-//         const res = await client.query(sql);
-//         await client.release();
-//         callback(null, res.rows) // επιστρέφει array
-//     }
-//     catch (err) {
-//         callback(err, null);
-//     }
-//   }
-
+// TEST---------------------------------
+//TESTFORM
 // ME CONSOLE LOG ROWS
 async function loadTest(callback) {
   const sql = `Select * from "testform"`;
@@ -173,6 +101,18 @@ async function loadTest(callback) {
     callback(err, null);
   }
 }
+
+//TESTFORM
+//USER ID "MANUAL-INCREMENT"-AUKSANEI KATA 1 TO ID KATHE FORA POU KANEI POST
+async function getUserId(callback) {
+  const sql = `Select Max("user_id") from "testform"`;
+  const client = await connect();
+  const res = await client.query(sql);
+  callback(null, res.rows[0].max);
+}
+// TEST---------------------------------
+
+
 
 // SELECT * from "Room" where "adults">='<adults variable>' and "<arrivedate variable >", "<departdate variable>" not in (select "arrivedate","departdate" from includes where "Includes"."room_id"='<id from roomtype>' )
 //επιστρέφει όλα τα δωμάτια από n adults κι πάνω και χ ημερομηνίες που έβαλε ο χρήστης
@@ -190,6 +130,23 @@ async function getRoomGuestDate(GuestNumberControl, callback) {
     callback(err, null);
   }
 }
+
+//επιστρέφει τις κρατήσεις ενός χρήστη με cleint_id
+async function getReservations(clientId, callback) {
+  const sql = `Select * from "booking" where "client_id" = ${clientId}`;
+  try {
+    const client = await connect();
+    const res = await client.query(sql);
+    await client.release();
+    callback(null); // επιστρέφει array
+    console.log(res.rows);
+  } catch (err) {
+    callback(err, null);
+  }
+}
+
+
+
 
 //επιστρέφει όλα τα δωμάτια
 async function getRoomDesc(callback) {
@@ -227,14 +184,7 @@ async function getBookingId(callback) {
   callback(null, res.rows[0].max);
 }
 
-//TESTFORM
-//USER ID "MANUAL-INCREMENT"-AUKSANEI KATA 1 TO ID KATHE FORA POU KANEI POST
-async function getUserId(callback) {
-  const sql = `Select Max("user_id") from "testform"`;
-  const client = await connect();
-  const res = await client.query(sql);
-  callback(null, res.rows[0].max);
-}
+
 
 //OTAN KANEI SIGN IN PROSTHETOUME STI BASI MIA GRAMMI
 async function insertUser(first_name, last_name, user_id, callback) {
@@ -294,6 +244,9 @@ async function insertExtras(
   }
 }
 
+
+
+
 export {
   connect,
   loadTest,
@@ -308,4 +261,5 @@ export {
   getBookingId,
   insertExtras,
   getRoomGuestDate,
+  getReservations,
 };

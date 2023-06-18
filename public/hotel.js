@@ -11,7 +11,7 @@ const options = {
   month: "long",
   day: "numeric",
 };
-let formattedDate = today.toISOString().substr(0, 10);
+let formattedDate = today.toISOString().substr(0, 10);  
 let formattedDate2 = twoDaysLater.toISOString().substr(0, 10);
 
 console.log(formattedDate);
@@ -41,8 +41,6 @@ laterDay.value = formattedDate2;
 
 
   ///YPOLOGISMOS TOTAL PRICE KAI STO PRODUCCT DESCRIPTION OPWS STH BOOKING LIST
-  // TypeRoomPrice RIMH POY YPARXEI
-///////////////////////
 
 //BOOKING FORM AUTOMATIC FILL AT ROOM DESCRIPTION
 let CheckavailButt = document.getElementById("CheckavailButt");
@@ -50,7 +48,7 @@ let CheckavailButt = document.getElementById("CheckavailButt");
 if (CheckavailButt) {
   CheckavailButt.addEventListener("click", () => {
     //Dates POP UP BOOKING
-    const PopUpDateDispl = document.getElementById("popUpDatesDis");
+    const PopUpDateDisp = document.getElementById("popUpDatesDis");
     // const PopUpGuestDispl = document.getElementById("popUpGuestDis");
 
     //CHECK IN -CHECK OUT INPUTS
@@ -71,7 +69,7 @@ if (CheckavailButt) {
 
   
     //εμφανίζει ημερομηνιών στο pop up
-    PopUpDateDispl.textContent = `${PopUpCheckin} - ${PopUpCheckout}`;
+    PopUpDateDisp.textContent = `${PopUpCheckin} - ${PopUpCheckout}`;
     console.log("PopUpDateDispl");
   });
 }
@@ -224,26 +222,6 @@ textSignIn.addEventListener("click", () => {
 
 
 
-//PROIGOUMENH LYSH GIA TA REVIEWS
-// //ReviewSubmit  writeReview
-// const ReviewSubmit  = document.querySelector("#ReviewSubmit");
-// const writeReview = document.querySelector("#writeReview");
-// const ReviewForm = document.querySelector("#ReviewForm");
-// const CancelReview = document.querySelector("#CancelReview");
-
-// if (writeReview && ReviewForm && CancelReview && ReviewSubmit) {
-// writeReview.addEventListener("click", () => {
-//   ReviewForm.style.display = "block";
-//   writeReview.style.display = "none";
-// });
-
-// CancelReview.addEventListener("click", () => {
-//   ReviewForm.style.display = "none";
-//   writeReview.style.display = "flex";
-// });
-// }
-
-
 
 ///SUMBIT FORM--CONFIRMATION MESSAGE
 function validateForm() {
@@ -265,60 +243,7 @@ function validateForm() {
   });
 }
 
-// const myBookingForm = document.getElementById("form-booking");
-// const submitBtn = document.getElementById('sumbit-booking');
 
-// myBookingForm.addEventListener("submit", function(event) {
-//   // Prevent form submission if any validation fails
-//   if (!validateName() || !validatePass() ) {
-//     event.preventDefault();
-// } else {
-
-// const confirmationMessage = document.getElementById('confirmation-message');
-// const bookingForm = document.getElementById('booking-form');
-//   bookingForm.classList.add('d-none');
-//   confirmationMessage.classList.remove('d-none');
-// }
-
-// });
-
-// // form validation
-// //validate name
-// function validateName() {
-//   const nameInput = document.getElementById("floatingInput_name");
-//   const nameError = document.getElementById("name-error");
-
-//   nameError.style.color = "red";
-//   const namePattern = /^[a-zA-Z]+$/;
-
-//   if (!nameInput.value.match(namePattern)) {
-//     nameError.innerHTML = "**Only characters are allowed";
-//     nameInput.value='';
-//     return false;
-//   } else {
-//     nameError.innerHTML = "";
-//     return true;
-//   }
-// }
-
-// //validate pass
-// function validatePass() {
-//   const Pass = document.getElementById("floatingInput_pass")
-//   const PassError = document.getElementById("pass-error");
-
-//   const PassPattern = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?])(?!.*\s).{8,10}$/
-
-//   PassError.style.color = "red";
-
-//   if (!Pass.value.match(PassPattern)) {
-//     PassError.innerHTML = "**The password must have 8-10 characters, including at least one lowercase letter, one uppercase letter, one number, and one special character";
-//     PassError.value='';
-//     return false;
-//   } else {
-//     PassError.innerHTML = "";
-//     return true;
-//   }
-//   }
 
 // MODAL--POP UP MESSAGE
 var triggerTabList = [].slice.call(document.querySelectorAll("#myTab a"));
