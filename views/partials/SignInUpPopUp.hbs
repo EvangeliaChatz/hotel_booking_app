@@ -84,10 +84,9 @@
                   <div class="fw-bold mb-3 main-titles-30px">Create your account</div>
                   <!-- FORM 3 -->
                   <form method="post" action="/signUp">
-
                     <!-- FULL NAME -->
                     <div class="form-floating mb-4">
-                      <input
+                      <input required
                         name="full_name"
                         type="text"
                         class="form-control form-control-sm"
@@ -97,7 +96,7 @@
                     </div>
                     <!-- EMAIL -->
                     <div class="form-floating mb-4">
-                      <input
+                      <input required
                         name="email"
                         type="email"
                         class="form-control form-control-sm"
@@ -106,7 +105,19 @@
                       <label for="email">Email*</label>
                     </div>
 
-                    <!-- PHONE -->
+
+
+                    <!-- PASSWORD -->
+                    <div class="form-floating mb-4">
+                      <input required
+                        name="password"
+                        type="password"
+                        class="form-control form-control-sm"
+                        placeholder="password"
+                      />
+                      <label for="password">Password*</label>
+                    </div>
+                                        <!-- PHONE -->
                     <div class="form-floating mb-4">
                       <input
                         name="phone_number"
@@ -115,17 +126,6 @@
                         placeholder="Phone Number"
                       />
                       <label for="phone_number">Phone Number</label>
-                    </div>
-
-                    <!-- PASSWORD -->
-                    <div class="form-floating mb-4">
-                      <input
-                        name="password"
-                        type="password"
-                        class="form-control form-control-sm"
-                        placeholder="password"
-                      />
-                      <label for="password">Password*</label>
                     </div>
 
                     <div class="mt-3">

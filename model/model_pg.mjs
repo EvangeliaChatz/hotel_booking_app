@@ -33,10 +33,11 @@ async function checkEmail(email_req, callback) {
     const client = await connect();
     const res = await client.query(sql);
     await client.release();
-    if (res) {
+    if (res.rows[0]) {
+      console.log(res.rows[0]);
       callback(null, true);
     } else {
-      callback("User not found", null);
+      callback(null, false);
     }
   } catch (err) {
     callback(err, null);
@@ -48,10 +49,10 @@ async function addUser(
   email,
   phone_number,
   password,
-  client_id,
-  callback
+
+  callback,
 ) {
-  const sql = `INSERT INTO "CLIENT" ("full_name", "email", "password", "phone_number", "client_id") VALUES ($1, $2, $3, $4, $5)`;
+  const sql = `INSERT INTO "CLIENT" ("full_name", "email", "password", "phone_number") VALUES ($1, $2, $3, $4) RETURNING "client_id","full_name"`;
   try {
     const client = await connect();
     const res = await client.query(sql, [
@@ -59,14 +60,40 @@ async function addUser(
       email,
       password,
       phone_number,
-      client_id,
     ]);
     await client.release();
-    callback(null);
+    callback(null, res.rows[0]);
   } catch (err) {
     callback(err, null);
   }
 }
+
+
+// async function addUser(
+//   full_name,
+//   email,
+//   phone_number,
+//   password,
+//   client_id,
+//   callback
+// ) {
+//   const sql = `INSERT INTO "CLIENT" ("full_name", "email", "password", "phone_number", "client_id") VALUES ($1, $2, $3, $4, $5)`;
+//   try {
+//     const client = await connect();
+//     const res = await client.query(sql, [
+//       full_name,
+//       email,
+//       password,
+//       phone_number,
+//       client_id,
+//     ]);
+//     await client.release();
+//     callback(null);
+//   } catch (err) {
+//     callback(err, null);
+//   }
+// }
+
 
 // PARADEIGMA ME CLIENT POU DOULEEUI
 // const { Client } = require ('pg')

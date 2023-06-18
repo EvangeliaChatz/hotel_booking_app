@@ -11,7 +11,7 @@ function homepage (req, res) {
       }
       RoomTypeLoad = roomtyperows;
       // console.log(RoomTypeLoad[0]);
-      console.log('works')
+      
       res.render("home", { RoomTypePostg: RoomTypeLoad }); //τις τιμές που παίρνω από τη βάση τις περνάω στο home.hbs για να τραξβήξω από τη βάση τα δεδομένα με το object RoomTypeLoad
     });
   }
