@@ -1,27 +1,11 @@
-
-
-- TON ΕΛΕΓΧΟ ΑΝ ΥΠΑΡΧΕΙ ΔΙΑΘΕΣΙΜΟ ΔΩΜΑΤΙΟ (να εμφανίζει ολα τα δωμάτια
-με booking id, στις ημερομηνίες που έκανε input ο χρήστης checkin<= checkin input <= checkout )
-
-
-
-
-
-
-
-
-
+EKKREMOTHTES
 -μηνύματα λάθους
 - να εμφανιζονται τα booking στο προφιλ --να εμφανίζεται και το πρωινό
-
 
 -validation formas--bootstrapt
 -validation φόρμας booking--checkbox, αν δεν το εχει πατησει να μην
 μπορεί να συνεχίσει
-
--env arxeio
  -eiditingBookingContnet updating the reservations 
-
 
 --------------------------------------------------------
 REVIEWS
@@ -53,6 +37,8 @@ POST BOOKING--DONE- και τα reviews ( ειναι στα incluedes)--DONE
 -στην profile page να εμφανίζονται τα στοιχεία του session--DONE
 -και επίσης να εμφανίζονται αυτόματα όταν πάει να κάνει booking αυτός που 
 είναι συνδεδεμένος--DONE
+- TON ΕΛΕΓΧΟ ΑΝ ΥΠΑΡΧΕΙ ΔΙΑΘΕΣΙΜΟ ΔΩΜΑΤΙΟ (να εμφανίζει ολα τα δωμάτια
+με booking id, στις ημερομηνίες που έκανε input ο χρήστης checkin<= checkin input <= checkout )---DONE
 
 
 
@@ -61,7 +47,7 @@ POST BOOKING--DONE- και τα reviews ( ειναι στα incluedes)--DONE
 -δεν έχει υλοποιηθεί η κράτηση δωματίου από κινητό , από το room description
 -στο booking Pop up η τιμή του πρωϊνού είναι fix- ενώ θα έπρεπε 
 --DEN EXEI GINEI - στην booking list -guests selection checkbox problem---
-
+--DEN EXEI GINEI -env arxeio
 
 - βαση postgress στο heroku / docker 
 - να φτιαξω το database.sql 
