@@ -1,9 +1,10 @@
 
-POST BOOKING
-- Post Book , να στελνει τιμες και στο includes 
+- eiditingBookingContnet updating the reservations 
+
+
+POST BOOKING--DONE
 - και τα reviews ( ειναι στα incluedes)
 
-- να στελνει σωστη συνολικη τιμη στο booking 
 - TON ΕΛΕΓΧΟ ΑΝ ΥΠΑΡΧΕΙ ΔΙΑΘΕΣΙΜΟ ΔΩΜΑΤΙΟ (να εμφανίζει ολα τα δωμάτια
 με booking id, στις ημερομηνίες που έκανε input ο χρήστης checkin<= checkin input <= checkout )
 - στην booking list -guests selection checkbox problem 
@@ -13,7 +14,7 @@ POST BOOKING
 
 
 - checkout date blocked αμα δεν εχει επιλεγει το checkin date 
-- sign up
+
 -στην profile page να εμφανίζονται τα στοιχεία του session
 -και επίσης να εμφανίζονται αυτόματα όταν πάει να κάνει booking αυτός που 
 είναι συνδεδεμένος
@@ -22,14 +23,15 @@ POST BOOKING
 -μηνύματα λάθους
 - να εμφανιζονται τα booking στο προφιλ --να εμφανίζεται και το πρωινό
 
+
 -validation formas--bootstrapt
 -validation φόρμας booking--checkbox, αν δεν το εχει πατησει να μην
 μπορεί να συνεχίσει
 
-- User authentifcation με bcrypt 
 -env arxeio
 
 ----------
+- sign up--DONE
 -CONTROLLERS & ROUTES για ΟΡΓΑΝΩΣΗ ΑΡΧΕΙΟΥ
 - να εμφανίζεται στο pop up του room description η συνολική τιμή--DONE
 - logout CSS--DONE
@@ -37,9 +39,8 @@ POST BOOKING
 - BOOK NOW handlebars διαγραφή
 -redirect home από το log out--DONE
 
--να δω το write message ξανά που έχω φτιάξει
-να αλλάζει ανάλογα τα δωμάτια και τα άτομα
--διαγραφή και update στα στοιχεια του προφιλ
+-να δω το write message ξανά που έχω φτιάξει να αλλάζει ανάλογα τα δωμάτια και τα άτομα
+-διαγραφή και update στα στοιχεια του προφιλ 
 
 
 -εισαγωγή σχολίων στο room description

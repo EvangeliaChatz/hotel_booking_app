@@ -135,7 +135,7 @@ async function getRoomGuestDate(GuestNumberControl, callback) {
 
 //επιστρέφει τις κρατήσεις ενός χρήστη με cleint_id
 async function getReservations(client_id, callback) {
-  const sql = `Select * from "booking" where "client_id" = $1`;
+  const sql = `Select * from "booking" inner join "includes" on "booking"."booking_id"="includes"."booking_id" where "client_id" = $1`;
   try {
     const client = await connect();
     const res = await client.query(sql,[client_id]);
@@ -146,6 +146,8 @@ async function getReservations(client_id, callback) {
     callback(err, null);
   }
 }
+
+
 
 
 

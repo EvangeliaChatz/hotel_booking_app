@@ -1,5 +1,7 @@
 import express from "express";
-import { engine } from "express-handlebars";
+// import { engine } from "express-handlebars";
+import exphbs from "express-handlebars";
+
 // require('dotenv').config();
 // import dotenv from "dotenv";
 
@@ -11,7 +13,28 @@ const SQLiteStoreSession = SQLiteStore(session);
 const app = express();
 // const router = express.Router();
 
-app.engine("hbs", engine({ extname: "hbs" }));
+import getDateFormatted from "./controllers/helpers.mjs";
+
+
+const hbs = exphbs.create({
+  // Specify the path to your handlebars template files
+  // For example, if your template file is in the "views" directory:
+  // partialsDir: 'views/partials',
+  extname: ".hbs",
+  // Register custom helpers
+  helpers: {
+    getDateFormatted: function (date) {
+          date = new Date(date);
+          const bookingDate =
+          date.getDate() + "/" + (date.getMonth() + 1) + "/" + date.getFullYear();
+          return bookingDate;
+        }
+  }
+});
+
+// app.engine("hbs", engine({ extname: "hbs"}));
+app.engine("hbs", hbs.engine);
+
 app.set("view engine", "hbs");
 
 //Δηλώνουμε πως ο φάκελος public θα περιέχει τα στατικά αρχεία
@@ -82,6 +105,7 @@ import writeReview from "./controllers/writeReview.mjs";
 import  getTodaysDateFormatted  from "./controllers/formattedTodaysDate.mjs";
 import insertingBooking from "./controllers/saveBooking.mjs";
 import insertingIncludes from "./controllers/saveIncludes.mjs";
+import checkSignedIn  from "./controllers/checkAuth.mjs";
 
 app.use(localing);
 
@@ -96,16 +120,16 @@ app.get("/getRoomDesc", getRoomDes);
 app.get("/bookingList", getAvailableRooms);
 
 //Profile Page
-app.get("/profilePage", profilePage);
+app.get("/profilePage",checkSignedIn, profilePage);
 
 //Edit Booking
-app.get("/editBooking", editBooking);
+app.get("/editBooking",checkSignedIn, editBooking);
 
 //Delete Booking
-app.get("/deleteBooking", deleteBooking);
+app.get("/deleteBooking",checkSignedIn, deleteBooking);
 
 //Reviews
-app.get("/WriteComment", writeReview);
+app.get("/WriteComment",checkSignedIn, writeReview);
 
 
 // middleware
@@ -119,7 +143,7 @@ app.post(
   insertingBooking,insertingIncludes,
 
   (req, res) => {
-    res.redirect("/bookingList");
+    res.redirect(req.get("referer"));
   }
 );
 

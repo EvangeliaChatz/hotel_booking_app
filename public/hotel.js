@@ -83,11 +83,15 @@ if (checkbox1) {
     if (checkbox1.checked) {
       // Increment the counter by 5
       counter.textContent = parseInt(counter.textContent) + 5 + "€";
-      ChechBreakf.value = true;
+      if (ChechBreakf) {
+        ChechBreakf.value = true;
+      }
     } else {
       // Decrement the counter by 5
       counter.textContent = parseInt(counter.textContent) - 5 + "€";
-      ChechBreakf.value = false;
+      if (ChechBreakf) {
+        ChechBreakf.value = false;
+      }
     }
     bookFormPrice.value = counter.textContent.trim("€");
 
@@ -102,11 +106,15 @@ if (checkbox2) {
     if (checkbox2.checked) {
       // Increment the counter by 8
       counter.textContent = parseInt(counter.textContent) + 8 + "€";
-      FastWifi.value = true;
+      if (FastWifi) {
+        FastWifi.value = true;
+      }
     } else {
       // Decrement the counter by 8
       counter.textContent = parseInt(counter.textContent) - 8 + "€";
-      FastWifi.value = false;
+      if (FastWifi) {
+        FastWifi.value = false;
+      }
     }
     console.log(FastWifi);
     // bookFormPrice.value=counter.textContent;
@@ -173,20 +181,19 @@ for (
       const PopUpCheckout = document.getElementById("twodays-date-input").value;
 
       PopUpDateDispl.textContent = `${PopUpCheckin} - ${PopUpCheckout}`;
-      
+
       //DISPLAY THE TOTAL PRICE IN BOOKING LIST BOOKING POP UP-εμφανίζει την συνολική τιμή για τις μέρες που έχει επιλέξει ο χρήστης (αν είναι 2 ημέρες διπλή τιμή κτλπ)
       const NumberOfDays = getDaysBetweenDates(PopUpCheckin, PopUpCheckout);
       //  console.log(NumberOfDays);
       PopUpPrice.textContent = `${
         NumberOfDays * parseInt(PopUpPriceDispl.textContent)
       } €`;
-      
-      
+
       //Στο τέλος αποεπιλέγει τα checkbox για να μην εμφανίζονται επιλεγμένα στο επόμενο pop up
       document.getElementById("flexSwitchCheckDefault").checked = false;
       document.getElementById("flexSwitchCheckDefault2").checked = false;
       bookFormPrice.value = counter.textContent.trim("€");
-      
+
       console.log("PopUpDateDispl");
 
       let roomId = document.getElementById(`list-results-room-type-id-${i}`);

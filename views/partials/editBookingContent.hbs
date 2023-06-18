@@ -88,7 +88,7 @@
         <button class="accordion-button mb-5" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
                                     <div class="d-flex gap-3 ">
                                         <img class="dimensions-icon" src="svg/calendar-black.svg">
-                                        <h6 class="ral-brown">09/04/23 - 15/04/23</h6>
+                                        <h6 class="ral-brown">{{getDateFormatted arrival_date}} - {{getDateFormatted dep_date}} </h6>
                                     </div>
         </button>
         </h2>
@@ -106,13 +106,13 @@
                 <!-- search field check out -->
                 <div class="icon_and d-flex flex-column">
                     <label>Check in</label>
-                    <input style="padding: 2px;" name="checkInDate" id="current-date-input" type="date" placeholder="Check in">
+                    <input style="padding: 2px;" name="checkInDate" id="current-date-input" type="date" placeholder="Check in" value="{{getDateFormatted arrival_date}}">
                 </div>
 
                 <!-- search field check out -->
             <div class="icon_and d-flex flex-column">
                 <label>Check out</label>
-                <input style="padding: 2px;"  name="checkOutDate" id="twodays-date-input" type="date" placeholder="Check out">
+                <input style="padding: 2px;"  name="checkOutDate" id="twodays-date-input" type="date" placeholder="Check out" value="{{getDateFormatted dep_date}}">
             </div>
             </div>
         </div>  
@@ -134,7 +134,7 @@
           <h6 class="text-14px">You can include breakfast for 8€ / person</h6>
           </div>
           <div class="form-check form-switch">
-          <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault2" checked ="{{breakfast}}">
+          <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault2-{{@index}}" checked ="{{breakfast}}">
           </div>
         </div>
 
@@ -144,7 +144,7 @@
             <h6 class="text-14px">You can include fast- wifi for 5€ / person</h6>
             </div>
         <div class="form-check form-switch">
-          <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault" checked="{{fastwifi}}">
+          <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault-{{@index}}" checked="{{fastwifi}}">
         </div>
       </div>
 

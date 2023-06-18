@@ -4,8 +4,6 @@ function editBooking(req, res) {
   // let clientId = 6;
   console.log(res.locals.client_id);
 
-  // let ReservationsLoad;
-
   model.getReservations(res.locals.client_id, (err, reservationrows) => {
     // console.log(reservationrows);
     if (err) {

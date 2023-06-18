@@ -28,7 +28,7 @@ function insertingBooking(req, res, next) {
         res.redirect(req.get("referer"));
       }
       res.locals.booking_id = result;
-      console.log(`booking id is ${res.locals.booking_id}`);
+      // console.log(`booking id is ${res.locals.booking_id}`);
       next();
     }
   );
