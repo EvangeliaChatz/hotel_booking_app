@@ -17,34 +17,8 @@ let formattedDate2 = twoDaysLater.toISOString().substr(0, 10);
 console.log(formattedDate);
 console.log(formattedDate2);
 
+
 // Set the value of the inputs to two days from the current date
-
-//PROSPATHEIA GIA OTAN BAZEI PRWTA TO CHECKOUT
-// let currentDay = document.getElementById("current-date-input");
-// let laterDay = document.getElementById("twodays-date-input");
-
-// currentDay.addEventListener("input", () => {
-//   const selectedDate = new Date(currentDay.value);
-//   const minDate = selectedDate.toISOString().substr(0, 10);
-
-//   laterDay.setAttribute("min", minDate);
-// });
-
-// laterDay.addEventListener("input", () => {
-//   const selectedDate = new Date(laterDay.value);
-//   const maxDate = selectedDate.toISOString().substr(0, 10);
-
-//   currentDay.setAttribute("max", maxDate);
-// });
-
-// currentDay.setAttribute("min", formattedDate);
-// currentDay.value = formattedDate;
-// laterDay.setAttribute("min", formattedDate);
-// laterDay.value = formattedDate2;
-
-
-
-
 let currentDay = document.getElementById("current-date-input");
 let laterDay = document.getElementById("twodays-date-input");
 
@@ -66,11 +40,11 @@ laterDay.value = formattedDate2;
 }
 
 
+  ///YPOLOGISMOS TOTAL PRICE KAI STO PRODUCCT DESCRIPTION OPWS STH BOOKING LIST
+  // TypeRoomPrice RIMH POY YPARXEI
+///////////////////////
 
-
-
-
-//BOOKING FORM AUTOMATIC FILL
+//BOOKING FORM AUTOMATIC FILL AT ROOM DESCRIPTION
 let CheckavailButt = document.getElementById("CheckavailButt");
 
 if (CheckavailButt) {
@@ -80,26 +54,25 @@ if (CheckavailButt) {
     // const PopUpGuestDispl = document.getElementById("popUpGuestDis");
 
     //CHECK IN -CHECK OUT INPUTS
-    // const PopUpGuestsInp = document.getElementById("popUpGuests").value;
+    //παίρνει τις ημερομηνίες από το input του χρήστη και όχι από το url όπως το booking list
     const PopUpCheckin = document.getElementById("current-date-input").value;
     const PopUpCheckout = document.getElementById("twodays-date-input").value;
 
-   
+    const PopUpPrice2 = document.getElementById("total-price");
+
+    //DISPLAY THE TOTAL PRICE IN BOOKING LIST BOOKING POP UP-εμφανίζει την συνολική τιμή για τις μέρες που έχει επιλέξει ο χρήστης (αν είναι 2 ημέρες διπλή τιμή κτλπ)
+    const NumberOfDays= getDaysBetweenDates( PopUpCheckin, PopUpCheckout);
+     console.log(NumberOfDays);
+      PopUpPrice2.textContent= `${NumberOfDays*parseInt( PopUpPrice2.textContent)} €`;
+      
+
     // BookingForm.classList.remove("d-none");
     PopConfimation.classList.add("d-none");
 
-
-    //ELEGXOS AN TO CHECK IN MIKROTERH HMEROMHNIA APO TO CHECK OUT
-    if (PopUpCheckin >= PopUpCheckout) {
-      // Display an error message or take any other appropriate action
-      alert("Check-out date must be greater than the check-in date.");
-      return;
-    }
-    //
-
+  
+    //εμφανίζει ημερομηνιών στο pop up
     PopUpDateDispl.textContent = `${PopUpCheckin} - ${PopUpCheckout}`;
     console.log("PopUpDateDispl");
-    // PopUpGuestDispl.textContent = `${PopUpGuestsInp} adults`;
   });
 }
 
@@ -170,14 +143,10 @@ function string2Date(input) {
   }
 
 
-  ///YPOLOGISMOS TOTAL PRICE KAI STO PRODUCCT DESCRIPTION OPWS STH BOOKING LIST
-  // TypeRoomPrice RIMH POY YPARXEI
-///////////////////////
   
 
 
-
-//BOOKING FORM AUTOMATIC FILL ---LOAD BOOK ROOM POP IPFOR BOOKING LIST FOR EACH ROOM
+//BOOKING FORM AUTOMATIC FILL ---LOAD BOOK ROOM POP AT BOOKING LIST
 for (
   let i = 0;
   i < document.getElementsByClassName("card-prod-content").length;
@@ -192,19 +161,14 @@ for (
       let PopUpImageSrc = document.getElementById("PopUpRoomPhoto");
       PopUpImageSrc.src = resultImage.src;
 
-      //Adults display
+      //Guests display
       let PopUpGuestDispl = document.getElementById(`list-results-adl-${i}`);
       let PopUpGuest = document.getElementById("popUpGuestDis");
       PopUpGuest.textContent = PopUpGuestDispl.textContent;
 
-      //Price Display
-
-      // PopUpPrice.textContent= ((PopUpCheckout- PopUpCheckin)*PopUpPriceDispl).value
-
       // pipupPriceDispl θα παιρνει την τιμη απο το total-price x τις μερες που θα μενει ο χρηστης 
-      let PopUpPriceDispl = document.getElementById(`list-results-price-${i}`);
-      // 
-      let PopUpPrice = document.getElementById("total-price");
+      const PopUpPriceDispl = document.getElementById(`list-results-price-${i}`);
+      const PopUpPrice = document.getElementById("total-price");
       PopUpPrice.textContent = PopUpPriceDispl.textContent;
 
       
@@ -212,27 +176,29 @@ for (
       //Dates POP UP BOOKING
       const PopUpDateDispl = document.getElementById("popUpDatesDis");
 
-      //CHECK IN -CHECK OUT INPUTS
-      // const PopUpGuestsInp = document.getElementById("popUpGuests").value;
+      //CHECK IN -CHECK OUT INPUTS-παίρνει τις τιμές απο τα input του booking form και τις εμφανίζει στο διάστημα των ημερομηνιών του pop up booking
       const PopUpCheckin = document.getElementById("current-date-input").value;
       const PopUpCheckout = document.getElementById("twodays-date-input").value;
 
       PopUpDateDispl.textContent = `${PopUpCheckin} - ${PopUpCheckout}`;
       console.log("PopUpDateDispl");
 
-      //Display the prices for the days that the user will stay
+
+      //DISPLAY THE TOTAL PRICE IN BOOKING LIST BOOKING POP UP-εμφανίζει την συνολική τιμή για τις μέρες που έχει επιλέξει ο χρήστης (αν είναι 2 ημέρες διπλή τιμή κτλπ)
      const NumberOfDays= getDaysBetweenDates( PopUpCheckin, PopUpCheckout);
     //  console.log(NumberOfDays);
      PopUpPrice.textContent= `${NumberOfDays*parseInt(PopUpPriceDispl.textContent)} €`;
 
-
+      //Στο τέλος αποεπιλέγει τα checkbox για να μην εμφανίζονται επιλεγμένα στο επόμενο pop up
       document.getElementById("flexSwitchCheckDefault").checked = false;
       document.getElementById("flexSwitchCheckDefault2").checked = false;
     });
   }
 }
 
-// EXCHANGE FORMS
+
+
+// EXCHANGE FORMS SIGN IN-SIGN UP 
 const textSignUp = document.querySelector("#SignUp");
 const textSignIn = document.querySelector("#SignIn");
 
@@ -250,7 +216,9 @@ textSignIn.addEventListener("click", () => {
   signInForm.style.display = "block";
 });
 
-//PROIGOUMENH LYSH GIA TA REVIEW
+
+
+//PROIGOUMENH LYSH GIA TA REVIEWS
 // //ReviewSubmit  writeReview
 // const ReviewSubmit  = document.querySelector("#ReviewSubmit");
 // const writeReview = document.querySelector("#writeReview");
@@ -271,10 +239,7 @@ textSignIn.addEventListener("click", () => {
 
 
 
-
-
 ///SUMBIT FORM--CONFIRMATION MESSAGE
-
 function validateForm() {
   // submit form
 
@@ -360,42 +325,7 @@ triggerTabList.forEach(function (triggerEl) {
   });
 });
 
-// CAROUSEL CHANGING
-// const carouselScript = document.querySelector('.carousel');
-// console.log(carouselScript);
 
-// const dragging = (e) => {
-//     carouselScript.scrollLeft = e.pageX;
-// }
-
-// carouselScript.addEventListener("mousemove", dragging);
-
-// FORM VALIDATION BOOTSTRAP
-
-// CAROUSEL
-// $(document).ready(function() {
-//   $('#carousel0').bxSlider({
-//       easing: 'ease-in-out',
-//       pager: false,
-//       slideWidth: 1200,
-//       slideMargin: 10,
-//       minSlides: 3,
-//       maxSlides: 3,
-//       moveSlides: 1,
-//       nextSelector: $('#bx-controls-direction2'),
-//     prevSelector: $('#bx-controls-direction2'),
-//       nextText: '' +
-//               '<span class="fa-stack fa-lg">' +
-//                   '<i class="fa fa-chevron-right fa-stack-1x">' +
-//               '</span>',
-//       prevText: '' +
-//               '<span class="fa-stack fa-lg">' +
-//                   '<i class="fa fa-chevron-left fa-stack-1x">' +
-//               '</span>'
-//   });
-// });
-
-// });
 
 //PHOTO CAROUSEL BOOTSTRAP
 if (document.getElementsByClassName("carousel").length > 0) {

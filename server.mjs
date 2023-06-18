@@ -9,7 +9,7 @@ import SQLiteStore from "connect-sqlite3";
 const SQLiteStoreSession = SQLiteStore(session);
 
 const app = express();
-const router = express.Router();
+// const router = express.Router();
 
 app.engine("hbs", engine({ extname: "hbs" }));
 app.set("view engine", "hbs");
@@ -18,58 +18,24 @@ app.set("view engine", "hbs");
 //το αρχείο /public/style.css
 app.use(express.static("public"));
 app.use(express.urlencoded({ extended: false }));
+// app.use('/controllers', express.static(`${__dirname}/controllers/`));
 
 // εισάγουμε τη βάση δεδομένων
 import * as model from "./model/model_pg.mjs";
 
-// DROMOLOGISI EFARMOGHS ME ROUTING
-app.use("/", router);
 
-// EXAMPLES-TESTS---------------------------------------------------------------------------------------
-//Routing exammple
-// SYNARTISI--- PARADEIGMA GET FORMAS--STOIXEIA PINAKA testform
-let GetExample = function (req, res) {
-  model.loadTest((err, result) => {
-    if (err) {
-      return console.error(err.message);
-    }
-    res.render("test-view");
-    // console.log(res.rows);
-  });
-};
 
-let localing = function (req, res, next) {
-  // it is a middleware that gets called before every route
-  // it is used to pass global variables to the views
-  if (req.session.signedIn) {
-    // res.locals.variable, is like parsing a variable in render for handlebars to use
-    res.locals.full_name = req.session.full_name;
-    res.locals.signedIn = req.session.signedIn;
-    // sto handlebars {{#if signedIn}} {{full_name}} {{/if}}
-  } else {
-    res.locals.signedIn = false;
-  }
-  next();
-};
-
-//ROUTING --PARADEIGMA GET FORMAS--STOIXEIA PINAKA testform
-router.route("/test").get(GetExample);
-// router.route('/test').post(PostExample);
-
-// // req.body  APOTELESMATA APO TO INPUT
-// console.log(req.body.fname);
-// console.log(req.body);
-
+//AUTOINCREMENTS IDSS
 // SYNARTISI AUTOMATISMOU BOOKING ID
 const autoBookId = function (req, res, next) {
   model.getBookingId((err, result) => {
     console.log(`${result} is the last booking id found`);
-    if (result===null || result===undefined || !result){
-      result=0;
+    if (result === null || result === undefined || !result) {
+      result = 0;
     }
-    
+
     res.locals.booking_id = result + 1;
-    console.log(`booking id is ${res.locals.booking_id}`)
+    console.log(`booking id is ${res.locals.booking_id}`);
     next();
   });
 };
@@ -83,29 +49,21 @@ const autoId = function (req, res, next) {
   });
 };
 
-//PARADEIGMA POST FORMAS--PROSTHETEI STOIXEIA STON PINAKA testform
-app.post(
-  "/test",
-  autoId,
 
-  (req, res) => {
-    // console.log(res.locals.clientId);
-    model.insertUser(
-      req.body.fname,
-      req.body.lname,
-      res.locals.user_id,
-      (err) => {
-        if (err) {
-          return console.error(err.message);
-        }
-        res.render("test-view");
-      }
-    );
-  }
-);
+
+
+// EXAMPLES-TESTS---------------------------------------------------------------------------------------
+//Routing exammple
+import test from "./controllers/test.mjs";
+import postTest from "./controllers/postTest.mjs";
+
+//EXAMPLE GET FORMAS
+app.get("/test", test);
+
+//EXAMPLE POST FORMAS
+app.post("/test",autoId, postTest);
 // EXAMPLES-TESTS---------------------------------------------------------------------------------------
 
-//GET REQUESTS---------------------------------------------------------------------------------------
 
 //Sessions
 app.use(
@@ -120,42 +78,22 @@ app.use(
   })
 );
 
+
+//SIGN IN-SIGN UP-LOG OUT
 app.get("/signIn", (req, res) => {
   res.redirect(req.get("referer"));
 });
 
-app.post("/signIn", autoId, (req, res) => {
-  const email_req = req.body.email;
-  const password_req = req.body.password;
-  model.checkUser(email_req, password_req, (err, result) => {
-    if (err) {
-      console.log(err);
-      res.redirect(req.get("referer"));
-    } else {
-      if (!result) {
-        res.redirect("/");
-      } else {
-        // global variables of session
-        req.session.signedIn = true;
-        req.session.full_name = result.full_name;
-        req.session.client_id = result.client_id;
-        console.log(req.session.full_name, req.session.signedIn);
-        res.redirect(req.get("referer"));
-      }
-    }
-  });
-});
+app.post("/signIn", autoId, SignIn);
+import SignIn from "./controllers/SignIn.mjs";
 
-app.get("/logOut", (req, res) => {
-  console.log("logout...", req.session);
-  req.session.destroy((err) => {
-    if (err) {
-      res.redirect("/");
-    }
-    // res.redirect(req.get("referer"));
-    res.redirect("/");
-  });
-});
+
+app.get("/logOut", logOut);
+import logOut from "./controllers/logOut.mjs";
+
+
+app.post("/signUp", autoId, SignUp);
+import SignUp from "./controllers/SignUp.mjs";
 
 // router.post('/signUp', autoId,
 // (req, res, next) => {
@@ -207,85 +145,42 @@ app.get("/logOut", (req, res) => {
 //     res.redirect('/')
 // });
 
+//IMPORTS
+import localing from "./controllers/localing.mjs";
+
+import homepage from "./controllers/home.mjs";
+import getRoomDes from "./controllers/getRoomDes.mjs";
+import getAvailableRooms from "./controllers/getAvailableRooms.mjs";
+import profilePage from "./controllers/profilePage.mjs";
+import editBooking from "./controllers/editBooking.mjs";
+import deleteBooking from "./controllers/deleteBooking.mjs";
+import writeReview from "./controllers/writeReview.mjs";
+
+
 //Routing
-
 //Homepage
-app.get("/", localing, (req, res) => {
-  // φορτώνω τον πίνακα roomΤypep-για να εμφανιστούν τα δωμάτια στην αρχική σελίδα
-  let RoomTypeLoad;
-  model.getRoomDesc((err, roomtyperows) => {
-    if (err) {
-      return console.error(err.message);
-    }
-    RoomTypeLoad = roomtyperows;
-    // console.log(RoomTypeLoad[0]);
-    res.render("home", { RoomTypePostg: RoomTypeLoad }); //τις τιμές που παίρνω από τη βάση τις περνάω στο home.hbs για να τραξβήξω από τη βάση τα δεδομένα με το object RoomTypeLoad
-  });
-});
-
-//Reviews
-app.get("/WriteComment", localing, (req, res) => {
-  // φορτώνω τον πίνακα roomΤypep-για να εμφανιστούν τα δωμάτια στην αρχική σελίδα
-  let RoomTypeLoadDesReview;
-  let id = req.query.roomTypeId;
-  model.getRooms(id, (err, roomtyperows) => {
-    if (err) {
-      return console.error(err.message);
-    }
-    RoomTypeLoad = roomtyperows;
-    // console.log(RoomTypeLoad[0]);
-    res.render("WriteComment", { RoomTypePostg: RoomTypeLoadDesReview[0] }); //τις τιμές που παίρνω από τη βάση τις περνάω στο home.hbs για να τραξβήξω από τη βάση τα δεδομένα με το object RoomTypeLoad
-  });
-});
+app.get("/", localing, homepage);
 
 //όταν πατάει ένα δωμάτιο από την αρχική σελίδα
-app.get("/getRoomDesc", localing, (req, res) => {
-  let RoomTypeLoadDes;
-  let id = req.query.roomTypeId;
-
-  model.getRooms(id, (err, roomtyperows) => {
-    // φορτώνω τον πίνακα roomΤypep
-
-    if (err) {
-      return console.error(err.message);
-    }
-    RoomTypeLoadDes = roomtyperows;
-    res.render("productDescription", {
-      RoomTypePostgDes: RoomTypeLoadDes[0],
-      GuestNumber: roomtyperows[0].quests_amount,
-      TypeRoomPrice: roomtyperows[0].room_type_price,
-      PhotoRoomType: roomtyperows[0].room_type_photo,
-      RoomTypeName: roomtyperows[0].room_type_name,
-    }); //τις τιμές που παίρνω από τη βάση τις περνάω στο home.hbs για να τραξβήξω από τη βάση τα δεδομένα με το object RoomTypeLoadDes
-  });
-});
+app.get("/getRoomDesc", localing, getRoomDes);
 
 //Booking List
-app.get("/bookingList", localing, (req, res) => {
-  //βάζω στο url τα δεδομένα της φόρμας
-  res.locals.checkInDate = req.query.checkInDate;
-  res.locals.checkOutDate = req.query.checkOutDate;
-  res.locals.GuestNumber = req.query.GuestNumber;
+app.get("/bookingList", localing, getAvailableRooms);
 
-  let GuestNumberControl = req.query.GuestNumber;
-  let RoomTypeLoadBookList;
+//Profile Page
+app.get("/profilePage", localing, profilePage);
 
-  model.getRoomGuestDate(GuestNumberControl, (err, roomtyperows) => {
-    // φορτώνω τον πίνακα roomΤypep
-    if (err) {
-      return console.error(err.message);
-    }
-    RoomTypeLoadBookList = roomtyperows;
+//Edit Booking
+app.get("/editBooking", localing, editBooking);
 
-    res.render("bookingList", {
-      RoomTypePostgBookList: RoomTypeLoadBookList,
-      GuestNumber: roomtyperows[0].quests_amount,
-      TypeRoomPrice: roomtyperows[0].room_type_price,
-      PhotoRoomType: roomtyperows[0].room_type_photo,
-      RoomTypeName: roomtyperows[0].room_type_name,
-    });
-  });
-});
+//Delete Booking
+app.get("/deleteBooking", localing, deleteBooking);
+
+//Reviews
+app.get("/WriteComment", localing, writeReview);
+
+
+
 
 //Format date to insert in postgres database
 function getFormattedDate() {
@@ -294,6 +189,7 @@ function getFormattedDate() {
     today.getFullYear() + "-" + (today.getMonth() + 1) + "-" + today.getDate();
   return bookingDate;
 }
+
 
 // middleware
 // app.method( path, middleware1, middleware2, middleware3, ..., callback)
@@ -318,7 +214,7 @@ app.post(
     let totalPrice = req.body.hiddenPrice;
     // εχουν σιγουρα μπει στο request ?
     let breakfast = req.body.hiddenBreakfast;
-    let fastwifi =  req.body.hiddenWifi;
+    let fastwifi = req.body.hiddenWifi;
     // console.log(`1.BOOKING ID IS ${res.locals.bookingId}`);
     // console.log(`1.BOOKING DATE IS ${bookingDate}`);
     // console.log(`1.EXTRA ID IS ${extraId}`);
@@ -341,25 +237,10 @@ app.post(
     );
   },
 
-
   (req, res) => {
     res.redirect("/bookingList");
   }
 );
 
-//Profile Page
-app.get("/profilePage", localing, (req, res) => {
-  res.render("profilePage");
-});
-
-//Edit Booking
-app.get("/editBooking", localing, (req, res) => {
-  res.render("editBooking");
-});
-
-//Delete Booking
-app.get("/deleteBooking", localing, (req, res) => {
-  res.render("deleteBooking");
-});
-
+//Server
 app.listen(8000, () => console.log("Server is starting at port", 8000));
