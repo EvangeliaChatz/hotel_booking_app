@@ -1,50 +1,50 @@
 
-DROP TABLE  public."CLIENT"  CASCADE ;
-DROP TABLE  public."BOOKING"  CASCADE ;
-DROP TABLE  public."INCLUDES"  CASCADE ;
-DROP TABLE  public."ROOM"  CASCADE ;
-DROP TABLE  public."ROOM_TYPE"  CASCADE ;
+DROP TABLE  public."client"  CASCADE ;
+DROP TABLE  public."booking"  CASCADE ;
+DROP TABLE  public."includes"  CASCADE ;
+DROP TABLE  public."room"  CASCADE ;
+DROP TABLE  public."room_type"  CASCADE ;
 
 
--- DROP TABLE  public."public.CLIENT"  CASCADE ;
--- DROP TABLE  public."public.BOOKING"  CASCADE ;
--- DROP TABLE  public."public.INCLUDES"  CASCADE ;
--- DROP TABLE  public."public.ROOM"  CASCADE ;
--- DROP TABLE  public."public.ROOM_TYPE"  CASCADE ;
+-- DROP TABLE  public."public.client"  CASCADE ;
+-- DROP TABLE  public."public.booking"  CASCADE ;
+-- DROP TABLE  public."public.includes"  CASCADE ;
+-- DROP TABLE  public."public.room"  CASCADE ;
+-- DROP TABLE  public."public.room_type"  CASCADE ;
 
-CREATE TABLE "CLIENT" (
+CREATE TABLE "client" (
 	"full_name" varchar(30) NOT NULL,
 	"email" varchar(30) NOT NULL,
 	"password" varchar(255) NOT NULL,
 	"phone_number" integer NOT NULL,
 	"client_id" serial NOT NULL,
-	CONSTRAINT "CLIENT_pk" PRIMARY KEY ("client_id")
+	CONSTRAINT "client_pk" PRIMARY KEY ("client_id")
 ) WITH (
   OIDS=FALSE
 );
 
 
 
-CREATE TABLE "BOOKING" (
+CREATE TABLE "booking" (
 	"booking_id" serial NOT NULL,
 	"total_price" integer NOT NULL,
 	"booking_date" DATE NOT NULL,
 	"client_id" integer NOT NULL,
 	"breakfast" BOOLEAN ,
 	"fastwifi" BOOLEAN ,
-	CONSTRAINT "BOOKING_pk" PRIMARY KEY ("booking_id")
+	CONSTRAINT "booking_pk" PRIMARY KEY ("booking_id")
 ) WITH (
   OIDS=FALSE
 );
 
 
 
-CREATE TABLE "INCLUDES" (
+CREATE TABLE "includes" (
 	"arrival_date" DATE NOT NULL,
-	"real_arrival_date" DATE NOT NULL,
+	"real_arrival_date" DATE ,
 	"dep_date" DATE NOT NULL,
-	"real_dep_date" DATE NOT NULL,
-	"reviews" varchar(255) NOT NULL,
+	"real_dep_date" DATE ,
+	"reviews" varchar(255) ,
 	"booking_id" integer NOT NULL,
 	"room_id" integer NOT NULL
 ) WITH (
@@ -53,7 +53,7 @@ CREATE TABLE "INCLUDES" (
 
 
 
-CREATE TABLE "ROOM" (
+CREATE TABLE "room" (
 	"room_type_name" TEXT NOT NULL,
 	"sea_view" TEXT NOT NULL,
 	"kitchen" TEXT NOT NULL,
@@ -65,7 +65,7 @@ CREATE TABLE "ROOM" (
 
 
 
-CREATE TABLE "ROOM_TYPE" (
+CREATE TABLE "room_type" (
 	"room_id" serial NOT NULL,
 	"room_type_photo" varchar(255) NOT NULL,
 	"room_type_description" varchar(500) NOT NULL,
@@ -81,9 +81,9 @@ CREATE TABLE "ROOM_TYPE" (
 
 
 
-ALTER TABLE "BOOKING" ADD CONSTRAINT "BOOKING_fk1" FOREIGN KEY ("client_id") 	REFERENCES "CLIENT"("client_id");
-ALTER TABLE "INCLUDES" ADD CONSTRAINT "INCLUDES_fk0" FOREIGN KEY ("booking_id") 	REFERENCES "BOOKING"("booking_id");
-ALTER TABLE "INCLUDES" ADD CONSTRAINT "INCLUDES_fk1" FOREIGN KEY ("room_id") 	REFERENCES "ROOM_TYPE"("room_id");
+ALTER TABLE "booking" ADD CONSTRAINT "booking_fk1" FOREIGN KEY ("client_id") 	REFERENCES "client"("client_id");
+ALTER TABLE "includes" ADD CONSTRAINT "includes_fk0" FOREIGN KEY ("booking_id") 	REFERENCES "booking"("booking_id");
+ALTER TABLE "includes" ADD CONSTRAINT "includes_fk1" FOREIGN KEY ("room_id") 	REFERENCES "room_type"("room_id");
 
 
 

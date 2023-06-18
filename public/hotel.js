@@ -11,12 +11,11 @@ const options = {
   month: "long",
   day: "numeric",
 };
-let formattedDate = today.toISOString().substr(0, 10);  
+let formattedDate = today.toISOString().substr(0, 10);
 let formattedDate2 = twoDaysLater.toISOString().substr(0, 10);
 
 console.log(formattedDate);
 console.log(formattedDate2);
-
 
 // Set the value of the inputs to two days from the current date
 let currentDay = document.getElementById("current-date-input");
@@ -29,18 +28,17 @@ currentDay.addEventListener("input", () => {
   laterDay.setAttribute("min", minDate);
 });
 
-if  (!currentDay.value){
-currentDay.setAttribute("min", formattedDate);
-currentDay.value = formattedDate;
+if (!currentDay.value) {
+  currentDay.setAttribute("min", formattedDate);
+  currentDay.value = formattedDate;
 }
 
-if  (!laterDay.value){
-laterDay.setAttribute("min", formattedDate);
-laterDay.value = formattedDate2;
+if (!laterDay.value) {
+  laterDay.setAttribute("min", formattedDate);
+  laterDay.value = formattedDate2;
 }
 
-
-  ///YPOLOGISMOS TOTAL PRICE KAI STO PRODUCCT DESCRIPTION OPWS STH BOOKING LIST
+///YPOLOGISMOS TOTAL PRICE KAI STO PRODUCCT DESCRIPTION OPWS STH BOOKING LIST
 
 //BOOKING FORM AUTOMATIC FILL AT ROOM DESCRIPTION
 let CheckavailButt = document.getElementById("CheckavailButt");
@@ -59,15 +57,15 @@ if (CheckavailButt) {
     const PopUpPrice2 = document.getElementById("total-price");
 
     //DISPLAY THE TOTAL PRICE IN BOOKING LIST BOOKING POP UP-εμφανίζει την συνολική τιμή για τις μέρες που έχει επιλέξει ο χρήστης (αν είναι 2 ημέρες διπλή τιμή κτλπ)
-    const NumberOfDays= getDaysBetweenDates( PopUpCheckin, PopUpCheckout);
-     console.log(NumberOfDays);
-      PopUpPrice2.textContent= `${NumberOfDays*parseInt( PopUpPrice2.textContent)} €`;
-      
+    const NumberOfDays = getDaysBetweenDates(PopUpCheckin, PopUpCheckout);
+    console.log(NumberOfDays);
+    PopUpPrice2.textContent = `${
+      NumberOfDays * parseInt(PopUpPrice2.textContent)
+    } €`;
 
     // BookingForm.classList.remove("d-none");
     PopConfimation.classList.add("d-none");
 
-  
     //εμφανίζει ημερομηνιών στο pop up
     PopUpDateDisp.textContent = `${PopUpCheckin} - ${PopUpCheckout}`;
     console.log("PopUpDateDispl");
@@ -76,12 +74,8 @@ if (CheckavailButt) {
 
 //TOTAL PRICE CALCULATION-EXTRA CHECKBOXES
 let counter = document.getElementById("total-price");
-let bookFormPrice =document.getElementById("priceEx");
-let ChechBreakf =document.getElementById("breakf-ex");
-
-
-
-
+let bookFormPrice = document.getElementById("priceEx");
+let ChechBreakf = document.getElementById("breakf-ex");
 
 let checkbox1 = document.getElementById("flexSwitchCheckDefault");
 if (checkbox1) {
@@ -95,12 +89,11 @@ if (checkbox1) {
       counter.textContent = parseInt(counter.textContent) - 5 + "€";
       ChechBreakf.value = false;
     }
-    bookFormPrice.value=counter.textContent.trim("€");
+    bookFormPrice.value = counter.textContent.trim("€");
 
     console.log(ChechBreakf);
   });
 }
-
 
 let checkbox2 = document.getElementById("flexSwitchCheckDefault2");
 let FastWifi = document.getElementById("fastwifi-ex");
@@ -117,12 +110,9 @@ if (checkbox2) {
     }
     console.log(FastWifi);
     // bookFormPrice.value=counter.textContent;
-    bookFormPrice.value=counter.textContent.trim("€");
+    bookFormPrice.value = counter.textContent.trim("€");
   });
-
 }
-
-
 
 //YPOLOGISMOS IMERVN ANALOGA ME TO INPUT TOU XRHSTH(CHECK IN-CHECK OUT)
 function getDaysBetweenDates(date1, date2) {
@@ -131,24 +121,22 @@ function getDaysBetweenDates(date1, date2) {
   date2 = string2Date(date2);
 
   let timeDiff = Math.abs(date2.getTime() - date1.getTime());
-  
+
   // Convert the time difference to days
   let days = Math.ceil(timeDiff / (1000 * 3600 * 24));
   return days;
-  };
-  
+}
 
 //  parse a date in yyyy-mm-dd format
 function string2Date(input) {
-    var parts = input.match(/(\d+)/g);
-    // new Date(year, month [, date [, hours[, minutes[, seconds[, ms]]]]])
-    return new Date(parts[0], parts[1]-1, parts[2]); // months are 0-based
-  }
+  var parts = input.match(/(\d+)/g);
+  // new Date(year, month [, date [, hours[, minutes[, seconds[, ms]]]]])
+  return new Date(parts[0], parts[1] - 1, parts[2]); // months are 0-based
+}
 
-
-  
-
-let hiddenArrivalDate = document.getElementById("hidden-arrival-date");
+let hiddenArrivalDate = document.getElementById("checkIn-ex");
+let hiddenDepDate = document.getElementById("checkOut-ex");
+let hiddenRoomId = document.getElementById("roomId-ex");
 
 //BOOKING FORM AUTOMATIC FILL ---LOAD BOOK ROOM POP AT BOOKING LIST
 for (
@@ -170,12 +158,12 @@ for (
       let PopUpGuest = document.getElementById("popUpGuestDis");
       PopUpGuest.textContent = PopUpGuestDispl.textContent;
 
-      // pipupPriceDispl θα παιρνει την τιμη απο το total-price x τις μερες που θα μενει ο χρηστης 
-      const PopUpPriceDispl = document.getElementById(`list-results-price-${i}`);
+      // pipupPriceDispl θα παιρνει την τιμη απο το total-price x τις μερες που θα μενει ο χρηστης
+      const PopUpPriceDispl = document.getElementById(
+        `list-results-price-${i}`
+      );
       const PopUpPrice = document.getElementById("total-price");
       PopUpPrice.textContent = PopUpPriceDispl.textContent;
-
-      
 
       //Dates POP UP BOOKING
       const PopUpDateDispl = document.getElementById("popUpDatesDis");
@@ -185,26 +173,37 @@ for (
       const PopUpCheckout = document.getElementById("twodays-date-input").value;
 
       PopUpDateDispl.textContent = `${PopUpCheckin} - ${PopUpCheckout}`;
-      console.log("PopUpDateDispl");
-
-
+      
       //DISPLAY THE TOTAL PRICE IN BOOKING LIST BOOKING POP UP-εμφανίζει την συνολική τιμή για τις μέρες που έχει επιλέξει ο χρήστης (αν είναι 2 ημέρες διπλή τιμή κτλπ)
-     const NumberOfDays= getDaysBetweenDates( PopUpCheckin, PopUpCheckout);
-    //  console.log(NumberOfDays);
-     PopUpPrice.textContent= `${NumberOfDays*parseInt(PopUpPriceDispl.textContent)} €`;
-
+      const NumberOfDays = getDaysBetweenDates(PopUpCheckin, PopUpCheckout);
+      //  console.log(NumberOfDays);
+      PopUpPrice.textContent = `${
+        NumberOfDays * parseInt(PopUpPriceDispl.textContent)
+      } €`;
+      
+      
       //Στο τέλος αποεπιλέγει τα checkbox για να μην εμφανίζονται επιλεγμένα στο επόμενο pop up
       document.getElementById("flexSwitchCheckDefault").checked = false;
       document.getElementById("flexSwitchCheckDefault2").checked = false;
-      bookFormPrice.value=counter.textContent.trim("€");
+      bookFormPrice.value = counter.textContent.trim("€");
+      
+      console.log("PopUpDateDispl");
 
+      let roomId = document.getElementById(`list-results-room-type-id-${i}`);
+      if (roomId) {
+        hiddenRoomId.value = roomId.value;
+        console.log(hiddenRoomId.value);
+      }
+      hiddenArrivalDate.value = PopUpCheckin;
+      hiddenDepDate.value = PopUpCheckout;
+      console.log(hiddenArrivalDate.value);
+      console.log(hiddenDepDate.value);
+      console.log(PopUpCheckin, PopUpCheckout);
     });
   }
 }
 
-
-
-// EXCHANGE FORMS SIGN IN-SIGN UP 
+// EXCHANGE FORMS SIGN IN-SIGN UP
 const textSignUp = document.querySelector("#SignUp");
 const textSignIn = document.querySelector("#SignIn");
 
@@ -221,9 +220,6 @@ textSignIn.addEventListener("click", () => {
   signUpForm.style.display = "none";
   signInForm.style.display = "block";
 });
-
-
-
 
 ///SUMBIT FORM--CONFIRMATION MESSAGE
 function validateForm() {
@@ -245,8 +241,6 @@ function validateForm() {
   });
 }
 
-
-
 // MODAL--POP UP MESSAGE
 var triggerTabList = [].slice.call(document.querySelectorAll("#myTab a"));
 triggerTabList.forEach(function (triggerEl) {
@@ -257,8 +251,6 @@ triggerTabList.forEach(function (triggerEl) {
     tabTrigger.show();
   });
 });
-
-
 
 //PHOTO CAROUSEL BOOTSTRAP
 if (document.getElementsByClassName("carousel").length > 0) {
@@ -280,20 +272,17 @@ if (document.getElementsByClassName("carousel").length > 0) {
   });
 }
 
-
 //Confirmation message display
 const PopConfimation = document.getElementById("confirmation-message");
 const BookingForm = document.getElementById("booking-form");
 const BookingSubmit = document.getElementById("sumbit-booking");
-if (BookingSubmit && BookingForm && PopConfimation){
-BookingSubmit.addEventListener("click", () => {
-  // Hide the booking form and display the confirmation message
-  BookingForm.classList.add("d-none");
-  PopConfimation.classList.remove("d-none");
-});
-
-};
-
+if (BookingSubmit && BookingForm && PopConfimation) {
+  BookingSubmit.addEventListener("click", () => {
+    // Hide the booking form and display the confirmation message
+    BookingForm.classList.add("d-none");
+    PopConfimation.classList.remove("d-none");
+  });
+}
 
 //LOADER LG OUT EFFECT SCRIPT
 function startLoading(event) {
@@ -306,7 +295,6 @@ function startLoading(event) {
   setTimeout(stopLoading, 2000);
 }
 
-
 function stopLoading() {
   var loaderContainer = document.getElementById("loaderContainer");
   loaderContainer.style.display = "none"; // Hide the loader container
@@ -315,22 +303,18 @@ function stopLoading() {
   window.location.href = "/logOut";
 }
 
-
 //CURSOR EFFECT
-document.addEventListener('mousedown', handleMouseDown);
+document.addEventListener("mousedown", handleMouseDown);
 
 function handleMouseDown(event) {
-  const wavyEffect = document.createElement('div');
-  wavyEffect.classList.add('wavy-effect');
+  const wavyEffect = document.createElement("div");
+  wavyEffect.classList.add("wavy-effect");
   document.body.appendChild(wavyEffect);
 
-  wavyEffect.style.top = event.clientY + 'px';
-  wavyEffect.style.left = event.clientX + 'px';
+  wavyEffect.style.top = event.clientY + "px";
+  wavyEffect.style.left = event.clientX + "px";
 
   setTimeout(() => {
     wavyEffect.remove();
   }, 1000);
 }
-
-
-
