@@ -82,6 +82,7 @@ let ChechBreakf =document.getElementById("breakf-ex");
 
 
 
+
 let checkbox1 = document.getElementById("flexSwitchCheckDefault");
 if (checkbox1) {
   checkbox1.addEventListener("change", function () {
@@ -147,6 +148,7 @@ function string2Date(input) {
 
   
 
+let hiddenArrivalDate = document.getElementById("hidden-arrival-date");
 
 //BOOKING FORM AUTOMATIC FILL ---LOAD BOOK ROOM POP AT BOOKING LIST
 for (

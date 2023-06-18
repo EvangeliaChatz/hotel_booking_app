@@ -16,6 +16,9 @@ async function signIn (req, res) {
           req.session.signedIn = true;
           req.session.full_name = result.full_name;
           req.session.client_id = result.client_id;
+          req.session.email = result.email;
+          req.session.phone = result.phone_number;
+
           console.log(req.session.full_name, req.session.signedIn);
           res.redirect(req.get("referer"));
         }

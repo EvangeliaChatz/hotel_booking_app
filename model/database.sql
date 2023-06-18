@@ -15,7 +15,7 @@ DROP TABLE  public."ROOM_TYPE"  CASCADE ;
 CREATE TABLE "CLIENT" (
 	"full_name" varchar(30) NOT NULL,
 	"email" varchar(30) NOT NULL,
-	"password" varchar(30) NOT NULL,
+	"password" varchar(255) NOT NULL,
 	"phone_number" integer NOT NULL,
 	"client_id" serial NOT NULL,
 	CONSTRAINT "CLIENT_pk" PRIMARY KEY ("client_id")

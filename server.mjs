@@ -23,46 +23,22 @@ app.use(express.urlencoded({ extended: false }));
 // εισάγουμε τη βάση δεδομένων
 import * as model from "./model/model_pg.mjs";
 
-
-
 //AUTOINCREMENTS IDSS
 // SYNARTISI AUTOMATISMOU BOOKING ID
-const autoBookId = function (req, res, next) {
-  model.getBookingId((err, result) => {
-    console.log(`${result} is the last booking id found`);
-    if (result === null || result === undefined || !result) {
-      result = 0;
-    }
 
-    res.locals.booking_id = result + 1;
-    console.log(`booking id is ${res.locals.booking_id}`);
-    next();
-  });
-};
+// const autoBookId = function (req, res, next) {
+//   model.getBookingId((err, result) => {
+//     console.log(`${result} is the last booking id found`);
+//     if (result === null || result === undefined || !result) {
+//       result = 0;
+//     }
 
-// SYNARTISI AUTOMATISMOU ID USER
-const autoId = function (req, res, next) {
-  model.getUserId((err, result) => {
-    console.log(`${result} is the last user id found`);
-    res.locals.user_id = result + 1;
-    next();
-  });
-};
+//     res.locals.booking_id = result + 1;
+//     console.log(`booking id is ${res.locals.booking_id}`);
+//     next();
+//   });
+// };
 
-
-
-
-// EXAMPLES-TESTS---------------------------------------------------------------------------------------
-//Routing exammple
-import test from "./controllers/test.mjs";
-import postTest from "./controllers/postTest.mjs";
-
-//EXAMPLE GET FORMAS
-app.get("/test", test);
-
-//EXAMPLE POST FORMAS
-app.post("/test",autoId, postTest);
-// EXAMPLES-TESTS---------------------------------------------------------------------------------------
 
 
 //Sessions
@@ -78,24 +54,20 @@ app.use(
   })
 );
 
-
 //SIGN IN-SIGN UP-LOG OUT
 app.get("/signIn", (req, res) => {
   res.redirect(req.get("referer"));
 });
 
-app.post("/signIn", autoId, SignIn);
+// app.post("/signIn", autoId, SignIn);
+app.post("/signIn",SignIn);
 import SignIn from "./controllers/SignIn.mjs";
-
 
 app.get("/logOut", logOut);
 import logOut from "./controllers/logOut.mjs";
 
-
-app.post("/signUp", autoId, SignUp);
+app.post("/signUp",  SignUp);
 import SignUp from "./controllers/SignUp.mjs";
-
-
 
 //IMPORTS
 import localing from "./controllers/localing.mjs";
@@ -107,40 +79,33 @@ import profilePage from "./controllers/profilePage.mjs";
 import editBooking from "./controllers/editBooking.mjs";
 import deleteBooking from "./controllers/deleteBooking.mjs";
 import writeReview from "./controllers/writeReview.mjs";
+import  getTodaysDateFormatted  from "./controllers/formattedTodaysDate.mjs";
+import insertingBooking from "./controllers/saveBooking.mjs";
+import insertingIncludes from "./controllers/saveIncludes.mjs";
 
+app.use(localing);
 
 //Routing
 //Homepage
-app.get("/", localing, homepage);
+app.get("/", homepage);
 
 //όταν πατάει ένα δωμάτιο από την αρχική σελίδα
-app.get("/getRoomDesc", localing, getRoomDes);
+app.get("/getRoomDesc", getRoomDes);
 
 //Booking List
-app.get("/bookingList", localing, getAvailableRooms);
+app.get("/bookingList", getAvailableRooms);
 
 //Profile Page
-app.get("/profilePage", localing, profilePage);
+app.get("/profilePage", profilePage);
 
 //Edit Booking
-app.get("/editBooking", localing, editBooking);
+app.get("/editBooking", editBooking);
 
 //Delete Booking
-app.get("/deleteBooking", localing, deleteBooking);
+app.get("/deleteBooking", deleteBooking);
 
 //Reviews
-app.get("/WriteComment", localing, writeReview);
-
-
-
-
-//Format date to insert in postgres database
-function getFormattedDate() {
-  let today = new Date();
-  const bookingDate =
-    today.getFullYear() + "-" + (today.getMonth() + 1) + "-" + today.getDate();
-  return bookingDate;
-}
+app.get("/WriteComment", writeReview);
 
 
 // middleware
@@ -148,41 +113,10 @@ function getFormattedDate() {
 // middleware θεωρουνται τα (req, res, next) => { ... } functions
 
 //NA TA ALLAKSW--theloume na enhmerwnetai to client id & OTAN FTIAKSW TA SESSIONS
-app.post("/bookingForm", 
+app.post(
+  "/bookingForm",
 
-  //1o MIDDLEWARE
-  (req, res, next) => {
-    // res.locals ειναι μεταβλητες που μπορει να αξιοποιησει το response
-    // αντι να κανεις render('something', {variable: value}) μπορεις να κανεις res.locals.variable = value
-    // σε οποιοδηποτε middle του ιδιου  route
-    // οποτε στο handlebars μπορεις να χρησιμοποιησεις κατευθειαν {{variable}}
-
-    let bookingDate = getFormattedDate();
-    //RREPEI NA ALLAKSEI TO EXTRAID=1
-    let totalPrice = parseInt(req.body.hiddenPrice);
-    console.log(`1.TOTAL PRICE IS ${totalPrice} ${req.body.hiddenPrice}`);
-    // εχουν σιγουρα μπει στο request ?
-    let breakfast = req.body.hiddenBreakfast;
-    let fastwifi = req.body.hiddenWifi;
-    // console.log(`1.BOOKING ID IS ${res.locals.bookingId}`);
-    // console.log(`1.BOOKING DATE IS ${bookingDate}`);
-    // console.log(`1.EXTRA ID IS ${extraId}`);
-    // console.log(`1.TOTAL PRICE IS ${totalPrice}`);
-
-    model.insertBooking(
-      totalPrice,
-      bookingDate,
-      req.session.client_id,
-      breakfast,
-      fastwifi,
-      (err) => {
-        if (err) {
-          return console.error(err.message);
-        }
-        next();
-      }
-    );
-  },
+  insertingBooking,insertingIncludes,
 
   (req, res) => {
     res.redirect("/bookingList");

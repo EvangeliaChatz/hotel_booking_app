@@ -1,19 +1,19 @@
 select * from "public.ROOM_TYPE";
 
 
-DROP TABLE  public."booking"  CASCADE ;
+DROP TABLE  public."client"  CASCADE ;
 
-
-CREATE TABLE "booking" (
-	"booking_id" serial NOT NULL,
-	"total_price" integer NOT NULL,
-	"booking_date" DATE NOT NULL,
-	"client_id" integer NOT NULL,
-	"breakfast" BOOLEAN ,
-	"fastwifi" BOOLEAN ,
-	CONSTRAINT "BOOKING_pk" PRIMARY KEY ("booking_id")
+CREATE TABLE "client" (
+	"full_name" varchar(30) NOT NULL,
+	"email" varchar(30) NOT NULL,
+	"password" varchar(255) NOT NULL,
+	"phone_number" integer NOT NULL,
+	"client_id" serial NOT NULL,
+	CONSTRAINT "CLIENT_pk" PRIMARY KEY ("client_id")
 ) WITH (
   OIDS=FALSE
 );
+
+
 
 

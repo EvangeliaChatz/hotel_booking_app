@@ -53,7 +53,7 @@
 {{!-- ALL TABS TOGETHER --}}
 <div class="tab-content" id="myTabContent">
 
-
+{{!-- {{#if signedIn}} --}}
  {{!-- CONTENT TAB(PROFILE) ---------------------------------------------------------------------------------}}
         <div class="tab-pane fade  " id="profile" role="tabpanel" aria-labelledby="profile-tab">
             
@@ -64,29 +64,29 @@
                         <div class=" two-forms">
                             <div class="form-group">
                                 <label>Full name</label>
-                                <input type="text" class="form-control" placeholder="Chatzilygeroudi Evangelia">
+                                <input type="text" class="form-control" placeholder="Enter your full name" value="{{full_name}}" readonly disabled>
                             </div>
                             <div class="form-group  mt-4">
                                 <label>Phone number</label>
-                                <input type="text" class="form-control" placeholder="6971798497">
+                                <input type="text" class="form-control" placeholder="Enter your phone number" value="{{phone_number}}" readonly disabled>
                             </div>
                         </div>
 
                         <div class="col-12 col-md-4 two-forms">
                             <div class="form-group">
                                 <label>Email</label>
-                                <input type="email" class="form-control" placeholder="evaggeliahatz@gmail.com">
+                                <input type="email" class="form-control" placeholder="Enter your email" value="{{email}}" readonly disabled>
                             </div>
                             <div class="form-group mt-4">
                                 <label>Password</label>
-                                <input type="password" class="form-control" placeholder="****************">
+                                <input type="password" class="form-control" placeholder="*********" value="{{password}}" readonly disabled>
                             </div>
                         </div>   
                     </div>
                  </div>
                 <div class="d-flex gap-5 mt-5">
-                    <a href="#" class=" primary-button bt">SAVE CHANGES</a>
-                    <a href="#" class=" secondary-button btn">EDIT INFORMATION</a>
+                    <a href="" class=" primary-button bt">BACK TO BOOKINGS</a>
+                    <a href="" class=" secondary-button btn">EDIT INFORMATION</a>
                 </div>
               </form>
             </div>
