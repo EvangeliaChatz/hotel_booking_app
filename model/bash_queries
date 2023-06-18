@@ -1,0 +1,6 @@
+#!/bin/sh
+
+
+# heroku pg:psql postgresql-rectangular-96118 --app hotelbookingapp < database.sql
+heroku pg:psql postgresql-rectangular-96118 --app hotelbookingapp < data.sql
+# heroku pg:psql postgresql-rectangular-96118 --app hotelbookingapp < queries.sql
