@@ -95,55 +95,7 @@ import logOut from "./controllers/logOut.mjs";
 app.post("/signUp", autoId, SignUp);
 import SignUp from "./controllers/SignUp.mjs";
 
-// router.post('/signUp', autoId,
-// (req, res, next) => {
-//     //res.locals.email_req for the next middleware
-//         res.locals.email_req = req.body.email;
 
-//         model.checkEmail(res.locals.email_req, (err, result) => {
-//             if (result && !err) {
-//                 // user already exists
-//                 res.redirect(req.get('referer'));
-//             }
-//             else {
-//                 // user does not exist
-//                 next();
-//             }
-
-//             if (err && !result) {
-//                 // when result is undefined, it means that the user does not exist
-//                 console.log(err);
-//                 res.redirect(req.get('referer'));
-//             }
-//             else {
-//                 next();
-//             }
-//         });
-//     },
-//     (req, res) => {
-//         const phone_number = req.body.phone_number;
-//         const password = req.body.password;
-//         const full_name = req.body.full_name;
-//         model.addUser(full_name, res.locals.email_req,password, phone_number, res.locals.clienId, (err, resp) => {
-//             if (err) {
-//                 console.log(err);
-//                 res.redirect(req.get('referer'));
-//             }
-//             else {
-//                 req.session.signedIn = true;
-//                 req.session.email = req.body.email;
-//                 res.redirect(req.get('referer'));
-//             }
-//         });
-//     }
-// );
-
-// router.get('/signOut', (req, res) => {
-//     req.session.destroy((err) => {
-//         console.log("session destroyed")
-//     })
-//     res.redirect('/')
-// });
 
 //IMPORTS
 import localing from "./controllers/localing.mjs";
@@ -196,9 +148,7 @@ function getFormattedDate() {
 // middleware θεωρουνται τα (req, res, next) => { ... } functions
 
 //NA TA ALLAKSW--theloume na enhmerwnetai to client id & OTAN FTIAKSW TA SESSIONS
-app.post(
-  "/bookingForm",
-  autoBookId,
+app.post("/bookingForm", 
 
   //1o MIDDLEWARE
   (req, res, next) => {
@@ -209,9 +159,8 @@ app.post(
 
     let bookingDate = getFormattedDate();
     //RREPEI NA ALLAKSEI TO EXTRAID=1
-    // let extraId = req.body.hiddenbreakfast;
-    let extraId = 1;
-    let totalPrice = req.body.hiddenPrice;
+    let totalPrice = parseInt(req.body.hiddenPrice);
+    console.log(`1.TOTAL PRICE IS ${totalPrice} ${req.body.hiddenPrice}`);
     // εχουν σιγουρα μπει στο request ?
     let breakfast = req.body.hiddenBreakfast;
     let fastwifi = req.body.hiddenWifi;
@@ -221,10 +170,8 @@ app.post(
     // console.log(`1.TOTAL PRICE IS ${totalPrice}`);
 
     model.insertBooking(
-      res.locals.booking_id,
       totalPrice,
       bookingDate,
-      extraId,
       req.session.client_id,
       breakfast,
       fastwifi,

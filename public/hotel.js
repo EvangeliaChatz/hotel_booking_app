@@ -78,9 +78,10 @@ if (CheckavailButt) {
 
 //TOTAL PRICE CALCULATION-EXTRA CHECKBOXES
 let counter = document.getElementById("total-price");
-// let bookFormPrice =document.getElementById("priceEx");
+let bookFormPrice =document.getElementById("priceEx");
 let ChechBreakf =document.getElementById("breakf-ex");
-// bookFormPrice.value=counter.textContent;
+
+
 
 
 let checkbox1 = document.getElementById("flexSwitchCheckDefault");
@@ -93,10 +94,11 @@ if (checkbox1) {
     } else {
       // Decrement the counter by 5
       counter.textContent = parseInt(counter.textContent) - 5 + "€";
-      ChechBreakf = false;
+      ChechBreakf.value = false;
     }
+    bookFormPrice.value=counter.textContent.trim("€");
+
     console.log(ChechBreakf);
-    // bookFormPrice.value=counter.textContent;
   });
 }
 
@@ -116,7 +118,9 @@ if (checkbox2) {
     }
     console.log(FastWifi);
     // bookFormPrice.value=counter.textContent;
+    bookFormPrice.value=counter.textContent.trim("€");
   });
+
 }
 
 
@@ -192,6 +196,8 @@ for (
       //Στο τέλος αποεπιλέγει τα checkbox για να μην εμφανίζονται επιλεγμένα στο επόμενο pop up
       document.getElementById("flexSwitchCheckDefault").checked = false;
       document.getElementById("flexSwitchCheckDefault2").checked = false;
+      bookFormPrice.value=counter.textContent.trim("€");
+
     });
   }
 }

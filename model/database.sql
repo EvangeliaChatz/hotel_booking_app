@@ -1,12 +1,18 @@
 
-DROP TABLE  public."public.CLIENT"  CASCADE ;
-DROP TABLE  public."public.BOOKING"  CASCADE ;
-DROP TABLE  public."public.INCLUDES"  CASCADE ;
-DROP TABLE  public."public.ROOM"  CASCADE ;
-DROP TABLE  public."public.ROOM_TYPE"  CASCADE ;
+DROP TABLE  public."CLIENT"  CASCADE ;
+DROP TABLE  public."BOOKING"  CASCADE ;
+DROP TABLE  public."INCLUDES"  CASCADE ;
+DROP TABLE  public."ROOM"  CASCADE ;
+DROP TABLE  public."ROOM_TYPE"  CASCADE ;
 
 
-CREATE TABLE "public.CLIENT" (
+-- DROP TABLE  public."public.CLIENT"  CASCADE ;
+-- DROP TABLE  public."public.BOOKING"  CASCADE ;
+-- DROP TABLE  public."public.INCLUDES"  CASCADE ;
+-- DROP TABLE  public."public.ROOM"  CASCADE ;
+-- DROP TABLE  public."public.ROOM_TYPE"  CASCADE ;
+
+CREATE TABLE "CLIENT" (
 	"full_name" varchar(30) NOT NULL,
 	"email" varchar(30) NOT NULL,
 	"password" varchar(30) NOT NULL,
@@ -19,13 +25,13 @@ CREATE TABLE "public.CLIENT" (
 
 
 
-CREATE TABLE "public.BOOKING" (
+CREATE TABLE "BOOKING" (
 	"booking_id" serial NOT NULL,
 	"total_price" integer NOT NULL,
 	"booking_date" DATE NOT NULL,
 	"client_id" integer NOT NULL,
 	"breakfast" BOOLEAN ,
-	"fast wifi" BOOLEAN ,
+	"fastwifi" BOOLEAN ,
 	CONSTRAINT "BOOKING_pk" PRIMARY KEY ("booking_id")
 ) WITH (
   OIDS=FALSE
@@ -33,7 +39,7 @@ CREATE TABLE "public.BOOKING" (
 
 
 
-CREATE TABLE "public.INCLUDES" (
+CREATE TABLE "INCLUDES" (
 	"arrival_date" DATE NOT NULL,
 	"real_arrival_date" DATE NOT NULL,
 	"dep_date" DATE NOT NULL,
@@ -47,7 +53,7 @@ CREATE TABLE "public.INCLUDES" (
 
 
 
-CREATE TABLE "public.ROOM" (
+CREATE TABLE "ROOM" (
 	"room_type_name" TEXT NOT NULL,
 	"sea_view" TEXT NOT NULL,
 	"kitchen" TEXT NOT NULL,
@@ -59,7 +65,7 @@ CREATE TABLE "public.ROOM" (
 
 
 
-CREATE TABLE "public.ROOM_TYPE" (
+CREATE TABLE "ROOM_TYPE" (
 	"room_id" serial NOT NULL,
 	"room_type_photo" varchar(255) NOT NULL,
 	"room_type_description" varchar(500) NOT NULL,
@@ -75,9 +81,9 @@ CREATE TABLE "public.ROOM_TYPE" (
 
 
 
-ALTER TABLE "public.BOOKING" ADD CONSTRAINT "BOOKING_fk1" FOREIGN KEY ("client_id") 	REFERENCES "public.CLIENT"("client_id");
-ALTER TABLE "public.INCLUDES" ADD CONSTRAINT "INCLUDES_fk0" FOREIGN KEY ("booking_id") 	REFERENCES "public.BOOKING"("booking_id");
-ALTER TABLE "public.INCLUDES" ADD CONSTRAINT "INCLUDES_fk1" FOREIGN KEY ("room_id") 	REFERENCES "public.ROOM_TYPE"("room_id");
+ALTER TABLE "BOOKING" ADD CONSTRAINT "BOOKING_fk1" FOREIGN KEY ("client_id") 	REFERENCES "CLIENT"("client_id");
+ALTER TABLE "INCLUDES" ADD CONSTRAINT "INCLUDES_fk0" FOREIGN KEY ("booking_id") 	REFERENCES "BOOKING"("booking_id");
+ALTER TABLE "INCLUDES" ADD CONSTRAINT "INCLUDES_fk1" FOREIGN KEY ("room_id") 	REFERENCES "ROOM_TYPE"("room_id");
 
 
 

@@ -17,7 +17,7 @@
                           <form action="/bookingForm" method="post" class="needs-validation"  id="form-booking" novalidate>
                           <!-- FULL NAME OR USERNAME-->
                           <div class="form-floating mb-4">
-                            <input name="full_name" type="texts" class="form-control form-control-sm" placeholder="Full name or Username*" id="floatingInput_name">
+                            <input name="full_name" type="texts" class="form-control form-control-sm" placeholder="Full name or Username*" id="floatingInput_name" value="{{full_name}}">
                             <span id="name-error"></span>
                             <label for="floatingInput">Full name*</label>
                           </div>
@@ -53,8 +53,8 @@
                           {{!-- KRYMMENA STOIXEIA --}}
                           <!-- Hidden Fields -->
                           <input type="hidden" name="hiddenPrice" id="priceEx" value="">
-                          <input type="hidden" name="hiddenBreakfast" id="breakf-ex" value="">
-                          <input type="hidden" name="hiddenWifi" id="fastwifi-ex" value="">
+                          <input type="hidden" name="hiddenBreakfast" id="breakf-ex" value="false">
+                          <input type="hidden" name="hiddenWifi" id="fastwifi-ex" value="false">
                           </form>
                           <div class="mt-3">Don't have account? <span id="SignUp">Sign up</span></div>
                       </div>

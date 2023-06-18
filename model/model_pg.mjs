@@ -44,14 +44,7 @@ async function checkEmail(email_req, callback) {
   }
 }
 
-async function addUser(
-  full_name,
-  email,
-  phone_number,
-  password,
-
-  callback,
-) {
+async function addUser(full_name, email, password, phone_number, callback) {
   const sql = `INSERT INTO "CLIENT" ("full_name", "email", "password", "phone_number") VALUES ($1, $2, $3, $4) RETURNING "client_id","full_name"`;
   try {
     const client = await connect();
@@ -67,7 +60,6 @@ async function addUser(
     callback(err, null);
   }
 }
-
 
 // async function addUser(
 //   full_name,
@@ -93,7 +85,6 @@ async function addUser(
 //     callback(err, null);
 //   }
 // }
-
 
 // PARADEIGMA ME CLIENT POU DOULEEUI
 // const { Client } = require ('pg')
@@ -200,7 +191,6 @@ async function getRoomGuestDate(GuestNumberControl, callback) {
   }
 }
 
-
 //επιστρέφει όλα τα δωμάτια
 async function getRoomDesc(callback) {
   const sql = `Select * from "roomTypep"`;
@@ -213,8 +203,6 @@ async function getRoomDesc(callback) {
     callback(err, null);
   }
 }
-
-
 
 //επιστρέφει ένα δωμάτιο
 async function getRooms(id, callback) {
@@ -261,15 +249,25 @@ async function insertUser(first_name, last_name, user_id, callback) {
   }
 }
 
-
-
-
 //INSERT BOOKING FORM DATA (BOOKING ID, PRICE, DATE, EXTRA_ID)
-async function insertBooking(bookingId, totalPrice, bookingDate, extraId,client_id,breakfast,fastwifi, callback) {
-  const sql = `INSERT INTO "booking" ("booking_id", "total_price", "booking_date", "extra_id","client_id","breakfast","fastwifi") VALUES ($1, $2, $3, $4,$5,$6,$7)`;
+async function insertBooking(
+  totalPrice,
+  bookingDate,
+  client_id,
+  breakfast,
+  fastwifi,
+  callback
+) {
+  const sql = `INSERT INTO "booking" ( "total_price", "booking_date","client_id","breakfast","fastwifi") VALUES ($1, $2, $3, $4,$5)`;
   try {
     const client = await connect();
-    await client.query(sql, [bookingId, totalPrice, bookingDate, extraId,client_id,breakfast,fastwifi]);
+    await client.query(sql, [
+      totalPrice,
+      bookingDate,
+      client_id,
+      breakfast,
+      fastwifi,
+    ]);
     await client.release();
     callback(null);
   } catch (err) {
@@ -278,7 +276,13 @@ async function insertBooking(bookingId, totalPrice, bookingDate, extraId,client_
 }
 
 //INSERT EXTRAS (BREAKFAST & FASTWIFI)
-async function insertExtras(extraType, extraPrice, bookingId, extraId, callback) {
+async function insertExtras(
+  extraType,
+  extraPrice,
+  bookingId,
+  extraId,
+  callback
+) {
   const sql = `INSERT INTO "extras" ("extra_type", "extra_price", "booking_id", "extra_id") VALUES ($1, $2, $3, $4)`;
   try {
     const client = await connect();
@@ -290,9 +294,6 @@ async function insertExtras(extraType, extraPrice, bookingId, extraId, callback)
   }
 }
 
-
-
-
 export {
   connect,
   loadTest,
@@ -300,7 +301,6 @@ export {
   getUserId,
   getRooms,
   getRoomDesc,
-
   checkUser,
   addUser,
   checkEmail,
