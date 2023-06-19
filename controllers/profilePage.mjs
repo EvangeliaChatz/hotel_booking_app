@@ -1,5 +1,7 @@
 import * as model from "../model/model_pg.mjs";
 
+
+
 async function profilePage(req, res)  {
 
 model.getProfileBookings(res.locals.client_id, (err, bookingsEditdetailsrows) => {

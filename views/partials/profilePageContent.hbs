@@ -12,18 +12,7 @@
 <main>
     {{!-- SECTION BOOKINGS AND PROFILE --}}
 <section class="m-12">
-
-
-
-{{!-- LOGOUT --}}
-    {{!-- <div class="logout mb-4 gap-3">
-         <p class="main-titles-30px">Chatzilygeroudi Evangelia</p>
-        <div class="cancel-button d-flex d-fg bolex gap-3 align-items-center justify-content-start">
-    <img src="svg/logOut.svg" style="width:32px">
-                        <a href="/deleteBooking" class="card-text">logout</a>
-                       
-        </div>
-    </div>   --}}
+ 
       <div class="logout mb-4 gap-3 ">
     <p class="main-titles-30px">{{full_name}}</p>
     <div class="cancel-button d-flex d-fg bolex gap-3 align-items-center justify-content-start">
@@ -99,14 +88,16 @@
 <div class="main-text-16px mb-5 color-brown">Ongoing bookings</div>
     <section class="accordaon">
         <div class="accordion" id="accordionExample">
+
     {{#each BookingEditDetails}}
     {{!-- ACCORDAON ITEM 1 --}}
-    <div class="accordion-item">
+    <div class="accordion-item" >
         <h2 class="accordion-header" id="headingOne">
         <button class="accordion-button mb-5" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
                                     <div class="d-flex gap-3 ">
                                         <img class="dimensions-icon" src="svg/calendar-black.svg">
-                                        <h6 class="ral-brown"> {{getDateFormatted arrival_date}} - {{getDateFormatted dep_date}}</h6>
+                                        <h6 class="ral-brown"> {{date2string arrival_date}} - {{date2string dep_date}}</h6>
+                                      
                                     </div>
         </button>
         </h2>
@@ -116,20 +107,27 @@
                             <div class="row mb-5">
                         <div class="d-flex whole-profile-card" id="my-bookings">                                          
                             <div class="profile-card-des  justify-content-center gap-4 align-items-center d-flex flex-wrap">
-                                {{#if breakfast}}
+
+
+                                {{#if (and breakfast fastwifi)}}
+                                {{!-- {{#if breakfast}} --}}
                                  {{!-- BREAKFAST TARGET --}}
-                                <div class="circled-target"><img src="svg/breakfast-target.svg"></div>
+                                <div class="circled-target">
+                                    <img src="svg/breakfast-target.svg">
+                                    <img src="svg/fastwifi-target.svg"></div>
                                  {{!-- breakfast AND fastwifi
                                 <div class="circled-target">
                                     <img src="svg/breakfast-target.svg">
                                     <img src="svg/fastwifi-target.svg"></div>
                                 fastwifi
                                 <div class="circled-target"><img src="svg/fastwifi-target.svg"></div> --}}
+                                {{!-- {{/if}} --}}
                                 {{/if}}
+
                                 <img class="booking-photos" src={{room_type_photo}}>
                                 <div class="d-flex flex-column gap-3">
                                     <h5 class="card-title">{{room_type_name}}</h5>
-                                    <div class="price-tag-19px">{{total_price}}</div>
+                                    <div class="price-tag-19px">{{total_price}} €</div>
                                     <span class=" card-label">Confirmed</span>
                                 </div>
                             </div>
@@ -168,9 +166,9 @@
                     </div>
                     
         </div>
-        </div>{{!-- END ACCORDAON ITEM 1 --}}
-{{/each}}
+        </div> {{!-- END ACCORDAON ITEM 1 --}}
 
+{{/each}}
     </section>
 
 {{!-- PAST BOOKINGS ------------------------------------------------------------}}
@@ -260,4 +258,5 @@
 
 {{!--END FLUID END--}}
 </div>
+
 {{> SignInUpPopUp}}

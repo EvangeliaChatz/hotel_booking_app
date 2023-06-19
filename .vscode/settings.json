@@ -1,3 +1,5 @@
 {
-    "prettier.bracketSameLine": true
+  "prettier.bracketSameLine": true,
+  "beautify.onSave": true,
+  "editor.formatOnSave": true
 }

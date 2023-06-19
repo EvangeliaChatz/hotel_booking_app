@@ -15,7 +15,6 @@ const app = express();
 
 import getDateFormatted from "./controllers/helpers.mjs";
 
-
 const hbs = exphbs.create({
   // Specify the path to your handlebars template files
   // For example, if your template file is in the "views" directory:
@@ -24,12 +23,29 @@ const hbs = exphbs.create({
   // Register custom helpers
   helpers: {
     getDateFormatted: function (date) {
-          date = new Date(date);
-          const bookingDate =
-          date.getDate() + "/" + (date.getMonth() + 1) + "/" + date.getFullYear();
-          return bookingDate;
+      date = new Date(date);
+      const bookingDate =
+        date.getDate() + "/" + (date.getMonth() + 1) + "/" + date.getFullYear();
+      return bookingDate;
+    },
+    and: function () {
+      var args = Array.prototype.slice.call(arguments);
+      var options = args.pop();
+
+      for (var i = 0; i < args.length; i++) {
+        if (!args[i]) {
+          return false;
         }
-  }
+      }
+      return true;
+      // return options.fn(this);
+    },
+    date2string: function (date) {
+      return (
+        date.getDate() + "/" + (date.getMonth() + 1) + "/" + date.getFullYear()
+      );
+    },
+  },
 });
 
 // app.engine("hbs", engine({ extname: "hbs"}));
@@ -45,24 +61,6 @@ app.use(express.urlencoded({ extended: false }));
 
 // εισάγουμε τη βάση δεδομένων
 import * as model from "./model/model_pg.mjs";
-
-//AUTOINCREMENTS IDSS
-// SYNARTISI AUTOMATISMOU BOOKING ID
-
-// const autoBookId = function (req, res, next) {
-//   model.getBookingId((err, result) => {
-//     console.log(`${result} is the last booking id found`);
-//     if (result === null || result === undefined || !result) {
-//       result = 0;
-//     }
-
-//     res.locals.booking_id = result + 1;
-//     console.log(`booking id is ${res.locals.booking_id}`);
-//     next();
-//   });
-// };
-
-
 
 //Sessions
 app.use(
@@ -83,13 +81,13 @@ app.get("/signIn", (req, res) => {
 });
 
 // app.post("/signIn", autoId, SignIn);
-app.post("/signIn",SignIn);
+app.post("/signIn", SignIn);
 import SignIn from "./controllers/SignIn.mjs";
 
 app.get("/logOut", logOut);
 import logOut from "./controllers/logOut.mjs";
 
-app.post("/signUp",  SignUp);
+app.post("/signUp", SignUp);
 import SignUp from "./controllers/SignUp.mjs";
 
 //IMPORTS
@@ -102,10 +100,10 @@ import profilePage from "./controllers/profilePage.mjs";
 import editBooking from "./controllers/editBooking.mjs";
 import deleteBooking from "./controllers/deleteBooking.mjs";
 import writeReview from "./controllers/writeReview.mjs";
-import  getTodaysDateFormatted  from "./controllers/formattedTodaysDate.mjs";
+import getTodaysDateFormatted from "./controllers/formattedTodaysDate.mjs";
 import insertingBooking from "./controllers/saveBooking.mjs";
 import insertingIncludes from "./controllers/saveIncludes.mjs";
-import checkSignedIn  from "./controllers/checkAuth.mjs";
+import checkSignedIn from "./controllers/checkAuth.mjs";
 
 app.use(localing);
 
@@ -120,17 +118,16 @@ app.get("/getRoomDesc", getRoomDes);
 app.get("/bookingList", getAvailableRooms);
 
 //Profile Page
-app.get("/profilePage",checkSignedIn, profilePage);
+app.get("/profilePage", checkSignedIn, profilePage);
 
 //Edit Booking
-app.get("/editBooking",checkSignedIn, editBooking);
+app.get("/editBooking", checkSignedIn, editBooking);
 
 //Delete Booking
-app.get("/deleteBooking",checkSignedIn, deleteBooking);
+app.get("/deleteBooking", checkSignedIn, deleteBooking);
 
 //Reviews
-app.get("/WriteComment",checkSignedIn, writeReview);
-
+app.get("/WriteComment", checkSignedIn, writeReview);
 
 // middleware
 // app.method( path, middleware1, middleware2, middleware3, ..., callback)
@@ -140,7 +137,8 @@ app.get("/WriteComment",checkSignedIn, writeReview);
 app.post(
   "/bookingForm",
 
-  insertingBooking,insertingIncludes,
+  insertingBooking,
+  insertingIncludes,
 
   (req, res) => {
     res.redirect(req.get("referer"));

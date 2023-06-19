@@ -128,13 +128,21 @@ async function getUserId(callback) {
 //   }
 // }
 
-
-async function getRoomGuestDate(GuestNumberControl,arrivedate,departdate, callback) {
+async function getRoomGuestDate(
+  GuestNumberControl,
+  arrivedate,
+  departdate,
+  callback
+) {
   const sql = `Select * from "roomTypep"  WHERE "quests_amount" >= $1 and "room_id" not in (select "room_id" from includes where "arrival_date" between $2 and $3 and "dep_date" between $2 and $3)`;
 
   try {
     const client = await connect();
-    const res = await client.query(sql, [GuestNumberControl,arrivedate,departdate]);
+    const res = await client.query(sql, [
+      GuestNumberControl,
+      arrivedate,
+      departdate,
+    ]);
     await client.release();
     callback(null, res.rows); // επιστρέφει array
     // console.log(res.rows);
@@ -142,7 +150,6 @@ async function getRoomGuestDate(GuestNumberControl,arrivedate,departdate, callba
     callback(err, null);
   }
 }
-
 
 //επιστρέφει τα επεξεργάσιμα στοιχεία ενός χρήστη με cleint_id για να τα επεξεργαστεί στο editProfile
 async function getReservations(client_id, callback) {
@@ -160,7 +167,10 @@ async function getReservations(client_id, callback) {
 
 //επιστρέφει τις κρατήσεις ενός χρήστη με cleint_id για να τις δει στο profilePage
 async function getProfileBookings(client_id, callback) {
-  const sql = `Select * from "booking" inner join "roomTypep" on "booking"."booking_id"="booking"."booking_id" where "client_id" = $1`;
+  const sql = `select "room_type_name","total_price","room_type_photo","breakfast","fastwifi","arrival_date","dep_date" from public."roomTypep" join public."includes"
+  on public."includes"."room_id"=public."roomTypep"."room_id"
+  join public."booking" on public."booking"."booking_id"=public."includes"."booking_id" where "client_id" = $1 ORDER BY public."booking"."booking_id" DESC `;
+  //ORDER εμφανίζει το τελευταίο booking πρώτο
   try {
     const client = await connect();
     const res = await client.query(sql, [client_id]);
