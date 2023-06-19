@@ -144,9 +144,23 @@ async function getRoomGuestDate(GuestNumberControl,arrivedate,departdate, callba
 }
 
 
-//επιστρέφει τις κρατήσεις ενός χρήστη με cleint_id
+//επιστρέφει τα επεξεργάσιμα στοιχεία ενός χρήστη με cleint_id για να τα επεξεργαστεί στο editProfile
 async function getReservations(client_id, callback) {
   const sql = `Select * from "booking" inner join "includes" on "booking"."booking_id"="includes"."booking_id" where "client_id" = $1`;
+  try {
+    const client = await connect();
+    const res = await client.query(sql, [client_id]);
+    await client.release();
+    callback(null, res.rows); // επιστρέφει array
+    // console.log("rows", res.rows);
+  } catch (err) {
+    callback(err, null);
+  }
+}
+
+//επιστρέφει τις κρατήσεις ενός χρήστη με cleint_id για να τις δει στο profilePage
+async function getProfileBookings(client_id, callback) {
+  const sql = `Select * from "booking" inner join "roomTypep" on "booking"."booking_id"="booking"."booking_id" where "client_id" = $1`;
   try {
     const client = await connect();
     const res = await client.query(sql, [client_id]);
@@ -286,4 +300,5 @@ export {
   getRoomGuestDate,
   getReservations,
   insertIncludes,
+  getProfileBookings,
 };

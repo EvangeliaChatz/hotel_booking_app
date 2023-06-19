@@ -99,13 +99,14 @@
 <div class="main-text-16px mb-5 color-brown">Ongoing bookings</div>
     <section class="accordaon">
         <div class="accordion" id="accordionExample">
+    {{#each BookingEditDetails}}
     {{!-- ACCORDAON ITEM 1 --}}
     <div class="accordion-item">
         <h2 class="accordion-header" id="headingOne">
         <button class="accordion-button mb-5" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
                                     <div class="d-flex gap-3 ">
                                         <img class="dimensions-icon" src="svg/calendar-black.svg">
-                                        <h6 class="ral-brown">09/04/23 - 15/04/23</h6>
+                                        <h6 class="ral-brown"> {{getDateFormatted arrival_date}} - {{getDateFormatted dep_date}}</h6>
                                     </div>
         </button>
         </h2>
@@ -113,15 +114,22 @@
         <div class="accordion-body">
                         {{!-- CARD 1--}}
                             <div class="row mb-5">
-                        <div class="d-flex whole-profile-card" id="my-bookings">
-                                                            {{!-- BREAKFAST TARGET --}}
-                                
+                        <div class="d-flex whole-profile-card" id="my-bookings">                                          
                             <div class="profile-card-des  justify-content-center gap-4 align-items-center d-flex flex-wrap">
+                                {{#if breakfast}}
+                                 {{!-- BREAKFAST TARGET --}}
                                 <div class="circled-target"><img src="svg/breakfast-target.svg"></div>
-                                <img class="booking-photos" src="/images/card-3.png">
+                                 {{!-- breakfast AND fastwifi
+                                <div class="circled-target">
+                                    <img src="svg/breakfast-target.svg">
+                                    <img src="svg/fastwifi-target.svg"></div>
+                                fastwifi
+                                <div class="circled-target"><img src="svg/fastwifi-target.svg"></div> --}}
+                                {{/if}}
+                                <img class="booking-photos" src={{room_type_photo}}>
                                 <div class="d-flex flex-column gap-3">
-                                    <h5 class="card-title">CITY DOUBLE ROOM</h5>
-                                    <div class="price-tag-19px">40€</div>
+                                    <h5 class="card-title">{{room_type_name}}</h5>
+                                    <div class="price-tag-19px">{{total_price}}</div>
                                     <span class=" card-label">Confirmed</span>
                                 </div>
                             </div>
@@ -161,8 +169,7 @@
                     
         </div>
         </div>{{!-- END ACCORDAON ITEM 1 --}}
-
-
+{{/each}}
 
     </section>
 
