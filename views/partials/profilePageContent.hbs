@@ -109,20 +109,24 @@
                             <div class="profile-card-des  justify-content-center gap-4 align-items-center d-flex flex-wrap">
 
 
-                                {{#if (and breakfast fastwifi)}}
-                                {{!-- {{#if breakfast}} --}}
-                                 {{!-- BREAKFAST TARGET --}}
-                                <div class="circled-target">
-                                    <img src="svg/breakfast-target.svg">
-                                    <img src="svg/fastwifi-target.svg"></div>
-                                 {{!-- breakfast AND fastwifi
-                                <div class="circled-target">
-                                    <img src="svg/breakfast-target.svg">
-                                    <img src="svg/fastwifi-target.svg"></div>
-                                fastwifi
-                                <div class="circled-target"><img src="svg/fastwifi-target.svg"></div> --}}
-                                {{!-- {{/if}} --}}
-                                {{/if}}
+{{#if (and breakfast fastwifi)}}
+    {{!-- BREAKFAST AND FASTWIFI TARGET --}}
+    <div class="circled-target">
+        <img src="svg/breakfast-target.svg">
+        <img src="svg/fastwifi-target.svg">
+    </div>
+{{else if breakfast}}
+    {{!-- BREAKFAST TARGET --}}
+    <div class="circled-target">
+        <img src="svg/breakfast-target.svg">
+    </div>
+{{else if fastwifi}}
+    {{!-- FASTWIFI TARGET --}}
+    <div class="circled-target">
+        <img src="svg/fastwifi-target.svg">
+    </div>
+{{/if}}
+
 
                                 <img class="booking-photos" src={{room_type_photo}}>
                                 <div class="d-flex flex-column gap-3">
