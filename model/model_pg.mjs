@@ -1,13 +1,27 @@
-import pg from "pg";
+// import pg from "pg";
+
+// const pool = new pg.Pool({
+//   // τοπική σύνδεση
+//   user: "postgres", ///username
+//   host: "localhost",
+//   database: "hbooking",
+//   password: "eva", /// password
+//   port: 5432,
+// });
+
 import bcrypt from "bcrypt";
 
-const pool = new pg.Pool({
-  // τοπική σύνδεση
-  user: "postgres", ///username
-  host: "localhost",
-  database: "hbooking",
-  password: "eva", /// password
-  port: 5432,
+import pkg from "pg";
+const { Pool } = pkg;
+import dotenv from "dotenv";
+dotenv.config();
+const pool = new Pool({
+  user: process.env.DB_USER,
+  host: process.env.DB_HOST,
+  database: process.env.DB_NAME,
+  password: process.env.DB_PASSWORD,
+  port: process.env.DB_PORT,
+  ssl: false,
 });
 
 async function connect() {
@@ -90,7 +104,7 @@ async function getUserId(callback) {
   callback(null, res.rows[0].max);
 }
 
-//επιστρέφει τα διαθέσιμα δωμάτια με βάση τον αριθμό των επισκεπτών και τις ημερομηνίες που επιλέγει ο χρήστης
+//επιστρέφει τα διαθέσιμα δωμάτια με βάση τον αριθμό των επισκεπτών και τις ημερομηνίες που επιλέγει ο χρήστης ( Ελεγχος διαθεσιμότητας ζητούμενου δωματίου στην αρχική)
 async function getRoomGuestDate(
   GuestNumberControl,
   arrivedate,
@@ -217,31 +231,8 @@ async function insertIncludes(
   }
 }
 
-//BOOKING FORM
-//USER ID "MANUAL-INCREMENT"-AUKSANEI KATA 1 TO ID KATHE FORA POU KANEI POST
-async function getBookingId(callback) {
-  const sql = `Select Max("booking_id") from "booking"`;
-  const client = await connect();
-  const res = await client.query(sql);
-  callback(null, res.rows[0].max);
-}
-
-//OTAN KANEI SIGN IN PROSTHETOUME STI BASI MIA GRAMMI
-async function insertUser(first_name, last_name, user_id, callback) {
-  const sql = `INSERT INTO "testform" ("first_name", "last_name", "user_id") VALUES ($1, $2, $3)`;
-  try {
-    const client = await connect();
-    const res = await client.query(sql, [first_name, last_name, user_id]);
-    await client.release();
-    callback(null);
-  } catch (err) {
-    callback(err);
-  }
-}
-
 export {
   connect,
-  insertUser,
   getUserId,
   getRooms,
   getRoomDesc,
@@ -249,7 +240,6 @@ export {
   addUser,
   checkEmail,
   insertBooking,
-  getBookingId,
   getRoomGuestDate,
   getReservations,
   insertIncludes,
