@@ -5,23 +5,20 @@
         <nav class="py-1 bg-light border-bottom">
             {{!-- <div class="container d-flex flex-wrap">
             </div> --}}
-              <ul class="nav justify-content-end align-items-center">
-                
-              {{#if signedIn}}
-                 <img src="svg/profile-sign.svg"> 
-                <li class="nav-item"><a href="/profilePage" class="nav-link link-dark"><h6 class="white" data-bs-toggle="modal" data-bs-target="#exampleModal-2">{{full_name}}</h6></a></li>
-              {{else}}
-                <img src="svg/profile-sign.svg"> 
-                <li class="nav-item"><a href="#" class="nav-link link-dark"><h6 class="white" data-bs-toggle="modal" data-bs-target="#exampleModal-2">Sign in</h6></a></li>
-                <hr class="vl2">
-                <li class="nav-item"><a href="#" class="nav-link link-dark"><h6 class="white">Sign up</h6></a></li>
-              {{/if}}
+              <ul class="nav justify-content-end align-items-center"> 
+                {{#if signedIn}}
+                  <img src="svg/profile-sign.svg"> 
+                  <li class="nav-item"><a href="/profilePage" class="nav-link link-dark"><h6 class="white" data-bs-toggle="modal" data-bs-target="#exampleModal-2">{{full_name}}</h6></a></li>
+                {{else}}
+                  <img src="svg/profile-sign.svg"> 
+                  <li class="nav-item"><a href="#" class="nav-link link-dark"><h6 class="white" data-bs-toggle="modal" data-bs-target="#exampleModal-2">Sign in</h6></a></li>
+                  <hr class="vl2">
+                  <li class="nav-item"><a href="#" class="nav-link link-dark"><h6 class="white">Sign up</h6></a></li>
+                {{/if}}
               </ul>
-              </nav>
+          </nav>
     </div>
           
-    </div>
-
     <!-- NAV -->
     <div class="row">
         <nav class="navbar navbar-expand-lg">
@@ -35,13 +32,13 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                   <ul class="navbar-nav me-0 mb-2 mb-lg-0 align-items-center">
-                    <li class="nav-item">
+                      <li class="nav-item">
                       <a class="nav-link" aria-current="page" href="/">HOMEPAGE</a>
-                    </li>
-                    <li class="nav-item">
+                      </li>
+                      <li class="nav-item">
                       <a class="nav-link active" href="#">ROOMS</a>
-                    </li>
-                    <li class="nav-item">
+                      </li>
+                      <li class="nav-item">
                         <a class="nav-link active" aria-current="page" href="#">SIGHTSENG</a>
                       </li>
                       <li class="nav-item">

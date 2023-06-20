@@ -1,18 +1,16 @@
 
-<!-- SECTION SEARCH------------------------------- -->
+<!-- SECTION SEARCH================================================-->
+<section>
     <div class="row justify-content-center">
-        <!-- search-options -->
-        <!-- FORM 1 -->
+        <!-- FORM 1 search-options-->
         <form method="get" action="/bookingList" style="width:100%" class="search-options ">
             
             <!-- search field check in -->
-                <!-- search field check out -->
                 <div class="icon_and d-flex flex-column">
                     <label>Check in</label>
                     <input style="padding: 2px;" name="checkInDate" id="current-date-input" type="date" placeholder="Check in" value="{{checkInDate}}">
                 </div>
             
-
                 <hr class="vl">
 
                 <!-- search field check out -->
@@ -20,12 +18,10 @@
                 <label>Check out</label>
                 <input style="padding: 2px;"  name="checkOutDate" id="twodays-date-input" type="date" placeholder="Check out" value="{{checkOutDate}}">
             </div>
-        
-
-
+      
             <hr class="vl">
 
-              <!-- search field check out -->
+              <!-- search field Quests -->
             <div class="icon_and align-items-start d-flex flex-column justify-content-start">
                     <label class="">Quests</label>
                     <div class="search_and_date">
@@ -38,20 +34,18 @@
                     <img src="svg/people-new.svg" alt="check in">
                     </div>
             </div>
-
+              <!-- Button -->
                 <div>
                     <button type="submit"  id="CheckavailButt" class="btn primary-button">CHECK AVAILABILITY</button>
                 </div>
             </form>
-        <!-- search-options -->
-        <!-- FORM 1 -->
+        <!-- FORM 1  search-options end -->
 
         </div>
 </section>
 
-
-
- <!-- AMENITIES OF ALL ROOMS2 -->
+<!-- SECTION SEARCH AMENITIES OF ALL ROOMS2================================================-->
+ <section>
  <div class="dropdown section-bottom-margins-l">
   <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
     ALL ROOMS HAVE
@@ -113,7 +107,9 @@
 
   
   </div>
-</div><!-- AMENITIES OF ALL ROOMS2 ENDD-->
+</div>
+</section>
+<!-- SECTION AMENITIES OF ALL ROOMS2 ENDD-->
 
 
 
@@ -121,33 +117,33 @@
 <!-- MAIN CONTENT OF THE PAGE -->
 <main>
 
-{{!-- {{log RoomTypePostgBookList}} --}}
+<!-- SECTION ROOM RESULTS================================================-->
 <section class="row  align-items-center all-result-cards section-bottom-margins">
   {{#each RoomTypePostgBookList}}
   <!-- BOOKINGS CARD(1) CSS -->
   <div class="card-prod-content">
-    <!-- IMAGE AND TEXT -->
+    <!-- image -->
     <div class="imag_and_text">
       <img id="list-results-img-{{@index}}" src="{{this.room_type_photo}}">
   
       <div class="card-text-content">
-        <!-- ROOM TYPE NAME -->
+        <!-- name -->
         <input type="hidden" id="list-results-room-type-id-{{@index}}" value="{{this.room_type_id}}">
         <a href="/getRoomDesc?roomTypeId={{room_type_id}}"><h5 class="card-title">{{this.room_type_name}}</h5></a>
-        <!-- QUESTS AND SQM -->
+        <!-- guests & sqm-->
         <div class="d-flex flex-column gap-4 justify-content-center align-items-start">
-              <!-- QUEST ROOM TYPE -->
+              <!-- guests-->
               <div class="d-flex gap-3 align-items-center justify-content-start">
                 <img class="dimensions-icon" src="svg/people2.svg">
                 <p id="list-results-adl-{{@index}}" class="card-text">{{this.quests_amount}} adults</p>
               </div>
-              <!-- SQM ROOM TYPE -->
+              <!-- sqm -->
               <div class="d-flex gap-3 align-items-center justify-content-start">
                 <img class="dimensions-icon" src="svg/sqm.svg">
                 <p class="card-text">{{this.room_sqm}} m<sup>2</sup></p>
               </div>
         </div>
-        <!-- REVIEWS -->
+        <!-- reviews -->
         <div class="d-flex align-items-center gap-3">
           <div class="card-label2">8 / 10</div>
           <img src="svg/star.svg">
@@ -156,7 +152,7 @@
       </div>
     </div>
   
-    <!-- BUTTON AND PRICE -->
+    <!-- button & price -->
     <div class=" button_and_price">
       <div id="list-results-price-{{@index}}" class="price-tag-19px color-brown ">{{this.room_type_price}} €/day</div>
   
@@ -170,16 +166,9 @@
 {{/each}}
 </section>
 
-
-
-
 <!-- CONTAINER-FLUID end -->
 </main>
 
-
-
-<!-- CONTAINER-FLUID -->
-</div>
 {{> SignInUpPopUp}}
 {{> bookingPopUp}}
 

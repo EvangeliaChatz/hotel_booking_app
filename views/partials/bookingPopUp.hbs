@@ -1,4 +1,4 @@
-<!--MODAL1 BOOKING FORM -->
+<!-- SECTION MODAL1 BOOKING FORM(POP UP)================================================-->
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-lg"  id="modal-width">
     <div class="modal-content" id="booking-form">
@@ -7,40 +7,34 @@
         <img src="svg/book-step2.svg" class="booking-steps">
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button></div>
       <div class="modal-body" id="body-booking-form2">
-      
+      <!-- SECTION BOOKING FORM================================================-->
         <div class="container" id="book-room-form">
           <div class="row justify-content-center">
               <div class="">
                       <div class="form-title">
                           <div class="fw-bold mb-3 main-titles-30px">Book your room</div>
-                          <!-- FORM -->
                           
+                          <!-- FORM -->
                           <form action="/bookingForm" method="post" class="needs-validation"  id="form-booking" novalidate>
-                          <!-- FULL NAME OR USERNAME-->
+                          <!-- full name or username-->
                           <div class="form-floating mb-4">
                             <input name="full_name" type="texts" class="form-control form-control-sm green" placeholder="Full name or Username*" id="floatingInput_name" value="{{full_name}}">
                             <span id="name-error"></span>
                             <label for="floatingInput">Full name*</label>
                           </div>
                           
-                              <!-- EMAIL -->
+                              <!-- email -->
                           <div class="form-floating mb-4">
                               <input name="email" type="email" class="form-control form-control-sm green" placeholder="Email" id="floatingInput_email" value="{{email}}">
                               <label for="floatingInput">Email*</label>
                           </div>
-                           <!-- PHONE -->
+                           <!-- phone -->
                            <div class="form-floating mb-4">
                             <input name="phone" type="tel" class="form-control form-control-sm green" placeholder="Phone Number" id="floatingInput_phone" value="{{phone_number}}">
                             <label for="floatingInput">Phone Number</label>
                          </div>  
       
-                              {{!-- <!-- PASSWORD -->
-                          <div class="form-floating mb-4">
-                              <input name="pass" type="password" class="form-control form-control-sm" placeholder="password" id="floatingPassword_pass">
-                              <span id="pass-error"></span>
-                              <label for="floatingPassword">Password*</label>
-                          </div> --}}
-                          <!-- TERMS CHECKBOX -->
+                          <!-- terms & conditions -->
                           <div class="form-check">
                             <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
                             <label class="form-check-label" for="flexCheckDefault" id="terms-checkbox">
@@ -51,6 +45,7 @@
                           <div class="mt-3">
                             <input class="btn primary-button" type="submit" id="sumbit-booking" value="SUBMIT">
                           </div>
+
                           {{!-- KRYMMENA STOIXEIA --}}
                           <!-- Hidden Fields -->
                           <input type="hidden" name="hiddenPrice" id="priceEx" value="">
@@ -61,17 +56,17 @@
                           <input type="hidden" name="hiddenDepDate" id="checkOut-ex" value="">
 
                           </form>
+                          <!-- FORM END-->
                           
                           <div class="mt-3">Don't have account? <span id="SignUp">Sign up</span></div>
                       </div>
               </div>
           </div>
       </div>
-    <!-- FORM END -->
+    <!-- SECTION BOOKING FORM END -->
 
-      <!-- CUSTOMIZE AND REVIEW YOUR BOOKING -->
+    <!-- SECTION CUSTOMIZE AND REVIEW YOUR BOOKING -->
   <div class="custom-booking">
-        
         <!-- title -->
         <div class="main-titles-30px">
           Review & Customize your booking
@@ -138,9 +133,11 @@
       </div>
 
     </div>
-      <!-- end of customize -->
   </div>
+      <!-- SECTION END CUSTOMIZe-->
 
        <!-- modal body end -->
       </div>
     </div>
+ 
+ 

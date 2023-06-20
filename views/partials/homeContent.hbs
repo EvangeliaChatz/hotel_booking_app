@@ -1,67 +1,53 @@
 <!-- FLUID CONTAINER BOOTSTRAP------------------------------------------------------------- -->
-  <main class="container-fluid">
+  <div class="container-fluid">
 
-
-
-{{!-- <!-- SECTION--hereo image --> --}}
+<!-- SECTION--hereo image -->
 <section id="hero-image" class="hereo-image-hotel">
-
+    <!-- ENJOY YOUR STAY -->
     <div class="big-title-75px title-position">
         <p id="up-to-book">ENJOY</p>
         <h1>your stay</h1>
     </div>
-    {{!-- <!-- SECTION SEARCH --> --}}
+    <!-- SECTION SEARCH -->
     <div class="row">
-        {{!-- <div class="search-options position-absolute" style="background-color: blue; height:50px;padding:15px; align-text:center; bottom:30%;top:86%; box-sizing:content-box;"></div> --}}
-        <!-- search-options -->
-        <!-- FORM 1 -->
+        <!-- SEACH FORM 1 -->
         <form method="get" action="/bookingList" class="search-options position-absolute" >
-            
-            <!-- search field check in -->
-                <!-- search field check out -->
+                <!-- search field check in -->
                 <div class="icon_and d-flex flex-column">
                     <label>Check in</label>
                     <input style="padding: 2px;" name="checkInDate" id="current-date-input" type="date" placeholder="Check in">
                 </div>
-            
 
                 <hr class="vl">
 
                 <!-- search field check out -->
-            <div class="icon_and d-flex flex-column">
-                <label>Check out</label>
-                <input style="padding: 2px;"  name="checkOutDate" id="twodays-date-input" type="date" placeholder="Check out">
-            </div>
+                <div class="icon_and d-flex flex-column">
+                    <label>Check out</label>
+                    <input style="padding: 2px;"  name="checkOutDate" id="twodays-date-input" type="date" placeholder="Check out">
+                </div>
         
-
-
-            <hr class="vl">
+                <hr class="vl">
 
               <!-- search field check out -->
-            <div class="icon_and align-items-start d-flex flex-column justify-content-start">
-                    <label class="">Quests</label>
-                    <div class="search_and_date">
-                    <select id="popUpGuests" class="form-select form-select-lg" name="GuestNumber" aria-label=".form-select-lg example">
-                        {{!-- <option value="1">1 adult</option> --}}
-                        <option value="2" selected>2 adults</option>
-                        <option value="3">3 adults</option>
-                        <option value="4">4 adults</option>
-                    </select>
-                    <img src="svg/people-new.svg" alt="check in">
-                    </div>
-            </div>
-
+                <div class="icon_and align-items-start d-flex flex-column justify-content-start">
+                        <label class="">Quests</label>
+                        <div class="search_and_date">
+                        <select id="popUpGuests" class="form-select form-select-lg" name="GuestNumber" aria-label=".form-select-lg example">
+                            {{!-- <option value="1">1 adult</option> --}}
+                            <option value="2" selected>2 adults</option>
+                            <option value="3">3 adults</option>
+                            <option value="4">4 adults</option>
+                        </select>
+                        <img src="svg/people-new.svg" alt="check in">
+                        </div>
+                </div>
                 <div>
                     <button type="submit"  id="CheckavailButt" class="btn primary-button">CHECK AVAILABILITY</button>
                 </div>
             </form>
-        <!-- search-options -->
-        <!-- FORM 1 -->
-
-        </div>
+        <!-- END SEACH FORM 1 -->
+    </div>
 </section>
-
-
 
 <!-- SECTION --ABOUT US-->
 <section  class="aboutus-photo-position">
@@ -87,12 +73,8 @@
     </div>
 </section>
 
-
-
-
 <!-- SECTION --FWTOGRAFIWN-->
 <section class=" d-flex section-bottom-margins-l">
-
     <!-- PHOTO CAROUSEL ----------------------------------->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"></script>
 
@@ -169,102 +151,91 @@
 </section>
 
 
-
-
 <!-- HOTEL SERVICES SECTION -->
 <section class="photo-services">
+    <!-- HOTEL SERVICES(1) -->
+    <div class="container section-bottom-margins-l ">
+        <!-- ΠΡΑΣΙΝΟ BACKGROUND HOTEL SERVICES  -->
 
-<!-- HOTEL SERVICES(1) -->
-<div class="container section-bottom-margins-l ">
-    <!-- ΠΡΑΣΙΝΟ BACKGROUND HOTEL SERVICES  -->
+        <div class="row m-12">
+            <div class="big-titles-29px d-flex justify-content-end ">HOTEL SERVICES</div>
+        </div>
 
-
-    <div class="row m-12">
-        <div class="big-titles-29px d-flex justify-content-end ">HOTEL SERVICES</div>
-    </div>
-
-    <div class="row">
-        <!-- keno col -->
-        <div class="col-md-4"></div>
-        <div class=" col-12 col-md-8 d-flex justify-content-around g-5 wrap">
-            <div class="four-services2">
-                <div class="two-services2">
-                    <div class=" services2">
-                        <img src="svg/24hours.svg" alt="check in">
-                        <p class="price-16px dark-green">24 hours
-                            reception</p>
+        <div class="row">
+            <!-- keno col -->
+            <div class="col-md-4"></div>
+            <div class=" col-12 col-md-8 d-flex justify-content-around g-5 wrap">
+                <div class="four-services2">
+                    <div class="two-services2">
+                        <div class=" services2">
+                            <img src="svg/24hours.svg" alt="check in">
+                            <p class="price-16px dark-green">24 hours
+                                reception</p>
+                        </div>
+                        <div class="services2">
+                            <img src="svg/elevator.svg" alt="check in">
+                            <p class="price-16px dark-green">Elevator</p>
+                        </div>
                     </div>
-                    <div class="services2">
-                        <img src="svg/elevator.svg" alt="check in">
-                        <p class="price-16px dark-green">Elevator</p>
-                    </div>
-                </div>
-                
-                <div class="two-services2">
-                    <div class=" services2">
-                        <img src="svg/Luggage.svg" alt="check in">
-                        <p class="price-16px dark-green">Luggage
-                            Storage</p>
-                    </div>
-                    <div class=" services2">
-                        <img src="svg/Wake-up-service.svg" alt="check in">
-                        <p class="price-16px dark-green">Wake-up service</p>
-                    </div>
+                    
+                    <div class="two-services2">
+                        <div class=" services2">
+                            <img src="svg/Luggage.svg" alt="check in">
+                            <p class="price-16px dark-green">Luggage
+                                Storage</p>
+                        </div>
+                        <div class=" services2">
+                            <img src="svg/Wake-up-service.svg" alt="check in">
+                            <p class="price-16px dark-green">Wake-up service</p>
+                        </div>
 
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
 
     </div>
 
-<!-- </div> -->
-
-
-<!-- HOTEL SERVICES(2) -->
-<div class="container section-bottom-margins">
-
-    <div class="row m-12">
-        <div class=" big-titles-29px d-flex justify-content-start ">ROOM AMENITIES</div>
-    </div>
-
-    <div class="row ">
-
-        <div class=" col-12 col-md-8 d-flex justify-content-around g-5 wrap">
-            <div class="four-services2">
+    <!-- HOTEL SERVICES(2) -->
+    <div class="container section-bottom-margins">
+        <div class="row m-12">
+            <div class=" big-titles-29px d-flex justify-content-start ">ROOM AMENITIES</div>
+        </div>
+        <div class="row ">
+            <div class=" col-12 col-md-8 d-flex justify-content-around g-5 wrap">
+                <div class="four-services2">
+                <div class="two-services2">
+                <div class=" services2">
+                    <img src="svg/TV.svg" alt="check in">
+                    <p class="price-16px dark-green">TV</p>
+                </div>
+                <div class="services2">
+                    <img src="svg/Fully-Furnished.svg" alt="check in">
+                    <p class="price-16px dark-green">Fully 
+                        Furnished</p>
+                </div>
+            </div>
             <div class="two-services2">
-            <div class=" services2">
-                <img src="svg/TV.svg" alt="check in">
-                <p class="price-16px dark-green">TV</p>
+                <div class=" services2">
+                    <img src="svg/Towels.svg" alt="check in">
+                    <p class="price-16px dark-green">Towels</p>
+                </div>
+                <div class=" services2">
+                    <img src="svg/Cleaning-Services.svg" alt="check in">
+                    <p class="price-16px dark-green">Cleaning Services</p>
+                </div>
             </div>
-            <div class="services2">
-                <img src="svg/Fully-Furnished.svg" alt="check in">
-                <p class="price-16px dark-green">Fully 
-                    Furnished</p>
+                </div>
             </div>
+            <!-- keno col -->
+            <div class="col-md-4"></div>
         </div>
-        <div class="two-services2">
-            <div class=" services2">
-                <img src="svg/Towels.svg" alt="check in">
-                <p class="price-16px dark-green">Towels</p>
-            </div>
-            <div class=" services2">
-                <img src="svg/Cleaning-Services.svg" alt="check in">
-                <p class="price-16px dark-green">Cleaning Services</p>
-            </div>
-        </div>
-            </div>
-        </div>
-                <!-- keno col -->
-                <div class="col-md-4"></div>
     </div>
-</div>
 </section>
 
 
-
-
 <!-- SECTION ROOMS CARDS -->
+<main>
 <section class="section-bottom-margins">
     <div class="row m-12 g-4 align-items-start align-items-md-center py-5 py-md-0 section-bottom-margins-l">
         <div class="col-12 col-md-8">
@@ -281,49 +252,41 @@
             <a href="#up-to-book" class=" primary-button btn btn-primary">BOOK A ROOM</a>
         </div> 
     </div>
+    {{!-- KARTES HANDLEBARS --}}
+    <div class="row m-12 cards justify-content-center">
+    {{#each RoomTypePostg}}
+        <div class="card-room">
 
+            <a href="/getRoomDesc?roomTypeId={{room_type_id}}">
+            <!-- fotografia -->
+            <img src={{room_type_photo}} class="card-photo">
+            </a>
 
-{{!-- KARTES HANDLEBARS --}}
-<div class="row m-12 cards justify-content-center">
-{{#each RoomTypePostg}}
-    <div class="card-room">
+            <!-- text -->
+            <div class="text-card">
+                <!-- name and price -->
+                <div class="d-flex
+                gap-4">
+                    <div class="main-text-16px room-type">{{room_type_name}}</div>
+                    <div class="main-text-16px color-brown">{{room_type_price}}€</div>
+                </div>
 
-        <a href="/getRoomDesc?roomTypeId={{room_type_id}}">
-        <!-- fotografia -->
-        <img src={{room_type_photo}} class="card-photo">
-        </a>
-
-        <!-- text -->
-        <div class="text-card">
-            <!-- name and price -->
-            <div class="d-flex
-            gap-4">
-                <div class="main-text-16px room-type">{{room_type_name}}</div>
-                <div class="main-text-16px color-brown">{{room_type_price}}€</div>
+                <!-- icons -->
+                <div class="d-flex gap-3 align-items-center justify-content-start">
+                    <img class="dimensions-icon" src="svg/people2.svg">
+                    <p class="card-text">{{quests_amount}} adults</p>
+                </div>
+                <div class="d-flex gap-3 align-items-center justify-content-start">
+                    <img class="dimensions-icon" src="svg/sqm.svg">
+                    <p class="card-text">{{room_sqm}} m<sup>2</sup></p>
+                </div>
             </div>
 
-            <!-- icons -->
-            <div class="d-flex gap-3 align-items-center justify-content-start">
-                <img class="dimensions-icon" src="svg/people2.svg">
-                <p class="card-text">{{quests_amount}} adults</p>
-            </div>
-            <div class="d-flex gap-3 align-items-center justify-content-start">
-                <img class="dimensions-icon" src="svg/sqm.svg">
-                <p class="card-text">{{room_sqm}} m<sup>2</sup></p>
-            </div>
         </div>
-
+    {{/each}}
     </div>
-{{/each}}
-</div>
-    <!-- karta1 -->
-{{!-- {{#each roomTypes}} --}}        {{!--OTAN THA EXOYME TH BASSIIIIII href="/product/{{productId}}" --}}
-        {{!-- "/mesDelete?id={{this.id}} --}}
-         {{!-- href="Enoikiash?id={{this.id}}&cat={{this.category_name}}" --}}
-
 </section>
-
-
+</main>
 
 <!-- SNACK BAR -->
 <section class="section-bottom-margins">
@@ -336,20 +299,18 @@
         </div>
         <div class="hours-snack d-flex gap-2 align-items-center color-brown ">
             <script src="https://cdn.lordicon.com/bhenfmcm.js"></script>
-<lord-icon
-    src="https://cdn.lordicon.com/qznlhdss.json"
-    trigger="hover"
-    colors="primary:#121331"
-    style="width:24px;height:24px;">
-</lord-icon>
-            {{!-- <img src="svg/hours-snack.svg"> --}}
+            <lord-icon
+                src="https://cdn.lordicon.com/qznlhdss.json"
+                trigger="hover"
+                colors="primary:#121331"
+                style="width:24px;height:24px;">
+            </lord-icon>
+                {{!-- <img src="svg/hours-snack.svg"> --}}
             <h6>Opening hours 08.00-23.00 </h6>
         </div>
     </div>
 </div>
 </section>
-<!-- SNACK BAR -->
-
 
     <!-- COMMENTS -->
 <section class="row comment-background section-bottom-margins-l">
@@ -365,5 +326,5 @@
             <div class="comments"><p>"I would highly recommend this hotel to anyone visiting the area. The rooms are modern and well-appointed."</p></div>
         </div>
     </div>
-     <!-- COMMENTS -->
 </section>
+</div>

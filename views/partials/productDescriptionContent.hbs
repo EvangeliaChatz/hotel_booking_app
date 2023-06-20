@@ -1,246 +1,223 @@
-<!-- CONTAINER-FLUID -->
-    <main class="container-fluid ">
 
-<!-- MAIN CONTENT OF THE PAGE -->
-<main>
-        <!-- STICKY BUTTOON -->
-                {{!-- <button  type="button" class="sticky-button primary-button btn btn-primary" data-bs-toggle="modal" data-bs-target="#booking-from-product-desc">
-          BOOK ROOM
-        </button> --}}
+    <div class="fluid-container">
+    <!-- STICKY BUTTOON -->
+            {{!-- <button  type="button" class="sticky-button primary-button btn btn-primary" data-bs-toggle="modal" data-bs-target="#booking-from-product-desc">
+      BOOK ROOM
+    </button> --}}
 
-        <button  type="button" class="sticky-button primary-button btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-          BOOK ROOM
-        </button>
+      <button  type="button" class="sticky-button primary-button btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+        BOOK ROOM
+      </button>
 
-{{!-- {{log RoomTypePostgDes}} --}}
-      <!-- photos section -->
-    <section class="m-12 relative-price-container">
-      <div class="photo-des section-bottom-margins-l">
-            <img src="images/photos-des1.png">
-            <img src="images/photos-des2.png">
-            <img src="images/photos-des3.png">
-            <img  class="big-photo" src="{{RoomTypePostgDes.room_photo_des}}">
-      </div>
-                            <!-- date target mobile -->
-                            <div id="target-mobile"class="date-target">
-                              <p id="TypeRoomPrice" class="big-titles-29px color-brown">{{RoomTypePostgDes.room_type_price}} €</p>
-                              <p class="main-text-16px">per day</p>
-                            </div>
-      </section>
-
-
-
-      <!-- room description -->
-      <section class="m-12 room-description sticky-container section-bottom-margins-l">
-      <div class="text-description ">
-          <div class="section-bottom-margins-l">
-            <p class="main-text-16px text-bold">{{RoomTypePostgDes.room_type_description}} </p>
-            <p class="main-text-16px">Located on the 3rd floor of the main building, it offers a comfortable bedroom and a bathroom with a rain shower.</p>
-          </div>
-          <!-- room amenities -->
-          <div class="room-amenities section-bottom-margins-l">
-              <div class="one-room-amenity">
-                <img src="svg/wifi.svg">
-                <h6>wifi</h6>
-              </div>
-              <div class="one-room-amenity">
-                <img src="svg/TV2.svg">
-                <h6>TV</h6>
-              </div>
-              <div class="one-room-amenity">
-                <img src="svg/furnished.svg">
-                <h6>fully furnished</h6>
-              </div>
-              <div class="one-room-amenity">
-                <img src="svg/towels2.svg">
-                <h6>towels</h6>
-              </div>
-              <div class="one-room-amenity">
-                <img src="svg/cleaning.svg">
-                <h6>cleaning services</h6>
-              </div>
-          </div>
-
-          <!-- information categories-->
-
-          <div class="included">
-            <div class="info-categories">
-              <p class="small-title-17px">Includes</p>
-              <p class="main-text-16px">They are equipped with a double bed with comfortable mattresses, air conditioning, free Wi-Fi, satellite TV, direct telephone line, hairdryer and other toiletries. A safety deposit box is also provided at an additional cost.</p>
-            </div>
-            <div class="info-categories">
-              <p class="small-title-17px">Breakfast</p>
-              <p class="main-text-16px">Although breakfast is not provided in the room, guests can visit the snack bar to enjoy a delicious breakfast.</p>
-            </div>
-            <div class="info-categories">
-              <p class="small-title-17px">Policy</p>
-              <p class="main-text-16px">Check in : 14.00 <br>
-                Check out : 12.00</p>
-            </div>
-            <div class="main-text-16px">*2 days before arrival, 100% cancellation fees apply, of the total cost of the reservation
-            </div>
-          </div>
-      </div>
-
-
-
-
-
-      {{!-- <!-- DATE SELECTION --> --}}
-     <form method="get"  action="/productDescription">
-      <div class="date-selection-content">
-      <div class="date-selection">
-
-        
-        {{!-- <!-- date target --> --}}
-        <div class="date-target">
-          <p class="big-titles-29px color-brown">{{RoomTypePostgDes.room_type_price}} €</p>
+  {{!-- {{log RoomTypePostgDes}} --}}
+        <!-- photos section -->
+      <section class="m-12 relative-price-container">
+        <div class="photo-des section-bottom-margins-l">
+              <img src="images/photos-des1.png">
+              <img src="images/photos-des2.png">
+              <img src="images/photos-des3.png">
+              <img  class="big-photo" src="{{RoomTypePostgDes.room_photo_des}}">
+        </div>
+        <!-- date target mobile -->
+        <div id="target-mobile"class="date-target">
+          <p id="TypeRoomPrice" class="big-titles-29px color-brown">{{RoomTypePostgDes.room_type_price}} €</p>
           <p class="main-text-16px">per day</p>
         </div>
+      </section>
 
-        {{!-- <!-- CHECK IN-CHECK-OUT-PRICE --> --}}
-        <div class="search-options-production search-options section-bottom-margins-l">
-          {{!-- <!-- search field check in --> --}}
-              <div class="icon_and d-flex flex-column">
-                  <label class="">Check in</label>
-                  <input style="padding: 2px;" name="checkInDate" id="current-date-input" type="date" placeholder="Check in">
+        <!-- room description -->
+        <section class="m-12 room-description sticky-container section-bottom-margins-l">
+          <div class="text-description ">
+            <div class="section-bottom-margins-l">
+              <p class="main-text-16px text-bold">{{RoomTypePostgDes.room_type_description}} </p>
+              <p class="main-text-16px">Located on the 3rd floor of the main building, it offers a comfortable bedroom and a bathroom with a rain shower.</p>
+            </div>
+            <!-- room amenities -->
+            <div class="room-amenities section-bottom-margins-l">
+                <div class="one-room-amenity">
+                  <img src="svg/wifi.svg">
+                  <h6>wifi</h6>
+                </div>
+                <div class="one-room-amenity">
+                  <img src="svg/TV2.svg">
+                  <h6>TV</h6>
+                </div>
+                <div class="one-room-amenity">
+                  <img src="svg/furnished.svg">
+                  <h6>fully furnished</h6>
+                </div>
+                <div class="one-room-amenity">
+                  <img src="svg/towels2.svg">
+                  <h6>towels</h6>
+                </div>
+                <div class="one-room-amenity">
+                  <img src="svg/cleaning.svg">
+                  <h6>cleaning services</h6>
+                </div>
+            </div>
+            <!-- information categories-->
+            <div class="included">
+              <div class="info-categories">
+                <p class="small-title-17px">Includes</p>
+                <p class="main-text-16px">They are equipped with a double bed with comfortable mattresses, air conditioning, free Wi-Fi, satellite TV, direct telephone line, hairdryer and other toiletries. A safety deposit box is also provided at an additional cost.</p>
               </div>
-          
-
-              <!-- search field check out -->
-          <div class="icon_and d-flex flex-column">
-              <label class="">Check out</label>
-              <input style="padding: 2px;" name="checkOutDate" id="twodays-date-input" type="date" placeholder="Check out">
+              <div class="info-categories">
+                <p class="small-title-17px">Breakfast</p>
+                <p class="main-text-16px">Although breakfast is not provided in the room, guests can visit the snack bar to enjoy a delicious breakfast.</p>
+              </div>
+              <div class="info-categories">
+                <p class="small-title-17px">Policy</p>
+                <p class="main-text-16px">Check in : 14.00 <br>
+                  Check out : 12.00</p>
+              </div>
+              <div class="main-text-16px">*2 days before arrival, 100% cancellation fees apply, of the total cost of the reservation
+              </div>
+            </div>
           </div>
-      
+          {{!-- <!-- DATE SELECTION --> --}}
+          <form method="get"  action="/productDescription">
+          <div class="date-selection-content">
+            <div class="date-selection">
 
-            <!-- search field check out -->
-          <div class="icon_and align-items-start d-flex flex-column justify-content-start">
-                  <label class="">Quests</label>
-                  <div class="search_and_date">
-                    
-                  <select disabled id="popUpGuests" class="form-select form-select-lg" name="GuestNumber" aria-label=".form-select-lg example">
-                    {{#if GuestNumber}}
-                    <option value="{{GuestNumber}}" selected >{{GuestNumber}} adults</option>
-                    {{else}}
-                      <option value="1">1 adult</option>
-                      <option value="2" selected>2 adults</option>
-                      <option value="3">3 adults</option>
-                      <option value="4">4 adults</option>
-                    {{/if}}
-                  </select>
-                  <img src="svg/people-new.svg" alt="check in">
+              {{!-- <!-- date target --> --}}
+              <div class="date-target">
+                <p class="big-titles-29px color-brown">{{RoomTypePostgDes.room_type_price}} €</p>
+                <p class="main-text-16px">per day</p>
+              </div>
+
+              {{!-- <!-- CHECK IN-CHECK-OUT-PRICE --> --}}
+              <div class="search-options-production search-options section-bottom-margins-l">
+                  <!-- search field check in -->
+                  <div class="icon_and d-flex flex-column">
+                      <label class="">Check in</label>
+                      <input style="padding: 2px;" name="checkInDate" id="current-date-input" type="date" placeholder="Check in">
                   </div>
-          </div>
-          <button id="CheckavailButt" type="button" class=" primary-button btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-            BOOK ROOM
-          </button>
+                  
+                      <!-- search field check out -->
+                  <div class="icon_and d-flex flex-column">
+                      <label class="">Check out</label>
+                      <input style="padding: 2px;" name="checkOutDate" id="twodays-date-input" type="date" placeholder="Check out">
+                  </div>
 
+                    <!-- search field gusets -->
+                  <div class="icon_and align-items-start d-flex flex-column justify-content-start">
+                      <label class="">Quests</label>
+                      <div class="search_and_date">
+                        
+                      <select disabled id="popUpGuests" class="form-select form-select-lg" name="GuestNumber" aria-label=".form-select-lg example">
+                        {{#if GuestNumber}}
+                        <option value="{{GuestNumber}}" selected >{{GuestNumber}} adults</option>
+                        {{else}}
+                          <option value="1">1 adult</option>
+                          <option value="2" selected>2 adults</option>
+                          <option value="3">3 adults</option>
+                          <option value="4">4 adults</option>
+                        {{/if}}
+                      </select>
+                      <img src="svg/people-new.svg" alt="check in">
+                      </div>
+                  </div>
+
+                  <button id="CheckavailButt" type="button" class=" primary-button btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                    BOOK ROOM
+                  </button>
+              </div>
+            
+            </div>
+          </div>
+          </form>
+        </section>
+
+
+      {{!-- <!-- REVIEW CAROUSEL ---> --}}
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"></script>
+    <section class="m-12">
+        <div class="write-reviews"> 
+              <div class=" big-titles-29px" >ROOM VISITOR'S COMMENTS</div>
+              {{!-- WRITE REVIEW                       --}}
+              <div class="edit-button d-flex d-fg gap-3 align-items-center justify-content-start">
+                  <div id="writeReview">
+                    <div class="svg-container">
+                        <svg width="14" viewBox="0 0 19 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path class="svg-path" style="color: #C18050;" d="M16.7394 6.96493L12.8963 3.16163L14.1623 1.89386C14.5089 1.54673 14.9348 1.37317 15.44 1.37317C15.9446 1.37317 16.3702 1.54673 16.7168 1.89386L17.9828 3.16163C18.3294 3.50875 18.5103 3.92772 18.5253 4.41853C18.5404 4.90873 18.3746 5.3274 18.028 5.67453L16.7394 6.96493ZM15.4282 8.30062L5.8431 17.8994H2V14.0509L11.5851 4.45203L15.4282 8.30062Z" fill="#413C39"/>
+                        </svg>
+                    </div>
+                    <p class="card-text" style="color:#C18050;font-weight:300 ;"><a href="/WriteComment#ReviewForm">Write a review</a></p>
+                  </div>
+              </div>        
         </div>
-
-       
-    </div>
-    
-      </div>
-      </form>
-    </section>
-
-
-
-    {{!-- <!-- REVIEW CAROUSEL ---> --}}
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"></script>
-  <section class="m-12">
-  <div class="write-reviews"> 
-       <div class=" big-titles-29px" >ROOM VISITOR'S COMMENTS</div>
-  {{!-- WRITE REVIEW                       --}}
-  <div class="edit-button d-flex d-fg gap-3 align-items-center justify-content-start">
-  <div id="writeReview">
-  <div class="svg-container">
-      <svg width="14" viewBox="0 0 19 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path class="svg-path" style="color: #C18050;" d="M16.7394 6.96493L12.8963 3.16163L14.1623 1.89386C14.5089 1.54673 14.9348 1.37317 15.44 1.37317C15.9446 1.37317 16.3702 1.54673 16.7168 1.89386L17.9828 3.16163C18.3294 3.50875 18.5103 3.92772 18.5253 4.41853C18.5404 4.90873 18.3746 5.3274 18.028 5.67453L16.7394 6.96493ZM15.4282 8.30062L5.8431 17.8994H2V14.0509L11.5851 4.45203L15.4282 8.30062Z" fill="#413C39"/>
-          </svg>
+        <div id="myCarousel" class="carousel slide container" data-bs-ride="carousel">
+            <div class="carousel-inner w-100">
+                <div class="carousel-item active">
+                    <div class="col-md-3">
+                        <div class="card2 card-body">
+                                        <div class="comments"><p>"I had a wonderful stay at this hotel! The room was clean and comfortable, the staff were friendly and helpful, and the location was perfect for exploring the city."</p></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <div class="col-md-3">
+                        <div class="card2 card-body">
+                                        <div class="comments"><p>""I had a wonderful experience at this hotel. The room was comfortable and quiet, and the amenities were great. The staff were also very helpful and provided excellent recommendations for local restaurants and attractions."</p></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <div class="col-md-3">
+                        <div class="card2 card-body">
+                            <div class="comments"><p>"I would highly recommend this hotel to anyone visiting the area. The rooms are modern and well-appointed."</p></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <div class="col-md-3">
+                        <div class="card2 card-body">
+                            <div class="comments"><p>"I had an incredible experience at this hotel! The staff was exceptionally friendly and helpful throughout my stay. The room was spacious, clean, and beautifully decorated."</p></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <div class="col-md-3">
+                        <div class="card2 card-body">
+                          <div class="comments"><p>"I recently stayed at this hotel for a conference, and I was thoroughly impressed. The conference facilities were excellent, with modern technology and comfortable seating. 
+      "</p></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <div class="col-md-3">
+                        <div class="card2 card-body">
+                            <div class="comments"><p>"The hotel's location was also convenient, with easy access to the airport and nearby restaurants. I would highly recommend this hotel for any business event"</p></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <div class="col-md-3">
+                        <div class="card2 card-body">
+                            <div class="comments"><p>"The hotel staff was professional and attentive, ensuring that everything ran smoothly. The meals provided during the conference were delicious, and the coffee breaks were well-organized. "</p></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <div class="col-md-3">
+                        <div class="card2 card-body">
+                            <div class="comments"><p>"The hotel's location was also convenient, with easy access to the airport and nearby restaurants. I would highly recommend this hotel for any business event"</p></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#myCarousel" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+        <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js'></script>
+      {{!-- <!-- REViEW CAROUSEL END --> --}}
+  </section>
   </div>
- 
-  <p class="card-text" style="color:#C18050;font-weight:300 ;"><a href="/WriteComment#ReviewForm">Write a review</a></p></div>
-
-   </div>        
-</div>
-
-
-  <div id="myCarousel" class="carousel slide container" data-bs-ride="carousel">
-      <div class="carousel-inner w-100">
-          <div class="carousel-item active">
-              <div class="col-md-3">
-                  <div class="card2 card-body">
-                                  <div class="comments"><p>"I had a wonderful stay at this hotel! The room was clean and comfortable, the staff were friendly and helpful, and the location was perfect for exploring the city."</p></div>
-                  </div>
-              </div>
-          </div>
-          <div class="carousel-item">
-              <div class="col-md-3">
-                  <div class="card2 card-body">
-                                  <div class="comments"><p>""I had a wonderful experience at this hotel. The room was comfortable and quiet, and the amenities were great. The staff were also very helpful and provided excellent recommendations for local restaurants and attractions."</p></div>
-                  </div>
-              </div>
-          </div>
-          <div class="carousel-item">
-              <div class="col-md-3">
-                  <div class="card2 card-body">
-                      <div class="comments"><p>"I would highly recommend this hotel to anyone visiting the area. The rooms are modern and well-appointed."</p></div>
-                  </div>
-              </div>
-          </div>
-          <div class="carousel-item">
-              <div class="col-md-3">
-                  <div class="card2 card-body">
-                      <div class="comments"><p>"I had an incredible experience at this hotel! The staff was exceptionally friendly and helpful throughout my stay. The room was spacious, clean, and beautifully decorated."</p></div>
-                  </div>
-              </div>
-          </div>
-          <div class="carousel-item">
-              <div class="col-md-3">
-                  <div class="card2 card-body">
-                     <div class="comments"><p>"I recently stayed at this hotel for a conference, and I was thoroughly impressed. The conference facilities were excellent, with modern technology and comfortable seating. 
-"</p></div>
-                  </div>
-              </div>
-          </div>
-          <div class="carousel-item">
-              <div class="col-md-3">
-                  <div class="card2 card-body">
-                      <div class="comments"><p>"The hotel's location was also convenient, with easy access to the airport and nearby restaurants. I would highly recommend this hotel for any business event"</p></div>
-                  </div>
-              </div>
-          </div>
-          <div class="carousel-item">
-              <div class="col-md-3">
-                  <div class="card2 card-body">
-                      <div class="comments"><p>"The hotel staff was professional and attentive, ensuring that everything ran smoothly. The meals provided during the conference were delicious, and the coffee breaks were well-organized. "</p></div>
-                  </div>
-              </div>
-          </div>
-          <div class="carousel-item">
-              <div class="col-md-3">
-                  <div class="card2 card-body">
-                      <div class="comments"><p>"The hotel's location was also convenient, with easy access to the airport and nearby restaurants. I would highly recommend this hotel for any business event"</p></div>
-                  </div>
-              </div>
-          </div>
-      </div>
-      <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev">
-          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Previous</span>
-      </button>
-      <button class="carousel-control-next" type="button" data-bs-target="#myCarousel" data-bs-slide="next">
-          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Next</span>
-      </button>
-  </div>
-  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js'></script>
-{{!-- <!-- REViEW CAROUSEL END --> --}}
-</section>
-
-
-</main>
     {{> SignInUpPopUp}}
     {{> bookingPopUp}}

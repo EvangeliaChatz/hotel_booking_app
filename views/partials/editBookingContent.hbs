@@ -1,26 +1,11 @@
-<!-- CONTAINER-FLUID -->
-    <div class="container-fluid">
-
-<!-- LOADING
-   <div class="d-flex align-items-center">
-  <strong>Loading...</strong>
-  <div class="spinner-border ml-auto" role="status" aria-hidden="true"></div>
-</div> -->
-
 
 <!-- MAIN CONTENT OF THE PAGE -->
 <main>
     {{!-- SECTION BOOKINGS AND PROFILE --}}
 <section class="m-12">
-
-
-
-
-
     <div class="row">
         <p class="main-titles-30px mb-4">Chatzilygeroudi Evangelia</p>
     </div>  
-
     <ul class="nav nav-tabs mb-5" id="myTab" role="tablist">
         <li class="nav-item" role="presentation">
           <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home" type="button" role="tab" aria-controls="home" aria-selected="true">MY BOOKINGS</button>
@@ -29,14 +14,10 @@
           <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile" type="button" role="tab" aria-controls="profile" aria-selected="false">PROFILE</button>
         </li>
     </ul>
-
-{{!-- ALL TABS TOGETHER --}}
-<div class="tab-content" id="myTabContent">
-
-
- {{!-- CONTENT TAB(PROFILE) ---------------------------------------------------------------------------------}}
+    {{!-- ALL TABS TOGETHER --}}
+    <div class="tab-content" id="myTabContent">
+    {{!-- CONTENT TAB(PROFILE) ---------------------------------------------------------------------------------}}
         <div class="tab-pane fade  " id="profile" role="tabpanel" aria-labelledby="profile-tab">
-            
             <form class="mt-4 mb-5">
 
                 <div class="form-row justify-content-center align-items-center">
@@ -63,207 +44,173 @@
                             </div>
                         </div>   
                     </div>
-                 </div>
+                </div>
                 <div class="d-flex gap-5 mt-5">
                     <a href="#" class=" primary-button bt">SAVE CHANGES</a>
                     <a href="#" class=" secondary-button btn">EDIT INFORMATION</a>
                 </div>
-              </form>
-            </div>
- {{!--END CONTENT TAB(PROFILE) ---------------------------------------------------------------------------------}}
+            </form>
+        </div>
+    {{!--END CONTENT TAB(PROFILE) ---------------------------------------------------------------------------------}}
 
-          
-{{!-- CONTENT TAB(MY BOOKINGS) ---------------------------------------------------------------------------------}}
+            {{!-- CONTENT TAB(MY BOOKINGS) ---------------------------------------------------------------------------------}}
             <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab"> 
                 {{!-- ON GOING BOOKINGS ------------------------------------------------------------}}
-<div class="main-text-16px mb-5 color-brown">Ongoing bookings</div>
-    <section class="accordaon">
-        <div class="accordion" id="accordionExample">
+                <div class="main-text-16px mb-5 color-brown">Ongoing bookings</div>
+                    <section class="accordaon">
+                        <div class="accordion" id="accordionExample">
+                            {{!-- ACCORDAON ITEM 1 --}}
+                            {{#each reservations}}
+                            <div class="accordion-item">
+                                <div class="accordion-header" id="headingOne">
+                                    <button class="accordion-button mb-5" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                        <div class="d-flex gap-3 ">
+                                            <img class="dimensions-icon" src="svg/calendar-black.svg">
+                                            <h6 class="ral-brown">{{getDateFormatted arrival_date}} - {{getDateFormatted dep_date}} </h6>
+                                        </div>
+                                    </button>
+                                </div>
+                                <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                                    <div class="accordion-body">
+                                        {{!-- CARD EDIT FORMS --}}
+                                        <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">  
+                                            <form class="mt-4 mb-5">
+                                                <div class="edit-info">
+                                                    {{!-- EDIT CHECK IN- CHECKOUT --}}              
+                                                    <div class="edit-date">  
+                                                        <div class="text-14px color-brown">Edit booking dates</div>
+                                                        <div class="edit-dates-layout">
+                                                            <!-- search field check out -->
+                                                            <div class="icon_and d-flex flex-column">
+                                                                <label>Check in</label>
+                                                                <input style="padding: 2px;" name="checkInDate" id="current-date-input" type="date" placeholder="Check in" value="{{getDateFormatted arrival_date}}">
+                                                            </div> 
+                                                            <!-- search field check out -->
+                                                            <div class="icon_and d-flex flex-column">
+                                                                <label>Check out</label>
+                                                                <input style="padding: 2px;"  name="checkOutDate" id="twodays-date-input" type="date" placeholder="Check out" value="{{getDateFormatted dep_date}}">
+                                                            </div>
+                                                        </div>
+                                                    </div>  
+                                                    {{!-- EDIT CHECK IN- CHECKOUT END --}} 
+                                                    <!-- COST & EXTRAS -->
+                                                    <div class="costs">
+                                                        <div class="text-14px color-brown">Edit extra amenities</div>
+                                                        <div class="total-costs">
+                                                            <div class="price-16px total-cost-desc">Total Cost</div>
+                                                            <div class="total-cost-price main-titles-30px green" id="total-price">{{total_price}}€</div>
+                                                        </div>
 
+                                                        <div class="total-breakf-cost">
+                                                            <div class="total-cost-desc">
+                                                                <div class="price-16px">Breakfast</div>
+                                                                <h6 class="text-14px">You can include breakfast for 8€ / person</h6>
+                                                            </div>
+                                                            <div class="form-check form-switch">
+                                                                <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault2-{{@index}}" checked ="{{breakfast}}">
+                                                            </div>
+                                                        </div>
 
-    {{!-- ACCORDAON ITEM 1 --}}
-   {{#each reservations}}
-    <div class="accordion-item">
-        <h2 class="accordion-header" id="headingOne">
-        <button class="accordion-button mb-5" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                                    <div class="d-flex gap-3 ">
-                                        <img class="dimensions-icon" src="svg/calendar-black.svg">
-                                        <h6 class="ral-brown">{{getDateFormatted arrival_date}} - {{getDateFormatted dep_date}} </h6>
+                                                        <div class="total-breakf-cost">
+                                                            <div class="total-cost-desc">
+                                                                <div class="price-16px">Fast Wifi</div>
+                                                                <h6 class="text-14px">You can include fast- wifi for 5€ / person</h6>
+                                                            </div>
+                                                            <div class="form-check form-switch">
+                                                                <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault-{{@index}}" checked="{{fastwifi}}">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <!-- end of customize -->
+                                                </div>
+                                                <div class="d-flex gap-5 mt-5">
+                                                    <a href="/profilePage#my-bookings" class=" primary-button bt">SAVE CHANGES</a>
+                                                    <a href="/profilePage#my-bookings" class=" secondary-button btn">CANCEL</a>
+                                                </div>
+                                            </form>
+                                        </div>
+                                        {{!-- CARD EDIT FORMS --}}
                                     </div>
-        </button>
-        </h2>
-        <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
-        <div class="accordion-body">
-{{!-- CARD EDIT FORMS --}}
-        <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
-            
-            <form class="mt-4 mb-5">
-<div class="edit-info">
-  {{!-- EDIT CHECK IN- CHECKOUT --}}              
-            <div class="edit-date">  
-                <div class="text-14px color-brown">Edit booking dates</div>
-                <div class="edit-dates-layout">
-                <!-- search field check out -->
-                <div class="icon_and d-flex flex-column">
-                    <label>Check in</label>
-                    <input style="padding: 2px;" name="checkInDate" id="current-date-input" type="date" placeholder="Check in" value="{{getDateFormatted arrival_date}}">
-                </div>
-
-                <!-- search field check out -->
-            <div class="icon_and d-flex flex-column">
-                <label>Check out</label>
-                <input style="padding: 2px;"  name="checkOutDate" id="twodays-date-input" type="date" placeholder="Check out" value="{{getDateFormatted dep_date}}">
-            </div>
-            </div>
-        </div>  
-{{!-- EDIT CHECK IN- CHECKOUT END --}} 
-      <!-- COST & EXTRAS -->
-    <div class="costs">
-<div class="text-14px color-brown">Edit extra amenities</div>
-        <div class="total-costs">
-          <div class="total-cost-desc">
-          <div class="price-16px">Total Cost</div>
-          {{!-- <h6 >{{TypeRoomPrice}}€/day</h6> --}}
-          </div>
-          <div class="total-cost-price main-titles-30px green" id="total-price">{{total_price}}€</div>
-        </div>
-
-        <div class="total-breakf-cost">
-          <div class="total-cost-desc">
-          <div class="price-16px">Breakfast</div>
-          <h6 class="text-14px">You can include breakfast for 8€ / person</h6>
-          </div>
-          <div class="form-check form-switch">
-          <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault2-{{@index}}" checked ="{{breakfast}}">
-          </div>
-        </div>
-
-        <div class="total-breakf-cost">
-          <div class="total-cost-desc">
-            <div class="price-16px">Fast Wifi</div>
-            <h6 class="text-14px">You can include fast- wifi for 5€ / person</h6>
-            </div>
-        <div class="form-check form-switch">
-          <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault-{{@index}}" checked="{{fastwifi}}">
-        </div>
-      </div>
-
-    </div>
-      <!-- end of customize -->
-
-                 </div>
-                <div class="d-flex gap-5 mt-5">
-                    <a href="/profilePage#my-bookings" class=" primary-button bt">SAVE CHANGES</a>
-                    <a href="/profilePage#my-bookings" class=" secondary-button btn">CANCEL</a>
-                </div>
-              </form>
-            </div>
-            {{!-- CARD EDIT FORMS --}}
-
-
-                    </div>
-                    {{!-- accordion-body end--}}
-                    
-        </div>
-        </div>{{!-- END ACCORDAON ITEM 1 --}}
-        {{/each}}
-</div>
-
-
-    </section>
-
-{{!-- PAST BOOKINGS ------------------------------------------------------------}}
-<div class="main-text-16px mb-5 color-brown">Past bookings</div>
-<section class="accordaon">
-    <div class="accordion" id="accordionExample">
-{{!-- ACCORDAON ITEM 2 --}}
-  <div class="accordion-item">
-    <h2 class="accordion-header" id="headingTwo">
-      <button class="accordion-button mb-5" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                                <div class="d-flex gap-3 ">
-                                    <img class="dimensions-icon" src="svg/calendar-black.svg">
-                                    <h6 class="ral-brown">09/04/23 - 15/04/23</h6>
+                                    {{!-- accordion-body end--}}          
                                 </div>
-      </button>
-    </h2>
-    <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
-      <div class="accordion-body">
-                    {{!-- CARD 1--}}
-                        <div class="row mb-5">
-                    <div class="d-flex whole-profile-card justify-content-around" id="my-bookings">
-
-                        <div class="profile-card-des  justify-content-center align-items-center d-flex flex-wrap">
-                            <img src="images/mybookings1.png">
-                            <div class="d-flex flex-column gap-3">
-                                <h5 class="card-title">CITY DOUBLE ROOM</h5>
-                                <div class="price-tag-19px">40€</div>
-                                <span class=" card-label">Confirmed</span>
-                            </div>
+                            </div>{{!-- END ACCORDAON ITEM 1 --}}
+                            {{/each}}
                         </div>
-                        <div class="delete-edit d-flex  align-self-end flex-wrap gap-2 align-items-center">
-                            {{!-- EDIT ANIMATION ICON --}}
-                            <div class="edit-button d-flex d-fg bolex gap-3 align-items-center justify-content-start">
-                                
-                                <div class="svg-container">
-                                    <svg width="14" viewBox="0 0 19 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <path class="svg-path" d="M16.7394 6.96493L12.8963 3.16163L14.1623 1.89386C14.5089 1.54673 14.9348 1.37317 15.44 1.37317C15.9446 1.37317 16.3702 1.54673 16.7168 1.89386L17.9828 3.16163C18.3294 3.50875 18.5103 3.92772 18.5253 4.41853C18.5404 4.90873 18.3746 5.3274 18.028 5.67453L16.7394 6.96493ZM15.4282 8.30062L5.8431 17.8994H2V14.0509L11.5851 4.45203L15.4282 8.30062Z" fill="#413C39"/>
-                                        </svg>
-                                </div>
-                                <p class="card-text">Edit</p>
-                            </div>
-                            {{!-- END EDIT ANIMATION ICON --}}
+                    </section>
 
-                            <p class="vl3"></p>
+                {{!-- PAST BOOKINGS ------------------------------------------------------------}}
+                <div class="main-text-16px mb-5 color-brown">Past bookings</div>
+                <section class="accordaon">
+                    <div class="accordion" id="accordionExample">
+                        {{!-- ACCORDAON ITEM 2 --}}
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="headingTwo">
+                            <button class="accordion-button mb-5" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                                        <div class="d-flex gap-3 ">
+                                                            <img class="dimensions-icon" src="svg/calendar-black.svg">
+                                                            <h6 class="ral-brown">09/04/23 - 15/04/23</h6>
+                                                        </div>
+                            </button>
+                            </h2>
+                            <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+                            <div class="accordion-body">
+                                            {{!-- CARD 1--}}
+                                                <div class="row mb-5">
+                                            <div class="d-flex whole-profile-card justify-content-around" id="my-bookings">
 
-                            {{!-- DELETE ANIMATION ICON --}}
-                            <div class="cancel-button d-flex d-fg bolex gap-3 align-items-center justify-content-start">
-                                            <script src="https://cdn.lordicon.com/bhenfmcm.js"></script>
-                                                <lord-icon
-                                                    src="https://cdn.lordicon.com/jmkrnisz.json"
-                                                    trigger="hover"
-                                                    colors="primary:#b90404"
-                                                    style="width:16px;height:16px">
-                                                </lord-icon>
-                                                {{!-- <img class="dimensions-icon" src="svg/trash.svg"> --}}
-                                <p class="card-text">Cancel booking</p>
+                                                <div class="profile-card-des  justify-content-center align-items-center d-flex flex-wrap">
+                                                    <img src="images/mybookings1.png">
+                                                    <div class="d-flex flex-column gap-3">
+                                                        <h5 class="card-title">CITY DOUBLE ROOM</h5>
+                                                        <div class="price-tag-19px">40€</div>
+                                                        <span class=" card-label">Confirmed</span>
+                                                    </div>
+                                                </div>
+                                                <div class="delete-edit d-flex  align-self-end flex-wrap gap-2 align-items-center">
+                                                    {{!-- EDIT ANIMATION ICON --}}
+                                                    <div class="edit-button d-flex d-fg bolex gap-3 align-items-center justify-content-start">
+                                                        
+                                                        <div class="svg-container">
+                                                            <svg width="14" viewBox="0 0 19 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                                <path class="svg-path" d="M16.7394 6.96493L12.8963 3.16163L14.1623 1.89386C14.5089 1.54673 14.9348 1.37317 15.44 1.37317C15.9446 1.37317 16.3702 1.54673 16.7168 1.89386L17.9828 3.16163C18.3294 3.50875 18.5103 3.92772 18.5253 4.41853C18.5404 4.90873 18.3746 5.3274 18.028 5.67453L16.7394 6.96493ZM15.4282 8.30062L5.8431 17.8994H2V14.0509L11.5851 4.45203L15.4282 8.30062Z" fill="#413C39"/>
+                                                                </svg>
+                                                        </div>
+                                                        <p class="card-text">Edit</p>
+                                                    </div>
+                                                    {{!-- END EDIT ANIMATION ICON --}}
+
+                                                    <p class="vl3"></p>
+
+                                                    {{!-- DELETE ANIMATION ICON --}}
+                                                    <div class="cancel-button d-flex d-fg bolex gap-3 align-items-center justify-content-start">
+                                                                    <script src="https://cdn.lordicon.com/bhenfmcm.js"></script>
+                                                                        <lord-icon
+                                                                            src="https://cdn.lordicon.com/jmkrnisz.json"
+                                                                            trigger="hover"
+                                                                            colors="primary:#b90404"
+                                                                            style="width:16px;height:16px">
+                                                                        </lord-icon>
+                                                                        {{!-- <img class="dimensions-icon" src="svg/trash.svg"> --}}
+                                                        <p class="card-text">Cancel booking</p>
+                                                    </div>
+                                                    {{!-- END DELETE ANIMATION ICON --}}
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            {{!-- CARD --}}
+                                        </div>
+                                        
                             </div>
-                            {{!-- END DELETE ANIMATION ICON --}}
-                            </div>
-                        </div>
+                            </div>{{!-- END ACCORDAON ITEM 2 --}}
                     </div>
-                    {{!-- CARD --}}
-                </div>
-                
-      </div>
-    </div>{{!-- END ACCORDAON ITEM 2 --}}
-
-
-
-
-
-
-  </div>
-
-</section>
+                </section>
             </div>
 
-  {{!-- END CONTENT TAB(MY BOOKINGS) ---------------------------------------------------------------------------------}}  
-    {{!-- ALL TABS TOGETHER --}}
-</div>    
-
-
-
+    {{!-- END CONTENT TAB(MY BOOKINGS) ---------------------------------------------------------------------------------}}  
+        {{!-- ALL TABS TOGETHER --}}
+    </div>    
 {{!--END SECTION BOOKINGS AND PROFILE --}}
 </section>
 
 </main>
-
-{{!--END FLUID END--}}
-</div>
-
-
-
-
-
-
 {{> SignInUpPopUp}}
