@@ -46,7 +46,7 @@
                     </div>
                 </div>
                 <div class="d-flex gap-5 mt-5">
-                    <a href="#" class=" primary-button bt">SAVE CHANGES</a>
+                    <a href="#"  class=" primary-button bt">SAVE CHANGES</a>
                     <a href="#" class=" secondary-button btn">EDIT INFORMATION</a>
                 </div>
             </form>
@@ -107,7 +107,7 @@
                                                                 <h6 class="text-14px">You can include breakfast for 8€ / person</h6>
                                                             </div>
                                                             <div class="form-check form-switch">
-                                                                <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault2-{{@index}}" checked ="{{breakfast}}">
+                                                                <input class="form-check-input" type="checkbox" name="breakfastchange" checked ="{{breakfast}}">
                                                             </div>
                                                         </div>
 
@@ -117,16 +117,19 @@
                                                                 <h6 class="text-14px">You can include fast- wifi for 5€ / person</h6>
                                                             </div>
                                                             <div class="form-check form-switch">
-                                                                <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault-{{@index}}" checked="{{fastwifi}}">
+                                                                <input class="form-check-input" type="checkbox" name="breakfastchange" checked="{{fastwifi}}">
                                                             </div>
                                                         </div>
                                                     </div>
                                                     <!-- end of customize -->
                                                 </div>
                                                 <div class="d-flex gap-5 mt-5">
-                                                    <a href="/profilePage#my-bookings" class=" primary-button bt">SAVE CHANGES</a>
+                                                    {{!-- save changes be submit button  --}}
+                                                    <button type="submit" class=" primary-button bt" >SAVE CHANGES</button>
                                                     <a href="/profilePage#my-bookings" class=" secondary-button btn">CANCEL</a>
                                                 </div>
+                                                <input type="hidden" id="booking_id-{{@index}}" value="{{booking_id}}">
+                                                
                                             </form>
                                         </div>
                                         {{!-- CARD EDIT FORMS --}}

@@ -1,11 +1,11 @@
 2 ERRORS
 -δεν μπαίνει από την booking List ενώ βάζω τα σωστά στοιχεία
 -την bookingList βγαζει για πολυ λιγο το confirmation message όταν γίνεται η κράτηση και αποθηκευεται η κρατηση στο προφιλ
+-δε δουλεύει πολύ καλά το sign in
 
 -update πρωϊνο και στοιχεία κράτησης (ημερομηνία)
 
 EKKREMOTHTES
---DEN EXEI GINEI -env arxeio
 -validation formas--bootstrapt
 -validation φόρμας booking--checkbox, αν δεν το εχει πατησει να μην
 μπορεί να συνεχίσει
@@ -50,6 +50,7 @@ DEUTEREOUSES EKKREMMOTHTES
 - να εμφανιζονται τα booking στο προφιλ --να εμφανίζεται και το πρωινό--DONE
   -na balw emfwleumena if--DONE
   -ORDER STO EDIT PAGE--DONE
+  -env arxeio--DONE
 
 ΠΑΡΑΤΗΡΗΣΕΙΣ
 -χρειάζεται sign in για να κάνω booking

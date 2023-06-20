@@ -19,7 +19,7 @@ async function signUp(req, res) {
           email_req,
           password_req,
           phone_req,
-          (err,result) => {
+          (err, result) => {
             if (err) {
               console.log(err);
               res.redirect(req.get("referer"));
@@ -28,6 +28,8 @@ async function signUp(req, res) {
               req.session.signedIn = true;
               req.session.full_name = result.full_name;
               req.session.client_id = result.client_id;
+              req.session.email = result.email;
+              req.session.phone_number = result.phone_number;
               console.log(req.session.full_name, req.session.signedIn);
               res.redirect(req.get("referer"));
             }

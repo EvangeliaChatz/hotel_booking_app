@@ -1,0 +1,28 @@
+version: "3"
+services:
+  postgres:
+    image: postgres
+    restart: always
+    ports:
+      - 5432:5432
+    environment:
+      - POSTGRES_USER=eva
+      - POSTGRES_PASSWORD=eva
+      - POSTGRES_DB=hotel
+    volumes:
+      - ./model:/docker-entrypoint-initdb.d
+
+  node:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - ./controllers:/app/controllers
+      - ./model:/app/model
+      - ./public:/app/public
+      - ./views:/app/views
+    command: node server.mjs
+    depends_on:
+      - postgres
+    ports:
+      - 8000:8000

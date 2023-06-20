@@ -1,5 +1,5 @@
 import * as model from "../model/model_pg.mjs";
-import getTodaysDateFormatted from "./formattedTodaysDate.mjs";
+import getTodaysDateFormatted from "../controllers/formattedTodaysDate.mjs";
 
 function saveBooking(req, res, next) {
   let bookingDate = getTodaysDateFormatted();

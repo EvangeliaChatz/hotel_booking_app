@@ -15,6 +15,7 @@ import pkg from "pg";
 const { Pool } = pkg;
 import dotenv from "dotenv";
 dotenv.config();
+
 const pool = new Pool({
   user: process.env.DB_USER,
   host: process.env.DB_HOST,
@@ -38,11 +39,11 @@ async function checkUser(email_req, password_req, callback) {
   let user, error_message;
   // console.log(email_req, password_req);
   try {
-    const sql = `Select * from "CLIENT" where "email" = '${email_req}'`;
+    const sql = `Select * from "CLIENT" where "email" = $1 `;
     const client = await connect();
-    const res = await client.query(sql);
+    const res = await client.query(sql, [email_req]);
     await client.release();
-    if (res) {
+    if (res.length != 0) {
       // const match = bcrypt.compareSync(password, user.password);
       // const match = password_req == res.rows[0].password;
       const match = bcrypt.compareSync(password_req, res.rows[0].password);
@@ -80,7 +81,7 @@ async function checkEmail(email_req, callback) {
 
 //Προσθήκη νέου χρήστη στο πίνακα "CLIENT" της βάσης
 async function addUser(full_name, email, password, phone_number, callback) {
-  const sql = `INSERT INTO "CLIENT" ("full_name", "email", "password", "phone_number") VALUES ($1, $2, $3, $4) RETURNING "client_id","full_name"`;
+  const sql = `INSERT INTO "CLIENT" ("full_name", "email", "password", "phone_number") VALUES ($1, $2, $3, $4) RETURNING "client_id","full_name","email","phone_number"`;
   try {
     const client = await connect();
     const res = await client.query(sql, [
@@ -122,7 +123,7 @@ async function getRoomGuestDate(
     ]);
     await client.release();
     callback(null, res.rows); // επιστρέφει array
-    // console.log(res.rows);
+    console.log(res.rows);
   } catch (err) {
     callback(err, null);
   }
@@ -130,7 +131,7 @@ async function getRoomGuestDate(
 
 //επιστρέφει τα επεξεργάσιμα στοιχεία ενός χρήστη με cleint_id για να τα επεξεργαστεί στο editProfile
 async function getReservations(client_id, callback) {
-  const sql = `Select * from "booking" inner join "includes" on "booking"."booking_id"="includes"."booking_id" where "client_id" = $1 ORDER BY public."booking"."booking_id" DESC`;
+  const sql = `Select * from "booking" inner join "includes" on "booking"."booking_id"="includes"."booking_id" where "client_id" = $1 ORDER BY "booking"."booking_id" DESC`;
   try {
     const client = await connect();
     const res = await client.query(sql, [client_id]);
@@ -144,22 +145,22 @@ async function getReservations(client_id, callback) {
 
 //επιστρέφει τις κρατήσεις ενός χρήστη με cleint_id για να τις δει στο profilePage
 async function getProfileBookings(client_id, callback) {
-  const sql = `select "room_type_name","total_price","room_type_photo","breakfast","fastwifi","arrival_date","dep_date" from public."roomTypep" join public."includes"
-  on public."includes"."room_id"=public."roomTypep"."room_id"
-  join public."booking" on public."booking"."booking_id"=public."includes"."booking_id" where "client_id" = $1 ORDER BY public."booking"."booking_id" DESC `;
+  const sql = `select "room_type_name","total_price","room_type_photo","breakfast","fastwifi","arrival_date","dep_date" from "roomTypep" join "includes"
+  on "includes"."room_id"="roomTypep"."room_id"
+  join "booking" on "booking"."booking_id"="includes"."booking_id" where "client_id" = $1 ORDER BY "booking"."booking_id" DESC `;
   //ORDER εμφανίζει το τελευταίο booking πρώτο
   try {
     const client = await connect();
     const res = await client.query(sql, [client_id]);
     await client.release();
     callback(null, res.rows); // επιστρέφει array
-    console.log("rows", res.rows);
+    // console.log("rows", res.rows);
   } catch (err) {
     callback(err, null);
   }
 }
 
-//επιστρέφει όλα τα δωμάτια
+//επιστρέφει όλα τα δωμάτια στην αρχική σελίδα
 async function getRoomDesc(callback) {
   const sql = `Select * from "roomTypep"`;
   try {
@@ -172,7 +173,7 @@ async function getRoomDesc(callback) {
   }
 }
 
-//επιστρέφει ένα δωμάτιο
+//επιστρέφει ένα δωμάτιο στην περιγραφή του δωματίου
 async function getRooms(id, callback) {
   const sql = `Select * from "roomTypep" where "room_type_id" = ${id}`;
   try {
@@ -207,6 +208,7 @@ async function insertBooking(
     ]);
     await client.release();
     callback(null, res.rows[0].booking_id);
+    // console.log("booking id", res.rows[0].booking_id);
   } catch (err) {
     callback("booking error " + err);
   }
@@ -231,6 +233,25 @@ async function insertIncludes(
   }
 }
 
+//Να κάνει update τα toggle που άλλαξε ο χρήστης
+async function updateExtras(
+  breakfast,
+  fastwifi,
+  booking_id,
+
+  callback
+) {
+  const sql = `UPDATE booking SET "breakfast"=$1, "fastwifi"=$2 WHERE "booking_id"=$3`;
+  try {
+    const client = await connect();
+    await client.query(sql, [breakfast, fastwifi, booking_id]);
+    await client.release();
+    callback(null);
+  } catch (err) {
+    callback("includes error " + err);
+  }
+}
+
 export {
   connect,
   getUserId,
@@ -244,4 +265,5 @@ export {
   getReservations,
   insertIncludes,
   getProfileBookings,
+  updateExtras,
 };
