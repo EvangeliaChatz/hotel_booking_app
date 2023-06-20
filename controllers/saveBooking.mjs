@@ -1,13 +1,7 @@
 import * as model from "../model/model_pg.mjs";
-
 import getTodaysDateFormatted from "./formattedTodaysDate.mjs";
 
-function insertingBooking(req, res, next) {
-  // res.locals ειναι μεταβλητες που μπορει να αξιοποιησει το response
-  // αντι να κανεις render('something', {variable: value}) μπορεις να κανεις res.locals.variable = value
-  // σε οποιοδηποτε middle του ιδιου  route
-  // οποτε στο handlebars μπορεις να χρησιμοποιησεις κατευθειαν {{variable}}
-
+function saveBooking(req, res, next) {
   let bookingDate = getTodaysDateFormatted();
 
   let totalPrice = parseInt(req.body.hiddenPrice);
@@ -25,7 +19,7 @@ function insertingBooking(req, res, next) {
     (err, result) => {
       if (err) {
         return console.error(err);
-        res.redirect(req.get("referer"));
+        // res.redirect(req.get("referer"));
       }
       res.locals.booking_id = result;
       // console.log(`booking id is ${res.locals.booking_id}`);
@@ -34,4 +28,4 @@ function insertingBooking(req, res, next) {
   );
 }
 
-export default insertingBooking;
+export default saveBooking;

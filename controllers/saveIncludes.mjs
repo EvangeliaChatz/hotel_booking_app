@@ -10,7 +10,7 @@ function insertingIncludes(req, res, next) {
     (err, result) => {
       if (err) {
         return console.error(err);
-        res.redirect(req.get("referer"));
+        // res.redirect(req.get("referer"));
       }
       next();
     }

@@ -1,5 +1,4 @@
-
-//Format date to insert in postgres database
+//Μορφοποίηση ημερομηνίας για να μπει στην βάση postgres
 function getTodaysDateFormatted() {
   let today = new Date();
   const bookingDate =

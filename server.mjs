@@ -13,8 +13,6 @@ const SQLiteStoreSession = SQLiteStore(session);
 const app = express();
 // const router = express.Router();
 
-import getDateFormatted from "./controllers/helpers.mjs";
-
 const hbs = exphbs.create({
   // Specify the path to your handlebars template files
   // For example, if your template file is in the "views" directory:
@@ -50,17 +48,12 @@ const hbs = exphbs.create({
 
 // app.engine("hbs", engine({ extname: "hbs"}));
 app.engine("hbs", hbs.engine);
-
 app.set("view engine", "hbs");
 
 //Δηλώνουμε πως ο φάκελος public θα περιέχει τα στατικά αρχεία
 //το αρχείο /public/style.css
 app.use(express.static("public"));
 app.use(express.urlencoded({ extended: false }));
-// app.use('/controllers', express.static(`${__dirname}/controllers/`));
-
-// εισάγουμε τη βάση δεδομένων
-import * as model from "./model/model_pg.mjs";
 
 //Sessions
 app.use(
@@ -75,24 +68,14 @@ app.use(
   })
 );
 
-//SIGN IN-SIGN UP-LOG OUT
-app.get("/signIn", (req, res) => {
-  res.redirect(req.get("referer"));
-});
-
-// app.post("/signIn", autoId, SignIn);
-app.post("/signIn", SignIn);
-import SignIn from "./controllers/SignIn.mjs";
-
-app.get("/logOut", logOut);
-import logOut from "./controllers/logOut.mjs";
-
-app.post("/signUp", SignUp);
-import SignUp from "./controllers/SignUp.mjs";
-
-//IMPORTS
+//MAIN IMPORTS
 import localing from "./controllers/localing.mjs";
-
+import referer from "./controllers/referer.mjs";
+//SIGN IN-SIGN UP-LOG OUT
+import SignIn from "./controllers/SignIn.mjs";
+import SignUp from "./controllers/SignUp.mjs";
+import logOut from "./controllers/logOut.mjs";
+//PAGES
 import homepage from "./controllers/home.mjs";
 import getRoomDes from "./controllers/getRoomDes.mjs";
 import getAvailableRooms from "./controllers/getAvailableRooms.mjs";
@@ -100,18 +83,24 @@ import profilePage from "./controllers/profilePage.mjs";
 import editBooking from "./controllers/editBooking.mjs";
 import deleteBooking from "./controllers/deleteBooking.mjs";
 import writeReview from "./controllers/writeReview.mjs";
-import getTodaysDateFormatted from "./controllers/formattedTodaysDate.mjs";
-import insertingBooking from "./controllers/saveBooking.mjs";
+import saveBooking from "./controllers/saveBooking.mjs";
 import insertingIncludes from "./controllers/saveIncludes.mjs";
 import checkSignedIn from "./controllers/checkAuth.mjs";
 
+//Routing
 app.use(localing);
 
-//Routing
+//SIGN IN-SIGN UP-LOG OUT
+app.get("/signIn", referer);
+app.post("/signIn", SignIn);
+
+app.post("/signUp", SignUp);
+app.get("/logOut", logOut);
+
 //Homepage
 app.get("/", homepage);
 
-//όταν πατάει ένα δωμάτιο από την αρχική σελίδα
+//Room Description
 app.get("/getRoomDesc", getRoomDes);
 
 //Booking List
@@ -129,21 +118,8 @@ app.get("/deleteBooking", checkSignedIn, deleteBooking);
 //Reviews
 app.get("/WriteComment", checkSignedIn, writeReview);
 
-// middleware
-// app.method( path, middleware1, middleware2, middleware3, ..., callback)
-// middleware θεωρουνται τα (req, res, next) => { ... } functions
-
-//NA TA ALLAKSW--theloume na enhmerwnetai to client id & OTAN FTIAKSW TA SESSIONS
-app.post(
-  "/bookingForm",
-
-  insertingBooking,
-  insertingIncludes,
-
-  (req, res) => {
-    res.redirect(req.get("referer"));
-  }
-);
+//Booking Form
+app.post("/bookingForm", saveBooking, insertingIncludes, referer);
 
 //Server
 app.listen(8000, () => console.log("Server is starting at port", 8000));
