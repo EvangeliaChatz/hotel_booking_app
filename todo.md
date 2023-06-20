@@ -3,8 +3,6 @@
 -την bookingList βγαζει για πολυ λιγο το confirmation message όταν γίνεται η κράτηση και αποθηκευεται η κρατηση στο προφιλ
 -δε δουλεύει πολύ καλά το sign in
 
--update πρωϊνο και στοιχεία κράτησης (ημερομηνία)
-
 EKKREMOTHTES
 -validation formas--bootstrapt
 -validation φόρμας booking--checkbox, αν δεν το εχει πατησει να μην
@@ -51,6 +49,7 @@ DEUTEREOUSES EKKREMMOTHTES
   -na balw emfwleumena if--DONE
   -ORDER STO EDIT PAGE--DONE
   -env arxeio--DONE
+  -update πρωϊνο και στοιχεία κράτησης (ημερομηνία)--DONE
 
 ΠΑΡΑΤΗΡΗΣΕΙΣ
 -χρειάζεται sign in για να κάνω booking

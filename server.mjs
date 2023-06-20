@@ -87,6 +87,8 @@ import saveBooking from "./controllers/saveBooking.mjs";
 import insertingIncludes from "./controllers/saveIncludes.mjs";
 import checkSignedIn from "./controllers/checkAuth.mjs";
 import alterIncludes from "./controllers/alterIncludes.mjs";
+import alterReviews from "./controllers/alterReviews.mjs";
+
 //Routing
 app.use(localing);
 
@@ -110,7 +112,9 @@ app.get("/bookingList", getAvailableRooms);
 app.get("/profilePage", checkSignedIn, profilePage);
 
 //Edit Booking
-app.get("/editBooking", checkSignedIn, editBooking);
+app.get("/alterIncludes", checkSignedIn, editBooking);
+app.post("/alterIncludes", checkSignedIn, alterIncludes, alterReviews);
+// app.post("/editBooking", checkSignedIn, alterIncludes, alterReviews);
 
 //Delete Booking
 app.get("/deleteBooking", checkSignedIn, deleteBooking);
@@ -120,8 +124,6 @@ app.get("/WriteComment", checkSignedIn, writeReview);
 
 //Booking Form
 app.post("/bookingForm", saveBooking, insertingIncludes, referer);
-
-app.post("/alterIncludes", checkSignedIn, alterIncludes);
 
 //Server
 app.listen(8000, () => console.log("Server is starting at port", 8000));

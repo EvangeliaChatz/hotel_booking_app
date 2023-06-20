@@ -11,10 +11,10 @@ function editBooking(req, res) {
     }
 
     // ReservationsLoad = reservationrows;
-    console.log('ReservationsLoad',reservationrows);
+    // console.log('ReservationsLoad',reservationrows);
     res.render("editBooking", {
       // // ReservationsPostg: ReservationsLoad,
-      reservations : reservationrows,
+      reservations: reservationrows,
       // // reservationId: reservationrows[0].booking_id,
       // // reservationPrice: reservationrows[0].total_price,
       // // reservationDate: reservationrows[0].booking_date,

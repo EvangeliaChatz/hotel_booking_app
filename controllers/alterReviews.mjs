@@ -1,11 +1,10 @@
 import * as model from "../model/model_pg.mjs";
 
-function alterIncludes(req, res) {
-  model.updateExtras(
-    req.body.breakfastchange,
-    req.body.fastwifichange,
+function alterReviews(req, res) {
+  model.updateExtras2(
+    req.body.reviews,
     req.body.booking_idchange,
-
+    console.log(req.body.reviews),
     (err, result) => {
       if (err) {
         console.log(err);
@@ -13,7 +12,6 @@ function alterIncludes(req, res) {
       }
     }
   );
-
   res.redirect("/profilePage");
 }
-export default alterIncludes;
+export default alterReviews;

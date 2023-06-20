@@ -234,19 +234,28 @@ async function insertIncludes(
 }
 
 //Να κάνει update τα toggle που άλλαξε ο χρήστης
-async function updateExtras(
-  breakfast,
-  fastwifi,
-  booking_id,
-
-  callback
-) {
+async function updateExtras(breakfast, fastwifi, booking_id, callback) {
   const sql = `UPDATE booking SET "breakfast"=$1, "fastwifi"=$2 WHERE "booking_id"=$3`;
   try {
     const client = await connect();
     await client.query(sql, [breakfast, fastwifi, booking_id]);
     await client.release();
     callback(null);
+    // console.log("booking id", res.rows[0].booking_id);
+  } catch (err) {
+    callback("includes error " + err);
+  }
+}
+
+//Κάνει update τα reviews που βάζει ο χρήστης στη σελίδα editProfile
+async function updateExtras2(reviews, booking_id, callback) {
+  const sql = `UPDATE includes SET "reviews"=$1 WHERE "booking_id"=$2`;
+  try {
+    const client = await connect();
+    await client.query(sql, [reviews, booking_id]);
+    await client.release();
+    callback(null);
+    console.log("booking id", res.rows[0].booking_id);
   } catch (err) {
     callback("includes error " + err);
   }
@@ -266,4 +275,5 @@ export {
   insertIncludes,
   getProfileBookings,
   updateExtras,
+  updateExtras2,
 };

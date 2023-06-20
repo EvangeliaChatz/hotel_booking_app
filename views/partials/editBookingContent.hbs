@@ -121,6 +121,14 @@
                                                             </div>
                                                         </div>
                                                     </div>
+                                                    {{!-- REVIEW FORM --}}
+                                                            <p><label id="textarea-label" for="w3review" >How was your experience at Comforta Hotel?</label></p>
+                                                            <input id="w3review" name="reviews" rows="3" cols="50" placeholder="Write your thoughts" value="{{reviews}}">
+                                                            <br>
+                                                            <div class="d-flex gap-3">
+                                                            {{!-- <button type="submit"  id="ReviewSubmit" class="btn primary-button">SUMBMIT</button>
+                                                            <a id="CancelReview" class="btn secondary-button" href="/getRoomDesc?roomTypeId={{room_type_id}}#ReviewForm">BACK</a> --}}</div>
+                                                      
                                                     <!-- end of customize -->
                                                 </div>
                                                 <div class="d-flex gap-5 mt-5">
@@ -128,6 +136,7 @@
                                                     <button type="submit" class=" primary-button bt" >SAVE CHANGES</button>
                                                     <a href="/profilePage#my-bookings" class=" secondary-button btn">CANCEL</a>
                                                 </div>
+                                                {{!-- HIDDEN BOOKING ID --}}
                                                 <input type="hidden" name="booking_idchange" value="{{booking_id}}">
                                                 
                                             </form>

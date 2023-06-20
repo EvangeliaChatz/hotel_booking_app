@@ -6,7 +6,6 @@ function saveBooking(req, res, next) {
 
   let totalPrice = parseInt(req.body.hiddenPrice);
 
-  // εχουν σιγουρα μπει στο request ?
   let breakfast = req.body.hiddenBreakfast;
   let fastwifi = req.body.hiddenWifi;
 
