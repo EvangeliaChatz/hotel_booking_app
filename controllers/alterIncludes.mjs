@@ -4,7 +4,7 @@ function alterIncludes(req, res) {
   model.updateExtras(
     req.body.breakfastchange,
     req.body.fastwifichange,
-    req.body.booking_id,
+    req.body.booking_idchange,
     (err, result) => {
       if (err) {
         console.log(err);

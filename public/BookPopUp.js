@@ -121,34 +121,3 @@ for (
     });
   }
 }
-
-for (
-  let i = 0;
-  i < document.getElementsByClassName("accordion-item").length;
-  i++
-) {
-  const saveChanges = document.getElementById(`saveChanges-${i}`);
-  saveChanges.addEventListener("click", () => {
-    // fetch
-    const bookingIdChanges = document.getElementById(`booking_id-${i}`).value;
-    const changeBreakf = document.getElementById(
-      `flexSwitchCheckChangeBreakf-${i}`
-    ).value;
-    const changeWifi = document.getElementById(
-      `flexSwitchCheckChangeWifi-${i}`
-    ).value;
-
-    req.body.breakfastchange = changeBreakf;
-    req.body.wifichange = changeWifi;
-
-    // await fetch(`/alterIncludes?booking_id`).then((res) => {
-    //     return res.json();
-    // }).catch(error => {
-    //     console.log(error);
-    // });
-  });
-}
-// for
-// saveChanges.addEventListener("click", () => {
-
-// }
