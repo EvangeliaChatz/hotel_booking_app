@@ -555,6 +555,11 @@ font-size: 1.3rem;
 
 
 /* ----------------------------------------------CARDS */
+
+.card-text {
+  font-size: 1.25rem;
+}
+
 .card-body {
   --bs-card-spacer-x:3rem;
   --bs-card-spacer-y:3rem;
