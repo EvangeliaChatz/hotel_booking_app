@@ -1,10 +1,9 @@
 import * as model from "../model/model_pg.mjs";
 
 function writeReview(req, res) {
-  // φορτώνω τον πίνακα roomΤypep-για να εμφανιστούν τα δωμάτια στην αρχική σελίδα
   let RoomTypeLoadDesReview;
   let id = req.query.roomTypeId;
-  model.getRooms(id, (err, roomtyperows) => {
+  model.getRoom(id, (err, roomtyperows) => {
     if (err) {
       return console.error(err.message);
     }

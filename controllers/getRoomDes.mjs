@@ -4,7 +4,7 @@ function getRoomDes(req, res) {
   let RoomTypeLoadDes;
   let id = req.query.roomTypeId;
 
-  model.getRooms(id, (err, roomtyperows) => {
+  model.getRoom(id, (err, roomtyperows) => {
     // φορτώνω τον πίνακα roomΤypep
 
     if (err) {

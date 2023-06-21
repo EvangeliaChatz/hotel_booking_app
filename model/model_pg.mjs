@@ -174,7 +174,7 @@ async function getRoomDesc(callback) {
 }
 
 //επιστρέφει ένα δωμάτιο στην περιγραφή του δωματίου
-async function getRooms(id, callback) {
+async function getRoom(id, callback) {
   const sql = `Select * from "roomTypep" where "room_type_id" = ${id}`;
   try {
     const client = await connect();
@@ -247,7 +247,7 @@ async function updateExtras(breakfast, fastwifi, booking_id, callback) {
   }
 }
 
-//Κάνει update τα reviews που βάζει ο χρήστης στη σελίδα editProfile
+//Κάνει update τα reviews που βάζει ο χρήστης στη σελίδα του χρήστη
 async function updateExtras2(reviews, booking_id, callback) {
   const sql = `UPDATE includes SET "reviews"=$1 WHERE "booking_id"=$2`;
   try {
@@ -264,7 +264,7 @@ async function updateExtras2(reviews, booking_id, callback) {
 export {
   connect,
   getUserId,
-  getRooms,
+  getRoom,
   getRoomDesc,
   checkUser,
   addUser,

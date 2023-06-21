@@ -77,7 +77,7 @@ import SignUp from "./controllers/signUp.mjs";
 import logOut from "./controllers/logOut.mjs";
 //PAGES
 import homepage from "./controllers/home.mjs";
-import getRoomDes from "./controllers/getRoomDes.mjs";
+import getRoomDesc from "./controllers/getRoomDes.mjs";
 import getAvailableRooms from "./controllers/getAvailableRooms.mjs";
 import profilePage from "./controllers/profilePage.mjs";
 import editBooking from "./controllers/editBooking.mjs";
@@ -103,7 +103,7 @@ app.get("/logOut", logOut);
 app.get("/", homepage);
 
 //Room Description
-app.get("/getRoomDesc", getRoomDes);
+app.get("/getRoomDesc", getRoomDesc);
 
 //Booking List
 app.get("/bookingList", getAvailableRooms);
