@@ -1,14 +1,3 @@
-// import pg from "pg";
-
-// const pool = new pg.Pool({
-//   // τοπική σύνδεση
-//   user: "postgres", ///username
-//   host: "localhost",
-//   database: "hbooking",
-//   password: "eva", /// password
-//   port: 5432,
-// });
-
 import bcrypt from "bcrypt";
 
 import pkg from "pg";

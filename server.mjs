@@ -81,13 +81,15 @@ import getRoomDesc from "./controllers/getRoomDes.mjs";
 import getAvailableRooms from "./controllers/getAvailableRooms.mjs";
 import profilePage from "./controllers/profilePage.mjs";
 import editBooking from "./controllers/editBooking.mjs";
-import deleteBooking from "./controllers/deleteBooking.mjs";
-import writeReview from "./controllers/writeReview.mjs";
 import saveBooking from "./controllers/saveBooking.mjs";
 import insertingIncludes from "./controllers/saveIncludes.mjs";
 import checkSignedIn from "./controllers/checkAuth.mjs";
 import alterIncludes from "./controllers/alterIncludes.mjs";
+
+//Δεν έχουν ολοκληρωθεί
+import writeReview from "./controllers/writeReview.mjs";
 import alterReviews from "./controllers/alterReviews.mjs";
+import deleteBooking from "./controllers/deleteBooking.mjs";
 
 //Routing
 app.use(localing);
