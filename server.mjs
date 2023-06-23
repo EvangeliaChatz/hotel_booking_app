@@ -116,7 +116,6 @@ app.get("/profilePage", checkSignedIn, profilePage);
 //Edit Booking
 app.get("/alterIncludes", checkSignedIn, editBooking);
 app.post("/alterIncludes", checkSignedIn, alterIncludes, alterReviews);
-// app.post("/editBooking", checkSignedIn, alterIncludes, alterReviews);
 
 //Delete Booking
 app.get("/deleteBooking", checkSignedIn, deleteBooking);
