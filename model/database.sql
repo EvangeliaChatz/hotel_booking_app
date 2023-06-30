@@ -1,16 +1,31 @@
--- DROP TABLE public."client" CASCADE ;
- -- DROP TABLE public."booking" CASCADE ;
- -- DROP TABLE public."includes" CASCADE ;
- -- DROP TABLE public."roomTypep" CASCADE ;
- -- DROP TABLE "roomTypep" CASCADE ;
+DROP TABLE public."CLIENT" CASCADE ;
+
+
+DROP TABLE public."booking" CASCADE ;
+
+
+DROP TABLE public."includes" CASCADE ;
+
+
+DROP TABLE public."roomTypep" CASCADE ;
+
+-- SXOLIAA
+-- DROP TABLE "roomTypep" CASCADE ;
  -- DROP TABLE  public."public.client"  CASCADE ;
 -- DROP TABLE  public."public.booking"  CASCADE ;
 -- DROP TABLE  public."public.includes"  CASCADE ;
 -- DROP TABLE  public."public.room"  CASCADE ;
 -- DROP TABLE  public."public.roomTypep"  CASCADE ;
- -- DROP CONSTRAINT "booking_fk1" ;
- -- DROP CONSTRAINT "includes_fk0" ;
- -- DROP CONSTRAINT "includes_fk1" ;
+-- SXOLIAA
+
+DROP CONSTRAINT "booking_fk11" ;
+
+
+DROP CONSTRAINT "includes_fk00" ;
+
+
+DROP CONSTRAINT "includes_fk11" ;
+
 
 CREATE TABLE "CLIENT" ("full_name" varchar(30) NOT NULL,
 																								"email" varchar(30) NOT NULL,
@@ -33,20 +48,20 @@ CREATE TABLE "includes" ("arrival_date" DATE NOT NULL,
 																										"booking_id" integer NOT NULL,
 																										"room_id" integer NOT NULL) WITH (OIDS=FALSE);
 
-
-CREATE TABLE "room" ("roomTypep_name" TEXT NOT NULL,
-																						"sea_view" TEXT NOT NULL,
-																						"kitchen" TEXT NOT NULL,
-																						"room_id" serial NOT NULL,
-																						CONSTRAINT "ROOM_pk" PRIMARY KEY ("room_id")) WITH (OIDS=FALSE);
-
+-- CREATE TABLE "room" ("room_type_name" TEXT NOT NULL,
+-- 																						"sea_view" TEXT NOT NULL,
+-- 																						"kitchen" TEXT NOT NULL,
+-- 																						"room_id" serial NOT NULL,
+-- 																						CONSTRAINT "ROOM_pk" PRIMARY KEY ("room_id")) WITH (OIDS=FALSE);
 
 CREATE TABLE "roomTypep" ("room_id" serial NOT NULL,
-																											"roomTypep_photo" varchar(255) NOT NULL,
-																											"roomTypep_description" varchar(500) NOT NULL,
+																											"room_type_photo" varchar(255) NOT NULL,
+																											"room_type_description" varchar(500) NOT NULL,
 																											"quests_amount" integer NOT NULL,
-																											"roomTypep_name" varchar(255) NOT NULL,
-																											"roomTypep_price" FLOAT NOT NULL,
+																											"room_type_name" varchar(255) NOT NULL,
+																											"room_type_price" integer NOT NULL,
+																											"availability" BOOLEAN , "room_type_id" integer NOT NULL,
+																											"room_sqm" integer NOT NULL,
 																											"room_photo_des" varchar(255) NOT NULL,
 																											CONSTRAINT "roomTypep_pk" PRIMARY KEY ("room_id")) WITH (OIDS=FALSE);
 
