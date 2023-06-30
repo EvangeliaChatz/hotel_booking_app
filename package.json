@@ -4,7 +4,8 @@
   "description": "<!-- 1.Run in terminal --> npm install <!-- a file \"node_modules\" will be created with the essential packages for the project -->",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "startproject": "node server.mjs"
   },
   "keywords": [],
   "author": "",
