@@ -127,4 +127,8 @@ app.get("/WriteComment", checkSignedIn, writeReview);
 app.post("/bookingForm", saveBooking, insertingIncludes, referer);
 
 //Server
-app.listen(8000, () => console.log("Server is starting at port", 8000));
+const port = process.env.PORT || 8080;
+app.listen(port, "0.0.0.0", () => {
+  console.log("Server listening on port " + port);
+});
+// app.listen(8000, () => console.log("Server is starting at port", 8000));
