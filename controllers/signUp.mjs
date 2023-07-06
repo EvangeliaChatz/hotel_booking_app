@@ -6,6 +6,7 @@ async function signUp(req, res) {
   const full_name_req = req.body.full_name;
   const phone_req = req.body.phone_number;
   console.log("sign up process");
+  console.log(req.body.password);
 
   await model.checkEmail(email_req, (err, result) => {
     if (err) {

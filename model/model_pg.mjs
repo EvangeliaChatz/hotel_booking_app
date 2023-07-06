@@ -35,7 +35,7 @@ async function checkUser(email_req, password_req, callback) {
   let user, error_message;
   // console.log(email_req, password_req);
   try {
-    const sql = `Select * from "CLIENT" where "email" = $1 `;
+    const sql = `Select * from "CLIENT" where "email" = $1`;
     const client = await connect();
     const res = await client.query(sql, [email_req]);
     await client.release();

@@ -1,5 +1,6 @@
--- DROP TABLE public."CLIENT" CASCADE ;
- -- DROP TABLE public."booking" CASCADE ;
+DROP TABLE public."CLIENT" CASCADE ;
+
+-- DROP TABLE public."booking" CASCADE ;
  -- DROP TABLE public."includes" CASCADE ;
  -- DROP TABLE public."roomTypep" CASCADE ;
  -- SXOLIAA
@@ -40,10 +41,12 @@ CREATE TABLE "CLIENT" ("full_name" varchar(30) NOT NULL,
 -- 																											"availability" BOOLEAN , "room_type_id" integer NOT NULL,
 -- 																											"room_sqm" integer NOT NULL,
 -- 																											"room_photo_des" varchar(255) NOT NULL,
--- 																											CONSTRAINT "roomTypep_pk" PRIMARY KEY ("room_id")) WITH (OIDS=FALSE);
- -- ALTER TABLE "booking" ADD CONSTRAINT "booking_fk11"
--- FOREIGN KEY ("client_id") REFERENCES "client"("client_id");
- -- ALTER TABLE "includes" ADD CONSTRAINT "includes_fk00"
+--  CONSTRAINT "roomTypep_pk" PRIMARY KEY ("room_id")) WITH (OIDS=FALSE);
+
+ALTER TABLE "booking" ADD CONSTRAINT "booking_fk11"
+FOREIGN KEY ("client_id") REFERENCES "CLIENT"("client_id");
+
+-- ALTER TABLE "includes" ADD CONSTRAINT "includes_fk00"
 -- FOREIGN KEY ("booking_id") REFERENCES "booking"("booking_id");
  -- ALTER TABLE "includes" ADD CONSTRAINT "includes_fk11"
 -- FOREIGN KEY ("room_id") REFERENCES public."roomTypep"("room_id");
