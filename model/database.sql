@@ -18,7 +18,7 @@ DROP TABLE public."CLIENT" CASCADE ;
 CREATE TABLE "CLIENT" ("full_name" varchar(30) NOT NULL,
 																								"email" varchar(30) NOT NULL,
 																								"password" varchar(255) NOT NULL,
-																								"phone_number" integer NOT NULL,
+																								"phone_number" NUMERIC NOT NULL,
 																								"client_id" serial NOT NULL,
 																								CONSTRAINT "client_pk" PRIMARY KEY ("client_id")) WITH (OIDS=FALSE);
 
