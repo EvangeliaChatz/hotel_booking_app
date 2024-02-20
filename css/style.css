@@ -1,5 +1,4 @@
 
-
 /* fonts */
 /* @import url('https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;1,100;1,200;1,300;1,400;1,600&display=swap'); */
 
@@ -832,7 +831,7 @@ section {
 
 /* SECTION POSITIONS */
 .photo-services {
-  background-image: url('/Users/evangeliachatzilygeroudi/Downloads/00Design_of_web_apps-ASKHSEIS KWDIKA/PROJECT WEB/images/services-back-photo.png');
+  background-image: url(/images/services-back-photo.png');
   background-position:center;
   background-size: cover;
 }
